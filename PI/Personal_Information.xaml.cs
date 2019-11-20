@@ -1,30 +1,20 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-using System.IO;
 
 namespace PI
 {
     /// <summary>
-    /// Логика взаимодействия для Personal_Informariton.xaml
+    /// Логика взаимодействия для Personal_Information.xaml
     /// </summary>
-    public partial class Personal_Informariton : Window
+    public partial class Personal_Information : Window
     {
-        public Personal_Informariton()
+        public Personal_Information()
         {
             InitializeComponent();
         }
-        public Personal_Informariton(string Login, int IdFlight)
+        public Personal_Information(string Login, int IdFlight)
         {
             this.IdFlight = IdFlight;
             this.Login = Login;

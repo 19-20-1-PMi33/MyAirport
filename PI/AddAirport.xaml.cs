@@ -19,7 +19,7 @@ namespace PI
 
         private void ConfimAddAirport_Click(object sender, RoutedEventArgs e)
         {
-            if(AddCityBox.Text!=""&& AddCountryBox.Text != "" && AddIATABox.Text != "")
+            if (AddCityBox.Text != "" && AddCountryBox.Text != "" && AddIATABox.Text != "")
             {
                 try
                 {

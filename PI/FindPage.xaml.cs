@@ -16,6 +16,12 @@ namespace PI
         {
             InitializeComponent();
         }
+        public FindPage(string Login)
+        {
+            InitializeComponent();
+            this.Login = Login;
+        }
+        public string Login { get; set; }
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
             CountAdult.SelectedIndex = 0;
@@ -31,7 +37,7 @@ namespace PI
                     SqlCommand cmd = new SqlCommand();
                     con.Open();
                     cmd.Connection = con;
-                    cmd.CommandText = "SELECT DISTINCT City FROM Airport";
+                    cmd.CommandText = "SELECT DISTINCT City FROM Airport Order by City";
                     SqlDataReader dr = cmd.ExecuteReader();
 
                     while (dr.Read())
@@ -51,7 +57,7 @@ namespace PI
 
         private void SearchFlights_Click(object sender, RoutedEventArgs e)
         {
-            if(DepartAirport.Text != "" && ArrivalAirport.Text != "" && DatePicker.Text != "")
+            if (DepartAirport.Text != "" && ArrivalAirport.Text != "" && DatePicker.Text != "")
             {
                 try
                 {
@@ -86,9 +92,10 @@ namespace PI
                 try
                 {
                     DataRowView row = dataGrid.SelectedItem as DataRowView;
-                    PersonalInformation personalInformationWindow = new PersonalInformation();
-                    this.Visibility = Visibility.Hidden;
+                    Personal_Information personalInformationWindow = new Personal_Information(Login, Convert.ToInt32(row.Row.ItemArray[0].ToString()));
+                    Class1.Clear();
                     personalInformationWindow.Show();
+
                 }
                 catch (Exception ee)
                 {

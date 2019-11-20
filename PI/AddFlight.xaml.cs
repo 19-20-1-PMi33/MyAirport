@@ -18,7 +18,7 @@ namespace PI
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             //UpdateItems();
-            
+
         }
         private void UpdateItems()
         {
@@ -29,7 +29,7 @@ namespace PI
             {
                 using (SqlConnection con = new SqlConnection(connectionString))
                 {
-                    SqlCommand cmd =  new SqlCommand();
+                    SqlCommand cmd = new SqlCommand();
                     con.Open();
                     cmd.Connection = con;
                     cmd.CommandText = "SELECT DISTINCT City FROM Airport";
@@ -59,9 +59,9 @@ namespace PI
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            
+
             UpdateItems();
-            
+
         }
 
         private void ConfimAddFlight_Click(object sender, RoutedEventArgs e)

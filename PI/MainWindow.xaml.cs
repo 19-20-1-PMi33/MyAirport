@@ -9,7 +9,7 @@ namespace PI
     /// <summary>
     /// Логика взаимодействия для MainWindow.xaml
     /// </summary>
-    
+
     public partial class MainWindow : Window
     {
         public MainWindow()
@@ -48,7 +48,7 @@ namespace PI
                         object count = command.ExecuteScalar();
                         if ((int)count == 1)
                         {
-                            Menu menuWindow = new Menu(Login1.Text.ToString());
+                            Menu menuWindow = new Menu(Login1.Text);
                             this.Visibility = Visibility.Hidden;
                             menuWindow.Show();
                         }

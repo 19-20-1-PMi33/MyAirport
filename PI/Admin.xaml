@@ -17,27 +17,26 @@
         <DockPanel HorizontalAlignment="Left" LastChildFill="False" Margin="0" Width="198" Grid.RowSpan="2">
             <DockPanel.Background>
                 <LinearGradientBrush>
-                    <GradientStop Color="#7be9f6" Offset="0.0"/>
-                    <GradientStop Color="#f083da" Offset="1"/>
+                    <GradientStop Color="#DCDCDC"/>
                 </LinearGradientBrush>
             </DockPanel.Background>
             <Image Source="Photos/airplane.png" Margin="0,48,0,356" Width="203" RenderTransformOrigin="-0.594,0.547"/>
         </DockPanel>
-        <TextBlock Text="MyAirplane"
+        <TextBlock Text="My Airplane"
                           FontWeight="Bold"
-                          FontFamily="helvetica"
+                          FontFamily="Fonts#VIVALDI"
                           FontSize="33"
                           HorizontalAlignment="Center"
-                          Foreground="White" RenderTransformOrigin="0.5,0.5" Margin="10,0,702,452" Width="188" Grid.Row="1"/>
+                          Foreground="Black" RenderTransformOrigin="0.5,0.5" Margin="10,0,702,452" Width="188" Grid.Row="1"/>
         <Button x:Name="addFlight" Click="AddFlight_Click" HorizontalAlignment="Stretch" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Margin="0,136,702,0" Grid.Row="1" VerticalAlignment="Top" Height="50">
             <StackPanel Orientation="Horizontal">
                 <!--<Image Source="Photos/find.png" Width="42" Height="42"/>-->
                 <TextBlock Text="Рейс"
                           FontWeight="Light"
-                          FontFamily="helvetica"
-                          FontSize="24"
+                          FontFamily="Arial"
+                          FontSize="26"
                           Padding="3"
-                          Foreground="White"
+                          Foreground="Black"
                           VerticalAlignment="Center"
                           HorizontalAlignment="Stretch" 
                           Width="134" 
@@ -49,10 +48,10 @@
                 <!--<Image Source="Photos/calendar.png" Width="42" Height="42"/>-->
                 <TextBlock Text="Аеропорт"
                           FontWeight="Light"
-                          FontFamily="helvetica"
+                          FontFamily="Arial"
                           FontSize="26"
                           Padding="3"
-                          Foreground="White"
+                          Foreground="Black"
                           VerticalAlignment="Center"
                           HorizontalAlignment="Stretch" 
                           Width="140" 
@@ -64,10 +63,10 @@
                 <!--<Image Source="Photos/planeticket.png" Width="42" Height="42"/>-->
                 <TextBlock Text="Змінити"
                           FontWeight="Light"
-                          FontFamily="helvetica"
+                          FontFamily="Arial"
                           FontSize="26"
                           Padding="3"
-                          Foreground="White"
+                          Foreground="Black"
                           VerticalAlignment="Center"
                           HorizontalAlignment="Stretch" 
                           Width="142" 
@@ -79,10 +78,10 @@
                 <!--<Image Source="Photos/profile.png" Width="42" Height="42"/>-->
                 <TextBlock Text="Видалити"
                           FontWeight="Light"
-                          FontFamily="helvetica"
+                          FontFamily="Arial"
                           FontSize="26"
                           Padding="3"
-                          Foreground="White"
+                          Foreground="Black"
                           VerticalAlignment="Center"
                           HorizontalAlignment="Stretch" 
                           Width="142" 
@@ -94,10 +93,10 @@
                 <!--<Image Source="Photos/exit.png" Width="42" Height="42"/>-->
                 <TextBlock Text="Вихід"
                           FontWeight="Light"
-                          FontFamily="helvetica"
+                          FontFamily="Arial"
                           FontSize="26"
                           Padding="3"
-                          Foreground="White"
+                          Foreground="Black"
                           VerticalAlignment="Center"
                           HorizontalAlignment="Stretch" 
                           Width="142" 
@@ -110,10 +109,10 @@
                 <!--<Image Source="Photos/exit.png" Width="42" Height="42"/>-->
                 <TextBlock Text="Літак"
                     FontWeight="Light"
-                    FontFamily="helvetica"
+                    FontFamily="Arial"
                     FontSize="26"
                     Padding="3"
-                    Foreground="White"
+                    Foreground="Black"
                     VerticalAlignment="Center"
                     HorizontalAlignment="Stretch" 
                     Width="144" 

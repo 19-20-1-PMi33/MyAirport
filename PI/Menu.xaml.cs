@@ -47,7 +47,7 @@ namespace PI
         }
         private void MyTicketsButton_Click(object sender, RoutedEventArgs e)
         {
-            Main.Content = new MyTickets();
+            Main.Content = new MyTickets(Login);
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)

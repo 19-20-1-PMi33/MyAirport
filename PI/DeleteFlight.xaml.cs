@@ -22,7 +22,7 @@ namespace PI
             try
             {
                 string connectionString = ConfigurationManager.ConnectionStrings["MainConnection"].ConnectionString;
-                string query = "SELECT Id,DepartCity as 'Depart City',ArriveCity as 'Arrive City',convert(varchar(10),DepartDate,104) as 'Depart Time'," +
+                string query = "SELECT Id,DepartCity as 'Depart City',ArriveCity as 'Arrive City',convert(varchar(10),DepartDate,104) as 'Depart Date'," +
                     "convert(varchar(10),ArriveDate,104) as 'Arrival Date',CAST(DepartTime AS CHAR(5)) as 'Depart Time',CAST(ArriveTime AS CHAR(5)) as 'Arrive Time',AirplaneID as 'Airplane Id',Airline FROM FLIGHT";
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
@@ -33,7 +33,7 @@ namespace PI
                     DeleteDateGrid.ItemsSource = ds.Tables[0].DefaultView;
                 }
             }
-            catch(Exception ee)
+            catch (Exception ee)
             {
                 MessageBox.Show(ee.Message);
             }
@@ -55,9 +55,9 @@ namespace PI
                         command.ExecuteNonQuery();
                         connection.Close();
                     }
-                    UpdateButton_Click(sender,e);
+                    UpdateButton_Click(sender, e);
                 }
-                catch(Exception ee)
+                catch (Exception ee)
                 {
                     MessageBox.Show(ee.Message);
                 }

@@ -29,32 +29,31 @@
             <Setter Property="Height" Value="25"/>
         </Style>
         <Style x:Key="BorderStyle">
-            <Setter Property="Control.Height" Value="2"/>
-            <Setter Property="Control.Background" Value="White"/>
+            <Setter Property="Control.Height" Value="1"/>
+            <Setter Property="Control.Background" Value="Black"/>
             <Setter Property="Control.Opacity" Value="0.5"/>
         </Style>
     </Page.Resources>
     <Grid>
         <Grid.Background>
             <LinearGradientBrush>
-                <GradientStop Color="#7be9f6" Offset="0.0"/>
-                <GradientStop Color="#f083da" Offset="1"/>
+                <GradientStop Color="#DCDCDC"/>
             </LinearGradientBrush>
         </Grid.Background>
         <StackPanel Orientation="Vertical" Margin="0,0,0,343">
-            <Label Content="Назва міста:" Margin="220,30,229,0"/>
-            <TextBox x:Name="AddCityBox" Margin="229,0,229,0"/>
-            <Border Style="{StaticResource BorderStyle}" Margin="229,0,229,0"/>
+            <Label Content="Назва міста:" Margin="220,30,220,0"/>
+            <TextBox x:Name="AddCityBox" Margin="220,0,220,0"/>
+            <Border Style="{StaticResource BorderStyle}" Margin="220,0,220,0"/>
         </StackPanel>
         <StackPanel Orientation="Vertical" Margin="-10,117,10,226">
-            <Label Content="Назва країни:" Margin="229,30,229,0"/>
-            <TextBox x:Name="AddCountryBox" Margin="229,0"/>
-            <Border Style="{StaticResource BorderStyle}" Margin="229,0,229,0"/>
+            <Label Content="Назва країни:" Margin="220,30,220,0"/>
+            <TextBox x:Name="AddCountryBox" Margin="220,0"/>
+            <Border Style="{StaticResource BorderStyle}" Margin="220,0,220,0"/>
         </StackPanel>
         <StackPanel Orientation="Vertical" Margin="-10,234,10,109">
-            <Label Content="Назва ИАТА:" Margin="226,30,225,0" Width="249"/>
-            <TextBox x:Name="AddIATABox" Margin="229,0,229,0"/>
-            <Border Style="{StaticResource BorderStyle}" Margin="229,0,229,0"/>
+            <Label Content="Назва ИАТА:" Margin="220,30,220,0"/>
+            <TextBox x:Name="AddIATABox" Margin="220,0,220,0"/>
+            <Border Style="{StaticResource BorderStyle}" Margin="220,0,220,0"/>
         </StackPanel>
         <StackPanel Orientation="Vertical" Margin="0,391,0,-19">
             <Button Height="76" Margin="206,0,222,0" Name="ConfimAddAirport" Click="ConfimAddAirport_Click" Content="Додати Аеропорт" FontSize="20" Foreground="Black" HorizontalAlignment="Center" Width="272" />

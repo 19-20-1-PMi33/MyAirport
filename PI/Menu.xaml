@@ -12,11 +12,11 @@
 
     <Window.Resources>
         <Style x:Key="MenuTextBlock">
-            <Setter Property="Control.FontFamily" Value="Helvetica"/>
+            <Setter Property="Control.FontFamily" Value="Arial"/>
             <Setter Property="Control.FontWeight" Value="Light"/>
             <Setter Property="Control.FontSize" Value="26"/>
             <Setter Property="Control.HorizontalAlignment" Value="Stretch"/>
-            <Setter Property="Control.Foreground" Value="White"/>
+            <Setter Property="Control.Foreground" Value="Black"/>
             <Setter Property="Control.VerticalAlignment" Value="Center"/>
             <Setter Property="Control.Padding" Value="3"/>
             <Setter Property="Control.Width" Value="140"/>
@@ -25,10 +25,10 @@
         </Style>
         <Style x:Key="TitleTextBlock">
             <Setter Property="Control.FontWeight" Value="Bold"/>
-            <Setter Property="Control.FontFamily" Value="Helvetica"/>
+            <Setter Property="Control.FontFamily" Value="Fonts#VIVALDI"/>
             <Setter Property="Control.FontSize" Value="33"/>
             <Setter Property="Control.HorizontalAlignment" Value="Center"/>
-            <Setter Property="Control.Foreground" Value="White"/>
+            <Setter Property="Control.Foreground" Value="Black"/>
             <Setter Property="Control.Margin" Value="10,0,702,450"/>
             <Setter Property="Control.Width" Value="188"/>
         </Style>
@@ -38,17 +38,17 @@
             <RowDefinition Height="2*"/>
             <RowDefinition Height="123*"/>
         </Grid.RowDefinitions>
+
         <DockPanel HorizontalAlignment="Left" LastChildFill="False" Margin="0" Width="198" Grid.RowSpan="2">
             <DockPanel.Background>
                 <LinearGradientBrush>
-                    <GradientStop Color="#7be9f6" Offset="0.0"/>
-                    <GradientStop Color="#f083da" Offset="1"/>
+                    <GradientStop Color="#DCDCDC"/>
                 </LinearGradientBrush>
             </DockPanel.Background>
             <Image Source="Photos/airplane.png" Margin="0,52,0,356" Width="203" />
         </DockPanel>
-        
-        <TextBlock Text="MyAirplane" Grid.Row="1" Style="{StaticResource TitleTextBlock}" />
+
+        <TextBlock Text="My Airplane" Grid.Row="1" Style="{StaticResource TitleTextBlock}" />
         <Button x:Name="FindButton" Click="FindButton_Click" HorizontalAlignment="Stretch" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Margin="0,150,702,0" Grid.Row="1" VerticalAlignment="Top" Height="50">
             <StackPanel Orientation="Horizontal">
                 <Image Source="Photos/find.png" Width="40" Height="40"/>

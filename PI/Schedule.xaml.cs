@@ -19,7 +19,7 @@ namespace PI
 
         private void FindButton_Click(object sender, RoutedEventArgs e)
         {
-            if(FindDatePicker.Text != null)
+            if (FindDatePicker.Text != null)
             {
                 try
                 {

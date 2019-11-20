@@ -19,10 +19,10 @@
             <Setter Property="Opacity" Value="0.5"/>
         </Style>
         <Style TargetType="TextBlock">
-            <Setter Property="FontFamily" Value="Helvetica"/>
+            <Setter Property="FontFamily" Value="Fonts#VIVALDI"/>
             <Setter Property="FontWeight" Value="Bold"/>
             <Setter Property="FontSize" Value="22"/>
-            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Foreground" Value="Black"/>
             <Setter Property="HorizontalAlignment" Value="Center"/>
         </Style>
         <Style TargetType="TextBox">
@@ -47,13 +47,12 @@
             <Setter Property="Width" Value="164"/>
         </Style>
     </Window.Resources>
-    
+
     <Grid>
         <Border CornerRadius="10" Grid.RowSpan="2">
             <Border.Background>
                 <LinearGradientBrush>
-                    <GradientStop Color="#7be9f6" Offset="0.0"/>
-                    <GradientStop Color="#f083da" Offset="1"/>
+                    <GradientStop Color="#DCDCDC"/>
                 </LinearGradientBrush>
             </Border.Background>
             <Button Content="X" Name="ExitButton" 

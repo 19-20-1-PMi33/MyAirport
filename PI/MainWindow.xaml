@@ -11,10 +11,10 @@
         MouseDown="Window_MouseDown">
     <Window.Resources>
         <Style x:Key="TitleTextBlock">
-            <Setter Property="Control.FontFamily" Value="Helvetica"/>
+            <Setter Property="Control.FontFamily" Value="Fonts#VIVALDI"/>
             <Setter Property="Control.FontWeight" Value="Bold"/>
             <Setter Property="Control.FontSize" Value="22"/>
-            <Setter Property="Control.Foreground" Value="White"/>
+            <Setter Property="Control.Foreground" Value="Black"/>
             <Setter Property="Control.HorizontalAlignment" Value="Center"/>
         </Style>
         <Style x:Key="TextBoxStyle">
@@ -22,7 +22,7 @@
             <Setter Property="Control.FontWeight" Value="Light"/>
             <Setter Property="Control.FontSize" Value="20"/>
             <Setter Property="Control.HorizontalAlignment" Value="Center"/>
-            <Setter Property="Control.Foreground" Value="White"/>
+            <Setter Property="Control.Foreground" Value="Black"/>
             <Setter Property="Control.Background" Value="Transparent"/>
             <Setter Property="Control.BorderThickness" Value="0"/>
             <Setter Property="Control.FontWeight" Value="Light"/>
@@ -37,7 +37,7 @@
             <Setter Property="Control.FontWeight" Value="Light"/>
             <Setter Property="Control.FontSize" Value="20"/>
             <Setter Property="Control.HorizontalAlignment" Value="Center"/>
-            <Setter Property="Control.Foreground" Value="White"/>
+            <Setter Property="Control.Foreground" Value="Black"/>
             <Setter Property="Control.Background" Value="Transparent"/>
             <Setter Property="Control.BorderThickness" Value="0"/>
             <Setter Property="Control.FontWeight" Value="Light"/>
@@ -49,8 +49,8 @@
         </Style>
         <Style x:Key="BorderStyle">
             <Setter Property="Control.Width" Value="250"/>
-            <Setter Property="Control.Height" Value="2"/>
-            <Setter Property="Control.Background" Value="White"/>
+            <Setter Property="Control.Height" Value="1"/>
+            <Setter Property="Control.Background" Value="Black"/>
             <Setter Property="Control.Opacity" Value="0.5"/>
         </Style>
     </Window.Resources>
@@ -64,8 +64,7 @@
             <Border CornerRadius="10" Grid.RowSpan="2">
                 <Border.Background>
                     <LinearGradientBrush>
-                        <GradientStop Color="#7be9f6" Offset="0.0"/>
-                        <GradientStop Color="#f083da" Offset="1"/>
+                        <GradientStop Color="#DCDCDC" Offset="0.0"/>
                     </LinearGradientBrush>
                 </Border.Background>
                 <Button Content="X" Name="ExitButton" 
@@ -78,7 +77,7 @@
 
             <StackPanel VerticalAlignment="Center">
                 <Image Source="Photos/airplane.png" Width="80"/>
-                <TextBlock Text="MyAirplane" Style="{StaticResource TitleTextBlock}"/>
+                <TextBlock Text="My Airplane" Style="{StaticResource TitleTextBlock}" Margin="135,0"/>
             </StackPanel>
             <StackPanel Grid.Row="1" >
                 <StackPanel Orientation="Horizontal">
@@ -91,8 +90,8 @@
                 <Border Style="{StaticResource BorderStyle}"/>
 
                 <StackPanel Orientation="Horizontal" Margin="0,50,0,0">
-                    <Button Name="Login" Click="Login_Click" Width="100" Height="40" Content="LOGIN" Margin="60,0,60,0"/>
-                    <Button Name="Registation" Width="100" Height="40" Content="REGISTER" Click="Registation_Click"/>
+                    <Button Name="Login" Click="Login_Click" Width="100" Height="40" Content="Login" Margin="60,0,60,0"/>
+                    <Button Name="Registation" Width="100" Height="40" Content="Registration" Click="Registation_Click"/>
                 </StackPanel>
 
             </StackPanel>
