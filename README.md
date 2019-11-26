@@ -1,2 +1,2 @@
-# MyAirports2.0
+# MyAirports
 Flight reservation application
