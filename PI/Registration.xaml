@@ -64,17 +64,17 @@
         <Image Source="Photos/airplane.png" Width="80" Margin="155,10,145,346"/>
         <TextBlock Text="Registration" Margin="131,98,123,311"/>
         <StackPanel Orientation="Horizontal" Margin="0,139,0,227" RenderTransformOrigin="0.5,0.5">
-            <Label Content="Логін:" Margin="68,20,237,32"  Width="80"/>
+            <Label Content="Login:" Margin="68,20,237,32"  Width="80"/>
             <TextBox x:Name="LoginBlock" VerticalAlignment="Stretch" Margin="-230,10,0,32"  Width="170"/>
         </StackPanel>
         <StackPanel Orientation="Horizontal" Margin="1,198,-1,177" RenderTransformOrigin="0.5,0.5">
-            <Label Content="Пароль:" Margin="68,10,237,32" Width="97"/>
+            <Label Content="Password:" Margin="68,10,237,32" Width="97"/>
             <PasswordBox x:Name="PasswordBox" VerticalAlignment="Stretch" Margin="-265,0,0,32" Width="170"/>
         </StackPanel>
         <StackPanel Orientation="Horizontal" Margin="1,249,-1,126" RenderTransformOrigin="0.5,0.5">
-            <Label Content="Пошта:" Margin="68,10,237,32" RenderTransformOrigin="0.5,0.5" Width="87"/>
+            <Label Content="Email:" Margin="68,10,237,32" RenderTransformOrigin="0.5,0.5" Width="87"/>
             <TextBox Name="EmailBlock" VerticalAlignment="Stretch" Margin="-245,0,0,32" Width="170"/>
         </StackPanel>
-        <Button Name="RegistationButton" Click="RegistationButton_Click" Height="40" Content="Зареєструватися" Margin="131,357,123,53"/>
+        <Button Name="RegistationButton" Click="RegistationButton_Click" Height="40" Content="Sign Up" Margin="131,357,123,53" FontWeight="DemiBold"/>
     </Grid>
 </Window>

@@ -58,7 +58,7 @@
                         FontWeight="Bold" Margin="425,-10,0,0" 
                         Height="47"/>
             <StackPanel Margin="0,10,123,381">
-                <Label Content="Personal Information" Height="48" Margin="10,0,-16,0" Width="317" FontSize="30" FontWeight="Bold"/>
+                <Label Content="Personal Information" Height="48" Margin="10,0,-16,0" Width="317" FontSize="30"/>
                 <Border Style="{StaticResource BorderStyle}" Margin="10,0,-115,0" Height="1"/>
             </StackPanel>
             <StackPanel Orientation="Vertical" Margin="0,69,280,318">
@@ -90,7 +90,7 @@
                     <ComboBoxItem Content="Economic Class ($100)"/>
                 </ComboBox>
             </StackPanel>
-            <Button Margin="10,319,280,97" Name="AddPassenger" Click="AddPassenger_Click" Content="Add Passenger" FontSize="20" Foreground="Black" FontWeight="Bold" HorizontalAlignment="Center" Width="160"/>
+            <Button Margin="10,319,280,97" Name="AddPassenger" Click="AddPassenger_Click" Content="Add Passenger" FontSize="20" Foreground="Black" FontWeight="DemiBold" HorizontalAlignment="Center" Width="160"/>
             <StackPanel Orientation="Vertical" Margin="0,205,280,166">
                 <Label Content="Document:" Margin="10,0" Width="150"/>
                 <TextBox x:Name="Document" Margin="10,0"/>

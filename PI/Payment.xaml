@@ -50,7 +50,7 @@
                         <GradientStop Color="#DCDCDC"/>
                     </LinearGradientBrush>
                 </Border.Background>
-                <Button Margin="151,337,156,79" x:Name="Pay" Click="Pay_Click" Content="Pay" FontSize="20" Foreground="Black" HorizontalAlignment="Center" Width="143"/>
+                <Button Margin="151,337,156,61" x:Name="Pay" Click="Pay_Click" Content="Pay" FontSize="20" Foreground="Black" HorizontalAlignment="Center" Width="143" FontWeight="DemiBold"/>
             </Border>
             <Button Content="X" Name="ExitButton" 
                         Click="ExitButton_Click" HorizontalAlignment="Left" 

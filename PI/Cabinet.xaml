@@ -52,47 +52,47 @@
         </Grid.Background>
 
         <StackPanel HorizontalAlignment="Left" Height="500" VerticalAlignment="Top" Width="350">
-            <Label Content="Змінити пароль" Style="{StaticResource TitleLabelStyle}"/>
+            <Label Content="Change password" Style="{StaticResource TitleLabelStyle}"/>
             <StackPanel Orientation="Vertical" Height="200">
                 <StackPanel Orientation="Vertical">
-                    <Label Content="Старий пароль" Style="{StaticResource LabelStyle}"/>
+                    <Label Content="Old password" Style="{StaticResource LabelStyle}"/>
                     <TextBox Name="Old_Password"/>
                     <Border Style="{StaticResource BorderStyle}"/>
                 </StackPanel>
                 <StackPanel Orientation="Vertical">
-                    <Label Content="Новий пароль" Style="{StaticResource LabelStyle}"/>
+                    <Label Content="New password" Style="{StaticResource LabelStyle}"/>
                     <TextBox Name="Password"/>
                     <Border Style="{StaticResource BorderStyle}"/>
                 </StackPanel>
                 <StackPanel Orientation="Vertical">
-                    <Label Content="Повторіть новий пароль" Style="{StaticResource LabelStyle}"/>
+                    <Label Content="Repeat new password" Style="{StaticResource LabelStyle}"/>
                     <TextBox Name="Password_check"/>
                     <Border Style="{StaticResource BorderStyle}"/>
                 </StackPanel>
             </StackPanel>
-            <Button Name="Password_Button" Width="100" Height="40" Content="Змінити" Margin="60,0,60,0" Foreground="Black" Click="Password_Button_Click"/>
+            <Button Name="Password_Button" Width="100" Height="40" Content="Change" Margin="60,0,60,0" Foreground="Black" FontWeight="DemiBold" Click="Password_Button_Click"/>
         </StackPanel>
 
         <StackPanel HorizontalAlignment="Left" Height="500" VerticalAlignment="Top" Width="355" Margin="350,0,0,0">
-            <Label Content="Змінити адресу пошти" Style="{StaticResource TitleLabelStyle}"/>
+            <Label Content="Change Email" Style="{StaticResource TitleLabelStyle}"/>
             <StackPanel Orientation="Vertical" Height="200">
                 <StackPanel Orientation="Vertical">
-                    <Label Content="Стара адреса пошти" Style="{StaticResource LabelStyle}"/>
+                    <Label Content="Old email" Style="{StaticResource LabelStyle}"/>
                     <TextBox Name="Old_Email"/>
                     <Border Style="{StaticResource BorderStyle}"/>
                 </StackPanel>
                 <StackPanel Orientation="Vertical">
-                    <Label Content="Нова адреса пошти" Style="{StaticResource LabelStyle}"/>
+                    <Label Content="New email" Style="{StaticResource LabelStyle}"/>
                     <TextBox Name="Email"/>
                     <Border Style="{StaticResource BorderStyle}"/>
                 </StackPanel>
                 <StackPanel Orientation="Vertical">
-                    <Label Content="Повторіть нову адресу пошти" Style="{StaticResource LabelStyle}"/>
+                    <Label Content="Repeat new email" Style="{StaticResource LabelStyle}"/>
                     <TextBox Name="Email_check"/>
                     <Border Style="{StaticResource BorderStyle}"/>
                 </StackPanel>
             </StackPanel>
-            <Button Name="Email_Button" Width="100" Height="40" Content="Змінити" Margin="60,0,60,0" Foreground="Black" Click="Email_Button_Click"/>
+            <Button Name="Email_Button" Width="100" Height="40" Content="Change" Margin="60,0,60,0" Foreground="Black" FontWeight="DemiBold" Click="Email_Button_Click"/>
         </StackPanel>
     </Grid>
 </Page>

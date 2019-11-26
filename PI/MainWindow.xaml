@@ -90,8 +90,8 @@
                 <Border Style="{StaticResource BorderStyle}"/>
 
                 <StackPanel Orientation="Horizontal" Margin="0,50,0,0">
-                    <Button Name="Login" Click="Login_Click" Width="100" Height="40" Content="Login" Margin="60,0,60,0"/>
-                    <Button Name="Registation" Width="100" Height="40" Content="Registration" Click="Registation_Click"/>
+                    <Button Name="Login" Click="Login_Click" Width="100" Height="40" Content="Login" FontWeight="DemiBold" Margin="60,0,60,0"/>
+                    <Button Name="Registation" Width="100" Height="40" Content="Registration" Click="Registation_Click" FontWeight="DemiBold"/>
                 </StackPanel>
 
             </StackPanel>

@@ -44,30 +44,30 @@
             </LinearGradientBrush>
         </Grid.Background>
         <StackPanel Orientation="Vertical" Margin="0,0,412,391">
-            <Label Content="Номер літака:" Margin="77,30,48,0"/>
+            <Label Content="Airplane number :" Margin="77,30,48,0"/>
             <TextBox x:Name="AddAirplaneID" Margin="51,0,48,0"/>
             <Border Style="{StaticResource BorderStyle}"/>
         </StackPanel>
         <StackPanel Orientation="Vertical" Margin="0,109,412,282">
-            <Label Content="Модель літака:" Margin="77,30,48,0"/>
+            <Label Content="Airpalne model:" Margin="77,30,48,0"/>
             <TextBox x:Name="AddAirplaneName" Margin="51,0,48,0" />
             <Border Style="{StaticResource BorderStyle}"/>
         </StackPanel>
         <StackPanel Orientation="Vertical" Margin="336,0,76,391">
-            <Label Content="Економ класс:" Margin="77,30,48,0"/>
+            <Label Content="Economy class:" Margin="77,30,48,0"/>
             <TextBox x:Name="EconomClass" Margin="51,0,48,0"/>
             <Border Style="{StaticResource BorderStyle}"/>
         </StackPanel>
         <StackPanel Orientation="Vertical" Margin="336,109,76,282">
-            <Label Content="Бізнес класс:" Margin="77,30,48,0"/>
+            <Label Content="Business class:" Margin="77,30,48,0"/>
             <TextBox x:Name="BusinessClass" Margin="51,0,48,0" />
             <Border Style="{StaticResource BorderStyle}"/>
         </StackPanel>
         <StackPanel Orientation="Vertical" Margin="336,223,76,168">
-            <Label Content="Перший класс:" Margin="77,30,48,0"/>
+            <Label Content="First class:" Margin="77,30,48,0"/>
             <TextBox x:Name="FirstClass" Margin="51,0,48,0"/>
             <Border Style="{StaticResource BorderStyle}"/>
         </StackPanel>
-        <Button Height="76" Margin="213,376,215,48" Name="ConfimAddAirplane" Click="ConfimAddAirplane_Click" Content="Додати Літак" FontSize="20" Foreground="Black" HorizontalAlignment="Center" Width="272"/>
+        <Button Height="76" Margin="213,376,215,48" Name="ConfimAddAirplane" Click="ConfimAddAirplane_Click" Content="Add Airplane" FontSize="20" Foreground="Black" FontWeight="DemiBold" HorizontalAlignment="Center" Width="272"/>
     </Grid>
 </Page>
