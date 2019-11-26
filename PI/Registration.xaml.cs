@@ -23,10 +23,6 @@ namespace PI
                 DragMove();
             }
         }
-        private void CloseProgram_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
-        {
-            this.Close();
-        }
 
         private void ExitButton_Click(object sender, RoutedEventArgs e)
         {
@@ -37,31 +33,53 @@ namespace PI
         {
             if (LoginBlock.Text != "" && EmailBlock.Text != "" && PasswordBox.Password != "")
             {
-                try
+                if (PasswordBox.Password.Length > 6)
                 {
-                    string connectionString = ConfigurationManager.ConnectionStrings["MainConnection"].ConnectionString;
-                    string query = $"INSERT INTO Customer (Login,Password,Email) VALUES ('{LoginBlock.Text}', '{PasswordBox.Password}', '{EmailBlock.Text}');";
 
-
-                    using (SqlConnection connection = new SqlConnection(connectionString))
+                    try
                     {
-                        connection.Open();
-                        SqlCommand command = new SqlCommand(query, connection);
-                        command.ExecuteNonQuery();
-                        connection.Close();
+                        string connectionString = ConfigurationManager.ConnectionStrings["MainConnection"].ConnectionString;
+                        string second_query = $"INSERT INTO Customer (Login,Password,Email) VALUES ('{LoginBlock.Text}', '{PasswordBox.Password}', '{EmailBlock.Text}');";
+                        string first_query = $"SELECT CAST(CASE WHEN COUNT(*) > 0 THEN 1 ELSE 0 END AS BIT) FROM Customer WHERE Login = '{LoginBlock.Text}'";
+                        object count = "";
+                        using (SqlConnection connection = new SqlConnection(connectionString))
+                        {
+                            connection.Open();
+                            SqlCommand command = new SqlCommand(first_query, connection);
+                            count = command.ExecuteScalar();
+                            if (count.ToString() == "True")
+                            {
+                                MessageBox.Show("This login is already used by another user");
+                            }
+                            else
+                            {
+                                command = new SqlCommand(second_query, connection);
+                                command.ExecuteNonQuery();
+                                count = "False";
+                            }
+                            connection.Close();
+                        }
+                        if (count.ToString() == "False")
+                        {
+                            MainWindow mainWindow = new MainWindow();
+                            this.Visibility = Visibility.Hidden;
+                            mainWindow.Show();
+                        }
+
                     }
-                    MainWindow mainWindow = new MainWindow();
-                    this.Visibility = Visibility.Hidden;
-                    mainWindow.Show();
+                    catch (Exception ee)
+                    {
+                        MessageBox.Show(ee.Message);
+                    }
                 }
-                catch (Exception ee)
+                else
                 {
-                    MessageBox.Show(ee.Message);
+                    MessageBox.Show("Password is too short");
                 }
             }
             else
             {
-                MessageBox.Show("Something wrong");
+                MessageBox.Show("Fill in all the fields");
             }
         }
     }

@@ -70,7 +70,7 @@
         <StackPanel Orientation="Vertical" Margin="350,142,30,239">
             <Label Content="Arrival Time:" Margin="78,30,60,0"/>
         </StackPanel>
-        <Button Height="76" Margin="204,388,224,36" Name="ConfimAddFlight" Click="ConfimAddFlight_Click" Content="Add Flight" FontSize="20" FontWeight="DemiBold" Foreground="Black" HorizontalAlignment="Center" Width="272"/>
+        <Button Height="76" Margin="206,388,217,36" Name="ConfimAddFlight" Click="ConfimAddFlight_Click" Content="Add Flight" FontSize="20" FontWeight="DemiBold" Foreground="Black" HorizontalAlignment="Center" Width="277"/>
         <StackPanel Orientation="Vertical" Margin="0,229,380,181">
             <Label Content="Aiplane's id:" Margin="78,30,60,0"/>
             <ComboBox x:Name="AiplaneIdComboBox" Margin="78,0,60,0" Style="{StaticResource ComboBoxFlatStyle}" Height="30"/>

@@ -16,35 +16,45 @@
             <Setter Property="FontSize" Value="20"/>
             <Setter Property="Foreground" Value="Black"/>
             <Setter Property="Background" Value="Transparent"/>
-            <Setter Property="Opacity" Value="0.5"/>
+            <Setter Property="Opacity" Value="0.7"/>
+            <Setter Property="Height" Value="35"/>
         </Style>
         <Style TargetType="TextBlock">
             <Setter Property="FontFamily" Value="Fonts#VIVALDI"/>
             <Setter Property="FontWeight" Value="Bold"/>
-            <Setter Property="FontSize" Value="22"/>
+            <Setter Property="FontSize" Value="25"/>
             <Setter Property="Foreground" Value="Black"/>
             <Setter Property="HorizontalAlignment" Value="Center"/>
         </Style>
         <Style TargetType="TextBox">
             <Setter Property="FontFamily" Value="Helvetica"/>
-            <Setter Property="FontWeight" Value="Light"/>
             <Setter Property="FontSize" Value="20"/>
             <Setter Property="FontWeight" Value="Light"/>
             <Setter Property="HorizontalAlignment" Value="Center"/>
-            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Foreground" Value="Black"/>
             <Setter Property="Background" Value="Transparent"/>
-            <Setter Property="Opacity" Value="0.5"/>
-            <Setter Property="Width" Value="164"/>
+            <Setter Property="Opacity" Value="0.7"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Width" Value="140"/>
+            <Setter Property="Height" Value="25"/>
         </Style>
         <Style TargetType="PasswordBox">
             <Setter Property="FontFamily" Value="Helvetica"/>
             <Setter Property="FontWeight" Value="Light"/>
             <Setter Property="FontSize" Value="20"/>
             <Setter Property="HorizontalAlignment" Value="Center"/>
-            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Foreground" Value="Black"/>
             <Setter Property="Background" Value="Transparent"/>
-            <Setter Property="Opacity" Value="0.5"/>
-            <Setter Property="Width" Value="164"/>
+            <Setter Property="Opacity" Value="0.7"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Width" Value="140"/>
+            <Setter Property="Height" Value="25"/>
+        </Style>
+        <Style x:Key="BorderStyle">
+            <Setter Property="Control.Width" Value="140"/>
+            <Setter Property="Control.Height" Value="1"/>
+            <Setter Property="Control.Background" Value="Black"/>
+            <Setter Property="Control.Opacity" Value="0.5"/>
         </Style>
     </Window.Resources>
 
@@ -62,18 +72,35 @@
                     Margin="355,0,0,0" Height="31"/>
         </Border>
         <Image Source="Photos/airplane.png" Width="80" Margin="155,10,145,346"/>
-        <TextBlock Text="Registration" Margin="131,98,123,311"/>
-        <StackPanel Orientation="Horizontal" Margin="0,139,0,227" RenderTransformOrigin="0.5,0.5">
-            <Label Content="Login:" Margin="68,20,237,32"  Width="80"/>
-            <TextBox x:Name="LoginBlock" VerticalAlignment="Stretch" Margin="-230,10,0,32"  Width="170"/>
+        <TextBlock Text="Registration" Margin="131,105,123,311"/>
+        <!--<StackPanel Orientation="Horizontal" Margin="0,139,193,227" >
+            <Label Content="Login:" Margin="68,20,237,30"  Width="80" Height="Auto"/>
+            <StackPanel Orientation="Vertical" Width="174">
+                <TextBox x:Name="LoginBlock" VerticalAlignment="Stretch" Margin="-230,20,0,30"  Width="170"/>
+                <Border Style="{StaticResource BorderStyle}"/>
+            </StackPanel>
         </StackPanel>
+    
         <StackPanel Orientation="Horizontal" Margin="1,198,-1,177" RenderTransformOrigin="0.5,0.5">
-            <Label Content="Password:" Margin="68,10,237,32" Width="97"/>
+            <Label Content="Password:" Margin="68,14,237,32" Width="97" Height="Auto"/>
             <PasswordBox x:Name="PasswordBox" VerticalAlignment="Stretch" Margin="-265,0,0,32" Width="170"/>
         </StackPanel>
         <StackPanel Orientation="Horizontal" Margin="1,249,-1,126" RenderTransformOrigin="0.5,0.5">
-            <Label Content="Email:" Margin="68,10,237,32" RenderTransformOrigin="0.5,0.5" Width="87"/>
+            <Label Content="Email:" Margin="68,0,237,41" RenderTransformOrigin="0.5,0.5" Width="87" Height="Auto"/>
             <TextBox Name="EmailBlock" VerticalAlignment="Stretch" Margin="-245,0,0,32" Width="170"/>
+        </StackPanel>-->
+        <StackPanel Orientation="Vertical" Margin="0,150,180,98">
+            <Label Content="Login:" Margin="50,20,0,0"/>
+            <Label Content="Password: " Margin="50,20,0,0"/>
+            <Label Content="E-mail:" Margin="50,20,0,0"/>
+        </StackPanel>
+        <StackPanel Orientation="Vertical" Margin="180,150,0,98">
+            <TextBox x:Name="LoginBlock" Margin="0,20,0,0"/>
+            <Border Style="{StaticResource BorderStyle}"/>
+            <PasswordBox x:Name="PasswordBox" Margin="0,30,0,0"/>
+            <Border Style="{StaticResource BorderStyle}"/>
+            <TextBox x:Name="EmailBlock" Margin="0,30,0,0"/>
+            <Border Style="{StaticResource BorderStyle}"/>
         </StackPanel>
         <Button Name="RegistationButton" Click="RegistationButton_Click" Height="40" Content="Sign Up" Margin="131,357,123,53" FontWeight="DemiBold"/>
     </Grid>

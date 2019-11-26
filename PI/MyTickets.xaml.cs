@@ -28,6 +28,7 @@ namespace PI
         {
             try
             {
+                
                 string connectionString = ConfigurationManager.ConnectionStrings["MainConnection"].ConnectionString;
                 string query = $"SELECT SecondName as 'Second Name',FirstName as 'First Name',convert(varchar(10),BirthDate,104) as 'Birth Date'," +
                     $"DepartCity as 'Depart City',ArriveCity as 'Arrive City',convert(varchar(10),DepartDate,104) as 'Depart Date'," +

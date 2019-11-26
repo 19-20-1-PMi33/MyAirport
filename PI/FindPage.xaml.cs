@@ -21,7 +21,9 @@ namespace PI
             InitializeComponent();
             this.Login = Login;
         }
+
         public string Login { get; set; }
+
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
             CountAdult.SelectedIndex = 0;
@@ -29,6 +31,7 @@ namespace PI
             CountInfant.SelectedIndex = 0;
             DepartAirport.Items.Clear();
             ArrivalAirport.Items.Clear();
+            DatePicker.BlackoutDates.Add(new CalendarDateRange(new DateTime(2019, 11, 1), DateTime.Today.AddDays(-1)));
             string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=testdb;Integrated Security=True";
             try
             {

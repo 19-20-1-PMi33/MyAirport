@@ -6,6 +6,7 @@
       xmlns:local="clr-namespace:PI"
       mc:Ignorable="d" 
       d:DesignHeight="500" d:DesignWidth="700"
+      Loaded="Page_Loaded"
       Title="Schedule">
 
     <Grid Margin="-5,-5,-5,0">

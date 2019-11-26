@@ -44,7 +44,7 @@
             </LinearGradientBrush>
         </Grid.Background>
         <StackPanel Orientation="Vertical" Margin="0,0,412,391">
-            <Label Content="Airplane number :" Margin="77,30,48,0"/>
+            <Label Content="Airplane number:" Margin="77,30,48,0"/>
             <TextBox x:Name="AddAirplaneID" Margin="51,0,48,0"/>
             <Border Style="{StaticResource BorderStyle}"/>
         </StackPanel>

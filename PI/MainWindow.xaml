@@ -13,7 +13,7 @@
         <Style x:Key="TitleTextBlock">
             <Setter Property="Control.FontFamily" Value="Fonts#VIVALDI"/>
             <Setter Property="Control.FontWeight" Value="Bold"/>
-            <Setter Property="Control.FontSize" Value="22"/>
+            <Setter Property="Control.FontSize" Value="24"/>
             <Setter Property="Control.Foreground" Value="Black"/>
             <Setter Property="Control.HorizontalAlignment" Value="Center"/>
         </Style>
@@ -28,7 +28,7 @@
             <Setter Property="Control.FontWeight" Value="Light"/>
             <Setter Property="Control.Width" Value="250"/>
             <Setter Property="Control.HorizontalContentAlignment" Value="Left"/>
-            <Setter Property="Control.Opacity" Value="0.5"/>
+            <Setter Property="Control.Opacity" Value="0.7"/>
             <Setter Property="Control.Height" Value="25"/>
             <Setter Property="Control.Margin" Value="63,0,0,0"/>
         </Style>
@@ -43,7 +43,7 @@
             <Setter Property="Control.FontWeight" Value="Light"/>
             <Setter Property="Control.Width" Value="250"/>
             <Setter Property="Control.HorizontalContentAlignment" Value="Left"/>
-            <Setter Property="Control.Opacity" Value="0.5"/>
+            <Setter Property="Control.Opacity" Value="0.7"/>
             <Setter Property="Control.Height" Value="25"/>
             <Setter Property="Control.Margin" Value="63,0,0,0"/>
         </Style>
@@ -77,7 +77,7 @@
 
             <StackPanel VerticalAlignment="Center">
                 <Image Source="Photos/airplane.png" Width="80"/>
-                <TextBlock Text="  My Airplane" Style="{StaticResource TitleTextBlock}" Margin="113,0,111,0" Width="156" Height="27"/>
+                <TextBlock Text="My Airport" Style="{StaticResource TitleTextBlock}" Margin="135,10" Width="110" Height="27"/>
             </StackPanel>
             <StackPanel Grid.Row="1" >
                 <StackPanel Orientation="Horizontal">

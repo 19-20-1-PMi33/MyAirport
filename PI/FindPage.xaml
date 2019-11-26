@@ -3,6 +3,7 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:sys="clr-namespace:System;assembly=mscorlib"
       xmlns:local="clr-namespace:PI"
       mc:Ignorable="d" 
       d:DesignHeight="500" d:DesignWidth="700"
@@ -48,7 +49,8 @@
             </StackPanel>
             <StackPanel Margin="492,10,7,432" Width="206">
                 <TextBlock Text="Date"/>
-                <DatePicker Name="DatePicker" Height="24"/>
+                <DatePicker Name="DatePicker" Height="24" DisplayDateStart="11.01.2019" DisplayDateEnd="12.31.2019"/>
+
             </StackPanel>
             <StackPanel Margin="16,78,483,366" Width="206">
                 <TextBlock Text="Adult"/>

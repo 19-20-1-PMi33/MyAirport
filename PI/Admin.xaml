@@ -14,7 +14,7 @@
             <RowDefinition Height="2*"/>
             <RowDefinition Height="123*"/>
         </Grid.RowDefinitions>
-        <DockPanel HorizontalAlignment="Left" LastChildFill="False" Margin="0" Width="198" Grid.RowSpan="2">
+        <DockPanel HorizontalAlignment="Left" LastChildFill="False" Margin="0" Width="203" Grid.RowSpan="2">
             <DockPanel.Background>
                 <LinearGradientBrush>
                     <GradientStop Color="#DCDCDC"/>
@@ -22,13 +22,13 @@
             </DockPanel.Background>
             <Image Source="Photos/airplane.png" Margin="0,48,0,356" Width="203" RenderTransformOrigin="-0.594,0.547"/>
         </DockPanel>
-        <TextBlock Text="My Airplane"
+        <TextBlock Text="My Airport"
                           FontWeight="Bold"
                           FontFamily="Fonts#VIVALDI"
                           FontSize="32"
                           HorizontalAlignment="Center"
-                          Foreground="Black" RenderTransformOrigin="0.5,0.5" Margin="10,0,702,452" Width="188" Grid.Row="1"/>
-        <Button x:Name="addFlight" Click="AddFlight_Click" HorizontalAlignment="Stretch" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Margin="0,136,702,0" Grid.Row="1" VerticalAlignment="Top" Height="50">
+                          Foreground="Black" RenderTransformOrigin="0.5,0.5" Margin="20,0,702,452" Width="168" Grid.Row="1"/>
+        <Button x:Name="addFlight" Click="AddFlight_Click" HorizontalAlignment="Stretch" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Margin="0,146,702,0" Grid.Row="1" VerticalAlignment="Top" Height="50">
             <StackPanel Orientation="Horizontal">
                 <!--<Image Source="Photos/find.png" Width="42" Height="42"/>-->
                 <TextBlock Text="Flight"
@@ -43,7 +43,7 @@
                           Height="40"/>
             </StackPanel>
         </Button>
-        <Button x:Name="addAirport" Click="AddAirport_Click" HorizontalAlignment="Left" VerticalAlignment="Top" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Width="198" Margin="0,192,0,0" Grid.Row="1" Height="50">
+        <Button x:Name="addAirport" Click="AddAirport_Click" HorizontalAlignment="Left" VerticalAlignment="Top" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Width="198" Margin="0,202,0,0" Grid.Row="1" Height="50">
             <StackPanel Orientation="Horizontal">
                 <!--<Image Source="Photos/calendar.png" Width="42" Height="42"/>-->
                 <TextBlock Text="Airport"
@@ -58,7 +58,7 @@
                           Height="40"/>
             </StackPanel>
         </Button>
-        <Button x:Name="changeFlight" Click="ChangeFlight_Click" HorizontalAlignment="Left" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" VerticalAlignment="Top" Width="198" Margin="0,247,0,0" Grid.Row="1" Height="50">
+        <Button x:Name="changeFlight" Click="ChangeFlight_Click" HorizontalAlignment="Left" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" VerticalAlignment="Top" Width="198" Margin="0,257,0,0" Grid.Row="1" Height="50">
             <StackPanel Orientation="Horizontal">
                 <!--<Image Source="Photos/planeticket.png" Width="42" Height="42"/>-->
                 <TextBlock Text="Change"
@@ -73,7 +73,7 @@
                           Height="40"/>
             </StackPanel>
         </Button>
-        <Button x:Name="deleteFlight" Click="DeleteFlight_Click" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="198" Margin="0,302,0,0" Grid.Row="1" Height="50">
+        <Button x:Name="deleteFlight" Click="DeleteFlight_Click" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="198" Margin="0,312,0,0" Grid.Row="1" Height="50">
             <StackPanel Orientation="Horizontal">
                 <!--<Image Source="Photos/profile.png" Width="42" Height="42"/>-->
                 <TextBlock Text="Remove"
@@ -88,7 +88,7 @@
                           Height="40"/>
             </StackPanel>
         </Button>
-        <Button x:Name="ExitButton" Click="ExitButton_Click" HorizontalAlignment="Left" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" VerticalAlignment="Top" Width="198" Margin="0,412,0,0" Grid.Row="1" Height="50">
+        <Button x:Name="ExitButton" Click="ExitButton_Click" HorizontalAlignment="Left" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" VerticalAlignment="Top" Width="198" Margin="0,422,0,0" Grid.Row="1" Height="50">
             <StackPanel Orientation="Horizontal">
                 <!--<Image Source="Photos/exit.png" Width="42" Height="42"/>-->
                 <TextBlock Text="Exit"
@@ -104,7 +104,7 @@
             </StackPanel>
         </Button>
         <Frame Name="Main" NavigationUIVisibility="Hidden" Grid.RowSpan="2" Margin="203,0,0,0" Height="500" VerticalAlignment="Bottom"/>
-        <Button x:Name="AddAirplaneButton" Click="AddAirplaneButton_Click" HorizontalAlignment="Left" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" VerticalAlignment="Top" Width="198" Margin="0,357,0,0" Grid.Row="1" Height="50">
+        <Button x:Name="AddAirplaneButton" Click="AddAirplaneButton_Click" HorizontalAlignment="Left" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" VerticalAlignment="Top" Width="198" Margin="0,367,0,0" Grid.Row="1" Height="50">
             <StackPanel Orientation="Horizontal">
                 <!--<Image Source="Photos/exit.png" Width="42" Height="42"/>-->
                 <TextBlock Text="Airplane"

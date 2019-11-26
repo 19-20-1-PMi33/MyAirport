@@ -24,9 +24,10 @@ namespace PI
                 try
                 {
                     string connectionString = ConfigurationManager.ConnectionStrings["MainConnection"].ConnectionString;
-                    string query = $"SELECT Id,DepartCity as 'Depart City',ArriveCity as 'Arrive City',convert(varchar(10),DepartDate,104) as 'DepartDate'," +
-                    "convert(varchar(10),ArriveDate,104) as 'ArrivalDate',CAST(DepartTime AS CHAR(5)) as 'Depart Time',CAST(ArriveTime AS CHAR(5)) as 'Arrive Time',AirplaneID as 'Airplane Id',Airline FROM FLIGHT " +
-                    $"where convert(varchar(10),DepartDate,104)='{FindDatePicker.Text}'";
+                    string query = $"SELECT Id,DepartCity as 'Depart City',ArriveCity as 'Arrive City'," +
+                    "CAST(DepartTime AS CHAR(5)) as 'Depart Time',CAST(ArriveTime AS CHAR(5)) as 'Arrive Time',AirplaneID as 'Airplane Id',Airline FROM FLIGHT " +
+                    $"where convert(varchar(10),DepartDate,104)='{FindDatePicker.Text}'" +
+                    $"order by 'Depart Time'";
                     using (SqlConnection connection = new SqlConnection(connectionString))
                     {
                         connection.Open();
@@ -41,6 +42,11 @@ namespace PI
                     MessageBox.Show(ee.Message);
                 }
             }
+        }
+
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            FindDatePicker.BlackoutDates.Add(new CalendarDateRange(new DateTime(2019, 11, 1), DateTime.Today.AddDays(-1)));
         }
     }
 }

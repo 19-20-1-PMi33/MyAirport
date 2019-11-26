@@ -29,7 +29,7 @@
             <Setter Property="Control.FontSize" Value="32"/>
             <Setter Property="Control.HorizontalAlignment" Value="Center"/>
             <Setter Property="Control.Foreground" Value="Black"/>
-            <Setter Property="Control.Margin" Value="10,0,702,450"/>
+            <Setter Property="Control.Margin" Value="20,0,702,450"/>
             <Setter Property="Control.Width" Value="188"/>
         </Style>
     </Window.Resources>
@@ -48,7 +48,7 @@
             <Image Source="Photos/airplane.png" Margin="0,52,0,356" Width="203" />
         </DockPanel>
 
-        <TextBlock Text="My Airplane" Grid.Row="1" Style="{StaticResource TitleTextBlock}" />
+        <TextBlock Text="My Airport" Grid.Row="1" Style="{StaticResource TitleTextBlock}" Margin="15,0,702,450" Width="170" />
         <Button x:Name="FindButton" Click="FindButton_Click" HorizontalAlignment="Stretch" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Margin="0,150,702,0" Grid.Row="1" VerticalAlignment="Top" Height="50">
             <StackPanel Orientation="Horizontal">
                 <Image Source="Photos/find.png" Width="35" Height="35"/>

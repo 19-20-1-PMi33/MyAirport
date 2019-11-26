@@ -38,23 +38,34 @@ namespace PI
                 try
                 {
                     string connectionString = ConfigurationManager.ConnectionStrings["MainConnection"].ConnectionString;
-                    string query = $"SELECT Count(*) from Customer where Login = '{Login1.Text.ToString()}' AND Password = '{Password.Password}'";
+                    string second_query = $"SELECT Count(*) from Customer where Login = '{Login1.Text.ToString()}' AND Password = '{Password.Password}'";
+                    string first_query = $"SELECT CAST(CASE WHEN COUNT(*) > 0 THEN 1 ELSE 0 END AS BIT) FROM Customer WHERE Login = '{Login1.Text}'";
 
 
                     using (SqlConnection connection = new SqlConnection(connectionString))
                     {
                         connection.Open();
-                        SqlCommand command = new SqlCommand(query, connection);
+
+                        SqlCommand command = new SqlCommand(first_query, connection);
                         object count = command.ExecuteScalar();
-                        if ((int)count == 1)
+                        if (count.ToString() == "False")
                         {
-                            Menu menuWindow = new Menu(Login1.Text);
-                            this.Visibility = Visibility.Hidden;
-                            menuWindow.Show();
+                            MessageBox.Show("Wrong login or password");
                         }
                         else
                         {
-                            MessageBox.Show("Wrong login or password");
+                            command  = new SqlCommand(second_query, connection);
+                            count = command.ExecuteScalar();
+                            if ((int)count == 1)
+                            {
+                                Menu menuWindow = new Menu(Login1.Text);
+                                this.Visibility = Visibility.Hidden;
+                                menuWindow.Show();
+                            }
+                            else
+                            {
+                                MessageBox.Show("Wrong login or password");
+                            }
                         }
                         connection.Close();
                     }
