@@ -45,18 +45,18 @@
             <TextBox x:Name="AddCityBox" Margin="220,0,220,0"/>
             <Border Style="{StaticResource BorderStyle}" Margin="220,0,220,0"/>
         </StackPanel>
-        <StackPanel Orientation="Vertical" Margin="-10,117,10,226">
+        <StackPanel Orientation="Vertical" Margin="0,104,0,239">
             <Label Content="Назва країни:" Margin="220,30,220,0"/>
-            <TextBox x:Name="AddCountryBox" Margin="220,0"/>
+            <TextBox x:Name="AddCountryBox" Margin="220,0" TextChanged="AddCountryBox_TextChanged"/>
             <Border Style="{StaticResource BorderStyle}" Margin="220,0,220,0"/>
         </StackPanel>
-        <StackPanel Orientation="Vertical" Margin="-10,234,10,109">
+        <StackPanel Orientation="Vertical" Margin="0,234,0,109">
             <Label Content="Назва ИАТА:" Margin="220,30,220,0"/>
             <TextBox x:Name="AddIATABox" Margin="220,0,220,0"/>
             <Border Style="{StaticResource BorderStyle}" Margin="220,0,220,0"/>
         </StackPanel>
         <StackPanel Orientation="Vertical" Margin="0,391,0,-19">
-            <Button Height="76" Margin="206,0,222,0" Name="ConfimAddAirport" Click="ConfimAddAirport_Click" Content="Додати Аеропорт" FontSize="20" Foreground="Black" HorizontalAlignment="Center" Width="272" />
+            <Button Height="76" Margin="206,0" x:Name="ConfimAddAirport" Click="ConfimAddAirport_Click" Content="Додати Аеропорт" FontSize="20" Foreground="Black" HorizontalAlignment="Center" Width="288" />
         </StackPanel>
     </Grid>
 </Page>

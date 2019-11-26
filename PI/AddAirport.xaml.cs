@@ -48,5 +48,10 @@ namespace PI
                 MessageBox.Show("Something wrong");
             }
         }
+
+        private void AddCountryBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }

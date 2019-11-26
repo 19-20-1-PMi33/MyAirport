@@ -44,12 +44,13 @@
     </Window.Resources>
     <Grid>
         <Grid RenderTransformOrigin="0.503,0.449">
-            <Border Margin="0,0,0,77">
+            <Border>
                 <Border.Background>
                     <LinearGradientBrush>
                         <GradientStop Color="#DCDCDC"/>
                     </LinearGradientBrush>
                 </Border.Background>
+                <Button Margin="151,337,156,79" x:Name="Pay" Click="Pay_Click" Content="Pay" FontSize="20" Foreground="Black" HorizontalAlignment="Center" Width="143"/>
             </Border>
             <Button Content="X" Name="ExitButton" 
                         Click="ExitButton_Click" HorizontalAlignment="Left" 
@@ -87,7 +88,6 @@
                 <TextBox Name="Cvc" Margin="10,0" />
                 <Border Style="{StaticResource BorderStyle}" Margin="10,0"/>
             </StackPanel>
-            <Button Margin="10,319,297,97" Name="Pay" Click="Pay_Click" Content="Pay" FontSize="20" Foreground="Black" HorizontalAlignment="Center" Width="143"/>
             <StackPanel Orientation="Vertical" Margin="0,205,280,166">
                 <Label Content="Card Number:" Margin="10,0" Width="150"/>
                 <TextBox x:Name="CardNumber" Margin="10,0"/>

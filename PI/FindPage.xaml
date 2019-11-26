@@ -65,7 +65,7 @@
             </StackPanel>
             <StackPanel Margin="262,78,237,366" Width="206">
                 <TextBlock Text="Child(2 - 11)"/>
-                <ComboBox DataContext="1" x:Name="CountChild" Style="{StaticResource ComboBoxFlatStyle}">
+                <ComboBox DataContext="1" x:Name="CountChild" Style="{StaticResource ComboBoxFlatStyle}" HorizontalAlignment="Left" Width="206">
                     <ComboBoxItem Content="0"/>
                     <ComboBoxItem Content="1"/>
                     <ComboBoxItem Content="2"/>

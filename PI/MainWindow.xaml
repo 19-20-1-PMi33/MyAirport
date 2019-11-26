@@ -77,7 +77,7 @@
 
             <StackPanel VerticalAlignment="Center">
                 <Image Source="Photos/airplane.png" Width="80"/>
-                <TextBlock Text="My Airplane" Style="{StaticResource TitleTextBlock}" Margin="135,0"/>
+                <TextBlock Text="  My Airplane" Style="{StaticResource TitleTextBlock}" Margin="113,0,111,0" Width="156" Height="27"/>
             </StackPanel>
             <StackPanel Grid.Row="1" >
                 <StackPanel Orientation="Horizontal">

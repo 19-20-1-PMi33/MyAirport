@@ -57,7 +57,7 @@
             <DatePicker Name="DepartDate" Margin="78,0,60,0"/>
         </StackPanel>
         <StackPanel Orientation="Vertical" Margin="0,142,380,239">
-            <Label Content="Depart Time:" Margin="80,30,60,0"/>
+            <Label Content="Depart Time:" Margin="78,30,60,0"/>
         </StackPanel>
         <StackPanel Orientation="Vertical" Margin="350,0,30,410">
             <Label Content="Arrival Town:" Margin="78,30,60,0"/>
@@ -68,7 +68,7 @@
             <DatePicker Name="ArrivalDate" Margin="78,0,60,0" RenderTransformOrigin="0.97,9.521"/>
         </StackPanel>
         <StackPanel Orientation="Vertical" Margin="350,142,30,239">
-            <Label Content="Arrival Time:" Margin="80,30,60,0"/>
+            <Label Content="Arrival Time:" Margin="78,30,60,0"/>
         </StackPanel>
         <Button Height="76" Margin="204,388,224,36" Name="ConfimAddFlight" Click="ConfimAddFlight_Click" Content="Add Flight" FontSize="20" Foreground="Black" HorizontalAlignment="Center" Width="272"/>
         <StackPanel Orientation="Vertical" Margin="0,229,380,181">
@@ -80,7 +80,7 @@
             <TextBox Margin="78,0,60,0" x:Name="AirlineBox"/>
             <Border Style="{StaticResource BorderStyle}" Margin="78,0,60,0"/>
         </StackPanel>
-        <wpfTool:TimePicker Margin="79,204,440,271" Name="DepartTimePicker"/>
+        <wpfTool:TimePicker Margin="78,204,441,271" Name="DepartTimePicker"/>
         <wpfTool:TimePicker Margin="430,204,89,271" Name="ArrivalTimePicker"/>
     </Grid>
 </Page>
