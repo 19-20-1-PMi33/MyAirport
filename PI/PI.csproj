@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.3.0\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.3.0\build\EntityFramework.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -28,6 +29,8 @@
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -53,7 +56,14 @@
     </StartupObject>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.3.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.3.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
@@ -89,79 +99,23 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="AddAirplane.xaml.cs">
-      <DependentUpon>AddAirplane.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="AddAirport.xaml.cs">
-      <DependentUpon>AddAirport.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="AddFlight.xaml.cs">
-      <DependentUpon>AddFlight.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Admin.xaml.cs">
-      <DependentUpon>Admin.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Cabinet.xaml.cs">
-      <DependentUpon>Cabinet.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="ChangeFlight.xaml.cs">
-      <DependentUpon>ChangeFlight.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Class1.cs" />
-    <Compile Include="DeleteFlight.xaml.cs">
-      <DependentUpon>DeleteFlight.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="FindPage.xaml.cs">
-      <DependentUpon>FindPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="MyTickets.xaml.cs">
-      <DependentUpon>MyTickets.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Payment.xaml.cs">
-      <DependentUpon>Payment.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Personal_Information.xaml.cs">
-      <DependentUpon>Personal_Information.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Registration.xaml.cs">
-      <DependentUpon>Registration.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Schedule.xaml.cs">
-      <DependentUpon>Schedule.xaml</DependentUpon>
-    </Compile>
-    <Page Include="AddAirplane.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="AddAirport.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="AddFlight.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Admin.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Payment.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Personal_Information.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
+    <Compile Include="ViewModel\ApplicationViewModel.cs" />
+    <Compile Include="Views\AddAirplane.xaml.cs" />
+    <Compile Include="Views\AddAirport.xaml.cs" />
+    <Compile Include="Views\AddFlight.xaml.cs" />
+    <Compile Include="Views\Admin.xaml.cs" />
+    <Compile Include="Views\Cabinet.xaml.cs" />
+    <Compile Include="Views\ChangeFlight.xaml.cs" />
+    <Compile Include="Views\DeleteFlight.xaml.cs" />
+    <Compile Include="Views\FindPage.xaml.cs" />
+    <Compile Include="Views\MainWindow.xaml.cs" />
+    <Compile Include="Views\Menu.xaml.cs" />
+    <Compile Include="Views\MyTickets.xaml.cs" />
+    <Compile Include="Views\Payment.xaml.cs" />
+    <Compile Include="Views\Personal_Information.xaml.cs" />
+    <Compile Include="Views\Registration.xaml.cs" />
+    <Compile Include="Views\Schedule.xaml.cs" />
     <Page Include="Styles\ButtonTheme.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Cabinet.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="ChangeFlight.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -173,47 +127,81 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="DeleteFlight.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="FindPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="MainWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
-    <Page Include="Menu.xaml">
-      <SubType>Designer</SubType>
+    <Page Include="Views\AddAirplane.xaml">
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
-    <Page Include="MyTickets.xaml">
-      <SubType>Designer</SubType>
+    <Page Include="Views\AddAirport.xaml">
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
-    <Page Include="Registration.xaml">
-      <SubType>Designer</SubType>
+    <Page Include="Views\AddFlight.xaml">
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
-    <Page Include="Schedule.xaml">
-      <SubType>Designer</SubType>
+    <Page Include="Views\Admin.xaml">
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Cabinet.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ChangeFlight.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\DeleteFlight.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\FindPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Menu.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\MyTickets.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Payment.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Personal_Information.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Registration.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Schedule.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Menu.xaml.cs">
-      <DependentUpon>Menu.xaml</DependentUpon>
-    </Compile>
+    <Compile Include="Commands\RelayCommand.cs" />
+    <Compile Include="Helpers\ApplicationContext.cs" />
+    <Compile Include="Helpers\Class1.cs" />
+    <Compile Include="Models\Airplane.cs" />
+    <Compile Include="Models\Airport.cs" />
+    <Compile Include="Models\Customer.cs" />
+    <Compile Include="Models\Flight.cs" />
+    <Compile Include="Models\Payment.cs" />
+    <Compile Include="Models\PersonalInformation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -271,4 +259,12 @@
     <Resource Include="Photos\exit.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Данный проект ссылается на пакеты NuGet, отсутствующие на этом компьютере. Используйте восстановление пакетов NuGet, чтобы скачать их.  Дополнительную информацию см. по адресу: http://go.microsoft.com/fwlink/?LinkID=322105. Отсутствует следующий файл: {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\EntityFramework.6.3.0\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.3.0\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.3.0\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.3.0\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.3.0\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.3.0\build\EntityFramework.targets')" />
 </Project>

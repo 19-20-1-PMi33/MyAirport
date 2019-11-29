@@ -1,0 +1,26 @@
+﻿<Page x:Class="PI.Views.Schedule"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:PI"
+      mc:Ignorable="d" 
+      d:DesignHeight="500" d:DesignWidth="700"
+      Loaded="Page_Loaded"
+      Title="Schedule">
+
+    <Grid Margin="-5,-5,-5,0">
+        <Grid.Background>
+            <LinearGradientBrush>
+                <GradientStop Color="#DCDCDC"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <StackPanel>
+            <StackPanel Orientation="Horizontal" Height="75" Margin="0,30,0,0">
+                <DatePicker Margin="115,26,150,25" FontSize="12" Width="158" Name="FindDatePicker"/>
+                <Button Width="170" Margin="0,10" FontSize="20" Foreground="Black" x:Name="FindButton" Content="Find" Click="FindButton_Click" FontWeight="DemiBold"/>
+            </StackPanel>
+            <DataGrid Height="350" Margin="25,15,25,0" Name="FindDataGrid"/>
+        </StackPanel>
+    </Grid>
+</Page>
