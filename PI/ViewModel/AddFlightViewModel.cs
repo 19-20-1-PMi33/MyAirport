@@ -1,11 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.ComponentModel;
 using System.Data.Entity;
-using System.Windows;
 using System.Runtime.CompilerServices;
 using PI.Models;
 using PI.Helpers;
@@ -19,10 +16,7 @@ namespace PI.ViewModel
         List<string> _Airports;
         List<int> _Airplanes;
 
-        string _DepartTown, _ArriveTown, _Airline;
-        DateTime _DepartDate, _ArriveDate;
-        DateTime _ArriveTime, _DepartTime;
-        int _AirplaneId;
+        
 
         public AddFlightViewModel()
         {
@@ -38,78 +32,14 @@ namespace PI.ViewModel
             DepartDate = ArriveDate = DateTime.Now;
         }
         
-        public string DepartTown
-        {
-            get => _DepartTown;
-            set
-            {
-                _DepartTown = value;
-                OnPropertyChanged("DepartTown");
-            }
-        }
-        public string ArriveTown
-        {
-            get => _ArriveTown;
-            set
-            {
-                _ArriveTown = value;
-                OnPropertyChanged("ArriveTown");
-            }
-        }
-        public string Airline
-        {
-            get => _Airline;
-            set
-            {
-                _Airline = value;
-                OnPropertyChanged("Airline");
-            }
-        }
-        public int AirplaneId
-        {
-            get => _AirplaneId;
-            set
-            {
-                _AirplaneId = value;
-                OnPropertyChanged("AirplaneId");
-            }
-        }
-        public DateTime DepartDate
-        {
-            get => _DepartDate;
-            set
-            {
-                _DepartDate = value;
-                OnPropertyChanged("DepartDate");
-            }
-        }
-        public DateTime ArriveDate
-        {
-            get => _ArriveDate;
-            set
-            {
-                _ArriveDate = value;
-                OnPropertyChanged("ArriveDate");
-            }
-        }
-        public DateTime DepartTime
-        {
-            get => _DepartTime;
-            set
-            {
-                _DepartTime = value;
-                OnPropertyChanged("DepartTime");
-            }
-        }
-        public DateTime ArriveTime
-        {
-            get => _ArriveTime;
-            set
-            {
-                _ArriveTime = value;
-                OnPropertyChanged("ArriveTime");
-            }
-        }
+        public string DepartTown { get; set; }
+        public string ArriveTown { get; set; }
+        public string Airline { get; set; }
+        public int AirplaneId { get; set; }
+        public DateTime DepartDate { get; set; }
+        public DateTime ArriveDate { get; set; }
+        public DateTime DepartTime { get; set; }
+        public DateTime ArriveTime { get; set; }
 
         public List<string> Airports
         {

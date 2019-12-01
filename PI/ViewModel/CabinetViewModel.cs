@@ -1,19 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.ComponentModel;
-using System.Windows;
+﻿using System.Windows;
 using System.Data.Entity;
-using System.Runtime.CompilerServices;
-using PI.Models;
 using PI.Helpers;
 using PI.Commands;
 
 namespace PI.ViewModel
 {
-    public class CabinetViewModel : INotifyPropertyChanged
+    public class CabinetViewModel
     {
         ApplicationContext db;
 
@@ -23,72 +15,15 @@ namespace PI.ViewModel
             db.Customer.Load();
             this.Login = Login;
         }
-
-        private string _OldPassword;
-        private string _NewPassword;
-        private string _RepeatNewPassword;
-
-        private string _OldEmail;
-        private string _NewEmail;
-        private string _RepeatNewEmail;
-
         public string Login { get; private set; }
 
-        public string OldPassword
-        {
-            get => _OldPassword;
-            set
-            {
-                _OldPassword = value;
-                OnPropertyChanged("OldPassword");
-            }
-        }
-        public string NewPassword
-        {
-            get => _NewPassword;
-            set
-            {
-                _NewPassword = value;
-                OnPropertyChanged("NewPassword");
-            }
-        }
-        public string RepeatNewPassword
-        {
-            get => _RepeatNewPassword;
-            set
-            {
-                _RepeatNewPassword = value;
-                OnPropertyChanged("RepeatNewPassword");
-            }
-        }
+        public string OldPassword { get; set; }
+        public string NewPassword { get; set; }
+        public string RepeatNewPassword { get; set; }
 
-        public string OldEmail
-        {
-            get => _OldEmail;
-            set
-            {
-                _OldEmail = value;
-                OnPropertyChanged("OldEmail");
-            }
-        }
-        public string NewEmail
-        {
-            get => _NewEmail;
-            set
-            {
-                _NewEmail = value;
-                OnPropertyChanged("NewEmail");
-            }
-        }
-        public string RepeatNewEmail
-        {
-            get => _RepeatNewEmail;
-            set
-            {
-                _RepeatNewEmail = value;
-                OnPropertyChanged("RepeatNewEmail");
-            }
-        }
+        public string OldEmail { get; set; }
+        public string NewEmail { get; set; }
+        public string RepeatNewEmail { get; set; }
 
         public RelayCommand ChangePasswordCommand
         {
@@ -147,14 +82,6 @@ namespace PI.ViewModel
                     }
                 });
             }
-        }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        public void OnPropertyChanged([CallerMemberName]string prop = "")
-        {
-            if (PropertyChanged != null)
-                PropertyChanged(this, new PropertyChangedEventArgs(prop));
         }
     }
 }

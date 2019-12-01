@@ -1,17 +1,13 @@
-﻿using System.ComponentModel;
-using System.Data.Entity;
-using System.Runtime.CompilerServices;
+﻿using System.Data.Entity;
 using PI.Models;
 using PI.Helpers;
 using PI.Commands;
 
 namespace PI.ViewModel
 {
-    class AddAirportViewModel : INotifyPropertyChanged
+    class AddAirportViewModel 
     {
         ApplicationContext db;
-
-        private string _City,_Country,_IATA;
 
         public AddAirportViewModel()
         {
@@ -21,26 +17,9 @@ namespace PI.ViewModel
 
         public string City { get; set; }
         
+        public string Country { get; set; }
 
-        public string Country
-        {
-            get => _Country;
-            set
-            {
-                _Country = value;
-                OnPropertyChanged("Country");
-            }
-        }
-
-        public string IATA
-        {
-            get => _IATA;
-            set
-            {
-                _IATA = value;
-                OnPropertyChanged("IATA");
-            }
-        }
+        public string IATA { get; set; }
 
         public RelayCommand AddAirportCommand
         {
@@ -57,14 +36,6 @@ namespace PI.ViewModel
                     City = Country = IATA = "";
                 });
             }
-        }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        public void OnPropertyChanged([CallerMemberName]string prop = "")
-        {
-            if (PropertyChanged != null)
-                PropertyChanged(this, new PropertyChangedEventArgs(prop));
         }
     }
 }

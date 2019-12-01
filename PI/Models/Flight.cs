@@ -4,12 +4,9 @@ namespace PI.Models
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
-    using System.Data.Entity.Spatial;
-    using System.ComponentModel;
-    using System.Runtime.CompilerServices;
 
     [Table("Flight")]
-    public partial class Flight : INotifyPropertyChanged
+    public partial class Flight
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Flight()
@@ -17,7 +14,6 @@ namespace PI.Models
             PersonalInformation = new HashSet<PersonalInformation>();
         }
 
-        //private DateTime _DepartDate;
         public int Id { get; set; }
 
         [Required]
@@ -52,13 +48,5 @@ namespace PI.Models
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PersonalInformation> PersonalInformation { get; set; }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        public void OnPropertyChanged([CallerMemberName]string prop = "")
-        {
-            if (PropertyChanged != null)
-                PropertyChanged(this, new PropertyChangedEventArgs(prop));
-        }
     }
 }

@@ -30,41 +30,9 @@ namespace PI.Views
                 DragMove();
             }
         }
-        private void Pay_Click(object sender, RoutedEventArgs e)
-        {
-            //try
-            //{
-            //    string connectionString = ConfigurationManager.ConnectionStrings["MainConnection"].ConnectionString;
-            //    using (SqlConnection connection = new SqlConnection(connectionString))
-            //    {
-            //        connection.Open();
-            //        foreach (var query in Class1.ListOfQueries)
-            //        {
-            //            SqlCommand command = new SqlCommand(query, connection);
-            //            command.ExecuteNonQuery();
-            //        }
-            //        string query1 = $"INSERT INTO Payment (CardNumber,CardType,CardOwner,ExpirationDate,CVC,Sum,Login) " +
-            //            $"VALUES ('{CardNumber.Text}','{CardType.Text}','{CardOwner.Text}',CONVERT(date, '{ExpirationDate.Text}', 104),'{Cvc.Text}','{Class1.Sum}','{Login}')";
-            //        SqlCommand command1 = new SqlCommand(query1, connection);
-            //        command1.ExecuteNonQuery();
-            //        connection.Close();
-            //        this.Visibility = Visibility.Hidden;
-            //    }
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show(ex.Message);
-            //}
-        }
-
         private void ExitButton_Click(object sender, RoutedEventArgs e)
         {
             this.Visibility = Visibility.Hidden;
-        }
-
-        private void Window_Loaded(object sender, RoutedEventArgs e)
-        {
-            //TotalSum.Text = $"${Class1.Sum}";
         }
     }
 }

@@ -6,8 +6,6 @@ using System.Linq;
 using PI.Models;
 using PI.Helpers;
 using PI.Commands;
-using System;
-using System.Windows;
 
 namespace PI.ViewModel
 {

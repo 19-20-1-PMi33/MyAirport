@@ -11,10 +11,6 @@ namespace PI.Views
     /// </summary>
     public partial class Personal_Information : Window
     {
-        public Personal_Information()
-        {
-            InitializeComponent();
-        }
         public Personal_Information(string Login, int IdFlight)
         {
             this.IdFlight = IdFlight;

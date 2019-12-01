@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.ComponentModel;
 using System.Data.Entity;
 using System.Windows;
@@ -21,6 +19,16 @@ namespace PI.ViewModel
         DateTime _SelectedDate;
         DateTime _DateStart;
         Flight _SelectedFlight;
+        
+        public AirportViewModel()
+        {
+            db = new ApplicationContext();
+            db.Flight.Load();
+            _Flights = db.Flight.Local.ToBindingList()
+                .OrderBy(x => x.DepartDate)
+                .ThenBy(x => x.DepartTime).ToList();
+            SelectedDate = DateStart = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day);
+        }
 
         public AirportViewModel(string Login)
         {

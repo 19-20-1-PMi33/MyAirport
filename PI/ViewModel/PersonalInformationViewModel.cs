@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.ComponentModel;
-using System.Data.Entity;
 using System.Windows;
 using System.Runtime.CompilerServices;
 using PI.Models;
@@ -21,7 +17,6 @@ namespace PI.ViewModel
             this.FlightId = FlightId;
             BirthDate = DateTime.Now;
         }
-
 
         public string SecondName { get; set; }
         public string FirstName { get; set; }
