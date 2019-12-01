@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PI"
+        xmlns:ff="clr-namespace:PI.Helpers"
         xmlns:wpfTool="clr-namespace:Xceed.Wpf.Toolkit;assembly=Xceed.Wpf.Toolkit"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="380"
@@ -89,7 +90,7 @@
                 </StackPanel>
                 <Border Style="{StaticResource BorderStyle}"/>
                 <StackPanel Orientation="Horizontal" Margin="0,20,0,0">
-                    <TextBox Text="{Binding Password}" Name="Password" Style="{StaticResource PasswordBoxStyle}" FontFamily="../Fonts/password.ttf"/>
+                    <PasswordBox Style="{StaticResource PasswordBoxStyle}" x:Name="PasswordBox" ff:PasswordHelper.Attach="true"  ff:PasswordHelper.Password="{Binding Path=Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                 </StackPanel>
                 <Border Style="{StaticResource BorderStyle}"/>
 

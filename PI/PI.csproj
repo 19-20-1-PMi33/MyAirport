@@ -99,6 +99,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Helpers\PasswordHelper.cs" />
     <Compile Include="ViewModel\AddAirplaneViewModel.cs" />
     <Compile Include="ViewModel\AddAirportViewModel.cs" />
     <Compile Include="ViewModel\AddFlightViewModel.cs" />

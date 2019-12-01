@@ -4,6 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:PI"
+      xmlns:ff="clr-namespace:PI.Helpers"
       mc:Ignorable="d" 
       d:DesignHeight="500" d:DesignWidth="700"
       Title="Cabinet">
@@ -25,17 +26,17 @@
             <Setter Property="Control.Foreground" Value="Black"/>
             <Setter Property="Control.Background" Value="Transparent"/>
         </Style>
-        <Style TargetType="TextBox">
-            <Setter Property="FontFamily" Value="Helvetica"/>
-            <Setter Property="FontSize" Value="20"/>
-            <Setter Property="HorizontalAlignment" Value="Center"/>
-            <Setter Property="Foreground" Value="Black"/>
-            <Setter Property="Background" Value="Transparent"/>
-            <Setter Property="BorderThickness" Value="0"/>
-            <Setter Property="Width" Value="235"/>
-            <Setter Property="HorizontalContentAlignment" Value="Left"/>
-            <Setter Property="Opacity" Value="0.5"/>
-            <Setter Property="Height" Value="25"/>
+        <Style x:Key="TextPasswordBox">
+            <Setter Property="Control.FontFamily" Value="Helvetica"/>
+            <Setter Property="Control.FontSize" Value="20"/>
+            <Setter Property="Control.HorizontalAlignment" Value="Center"/>
+            <Setter Property="Control.Foreground" Value="Black"/>
+            <Setter Property="Control.Background" Value="Transparent"/>
+            <Setter Property="Control.BorderThickness" Value="0"/>
+            <Setter Property="Control.Width" Value="235"/>
+            <Setter Property="Control.HorizontalContentAlignment" Value="Left"/>
+            <Setter Property="Control.Opacity" Value="0.5"/>
+            <Setter Property="Control.Height" Value="25"/>
         </Style>
         <Style x:Key="BorderStyle">
             <Setter Property="Control.Width" Value="235"/>
@@ -56,17 +57,17 @@
             <StackPanel Orientation="Vertical" Height="200">
                 <StackPanel Orientation="Vertical">
                     <Label Content="Old password" Style="{StaticResource LabelStyle}"/>
-                    <TextBox Text="{Binding OldPassword}"/>
+                    <PasswordBox ff:PasswordHelper.Attach="true"  ff:PasswordHelper.Password="{Binding Path=OldPassword, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource TextPasswordBox}"/>
                     <Border Style="{StaticResource BorderStyle}"/>
                 </StackPanel>
                 <StackPanel Orientation="Vertical">
                     <Label Content="New password" Style="{StaticResource LabelStyle}"/>
-                    <TextBox Text="{Binding NewPassword}"/>
+                    <PasswordBox  ff:PasswordHelper.Attach="true"  ff:PasswordHelper.Password="{Binding Path=NewPassword, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource TextPasswordBox}"/>
                     <Border Style="{StaticResource BorderStyle}"/>
                 </StackPanel>
                 <StackPanel Orientation="Vertical">
                     <Label Content="Repeat new password" Style="{StaticResource LabelStyle}"/>
-                    <TextBox Text="{Binding RepeatNewPassword}"/>
+                    <PasswordBox ff:PasswordHelper.Attach="true"  ff:PasswordHelper.Password="{Binding Path=RepeatNewPassword, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource TextPasswordBox}"/>
                     <Border Style="{StaticResource BorderStyle}"/>
                 </StackPanel>
             </StackPanel>
@@ -78,17 +79,17 @@
             <StackPanel Orientation="Vertical" Height="200">
                 <StackPanel Orientation="Vertical">
                     <Label Content="Old email" Style="{StaticResource LabelStyle}"/>
-                    <TextBox Text="{Binding OldEmail}"/>
+                    <TextBox Text="{Binding OldEmail}" Style="{StaticResource TextPasswordBox}"/>
                     <Border Style="{StaticResource BorderStyle}"/>
                 </StackPanel>
                 <StackPanel Orientation="Vertical">
                     <Label Content="New email" Style="{StaticResource LabelStyle}"/>
-                    <TextBox Text="{Binding NewEmail}"/>
+                    <TextBox Text="{Binding NewEmail}" Style="{StaticResource TextPasswordBox}"/>
                     <Border Style="{StaticResource BorderStyle}"/>
                 </StackPanel>
                 <StackPanel Orientation="Vertical">
                     <Label Content="Repeat new email" Style="{StaticResource LabelStyle}"/>
-                    <TextBox Text="{Binding RepeatNewEmail}"/>
+                    <TextBox Text="{Binding RepeatNewEmail}" Style="{StaticResource TextPasswordBox}"/>
                     <Border Style="{StaticResource BorderStyle}"/>
                 </StackPanel>
             </StackPanel>
