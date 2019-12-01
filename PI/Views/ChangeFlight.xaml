@@ -14,10 +14,21 @@
             </LinearGradientBrush>
         </Grid.Background>
         <StackPanel>
-            <DataGrid Height="350" Margin="25,40,25,5" Name="DeleteDateGrid"/>
+            <DataGrid Height="350" Margin="25,40,25,5" SelectedItem="{Binding SelectedFlight}" ItemsSource="{Binding Flights}" AutoGenerateColumns="False">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
+                    <DataGridTextColumn Header="Depart City" Binding="{Binding DepartCity}"/>
+                    <DataGridTextColumn Header="Arrive City" Binding="{Binding ArriveCity}"/>
+                    <DataGridTextColumn Header="Depart Date" Binding="{Binding DepartDate, StringFormat=d, ConverterCulture=en-GB}"/>
+                    <DataGridTextColumn Header="Depart Time" Binding="{Binding DepartTime, StringFormat=hh\\:mm}"/>
+                    <DataGridTextColumn Header="Arrive Date" Binding="{Binding ArriveDate, StringFormat=d, ConverterCulture=en-GB}"/>
+                    <DataGridTextColumn Header="Arrive Time" Binding="{Binding ArriveTime, StringFormat=hh\\:mm}"/>
+                    <DataGridTextColumn Header="Airline" Binding="{Binding Airline}"/>
+                    <DataGridTextColumn Header="Airplane" Binding="{Binding AirplaneID}"/>
+                </DataGrid.Columns>
+            </DataGrid>
             <StackPanel Orientation="Horizontal" Margin="0,0,0,0" Height="100">
-                <Button Height="70" Margin="80,15,0,15" Name="UpdateButton" Content="Update" Click="UpdateButton_Click" Width="140" FontSize="20" Foreground="Black" FontWeight="DemiBold" FontFamily="Helvetica"/>
-                <Button Height="70" Margin="250,15,0,15" Name="ChangeFlightButton" Content="Change" Click="ChangeFlightButton_Click" Width="140" Foreground="Black" FontWeight="DemiBold" FontSize="20" FontFamily="Helvetica"/>
+                <Button Height="70" Margin="250,15,0,15" Command="{Binding ChangeFlightCommand}" Content="Change" Width="193" FontWeight="DemiBold" FontSize="20"/>
             </StackPanel>
         </StackPanel>
     </Grid>

@@ -8,7 +8,7 @@
       mc:Ignorable="d" 
       d:DesignHeight="500" d:DesignWidth="700"
       Title="FindPage"
-      Loaded="Page_Loaded">
+      >
 
     <Page.Resources>
         <Style TargetType="TextBlock">
@@ -41,16 +41,15 @@
         <Grid>
             <StackPanel Margin="16,10,483,432" Width="206">
                 <TextBlock Text="Depart Airport" />
-                <ComboBox DataContext="1" Name="DepartAirport" Style="{StaticResource ComboBoxFlatStyle}"/>
+                <ComboBox ItemsSource="{Binding Airports}" SelectedItem="{Binding DepartCity}" Name="DepartAirport" Style="{StaticResource ComboBoxFlatStyle}"/>
             </StackPanel>
             <StackPanel Margin="262,10,237,432" Width="206">
                 <TextBlock Text="Arrival Airport"/>
-                <ComboBox DataContext="1" x:Name="ArrivalAirport" Style="{StaticResource ComboBoxFlatStyle}"/>
+                <ComboBox ItemsSource="{Binding Airports}" SelectedItem="{Binding ArriveCity}" x:Name="ArrivalAirport" Style="{StaticResource ComboBoxFlatStyle}"/>
             </StackPanel>
             <StackPanel Margin="492,10,7,432" Width="206">
                 <TextBlock Text="Date"/>
-                <DatePicker Name="DatePicker" Height="24" DisplayDateStart="11.01.2019" DisplayDateEnd="12.31.2019"/>
-
+                <DatePicker Name="DatePicker" Height="24" SelectedDate="{Binding SelectedDate}" DisplayDateStart="11.01.2019" DisplayDateEnd="12.31.2019"/>
             </StackPanel>
             <StackPanel Margin="16,78,483,366" Width="206">
                 <TextBlock Text="Adult"/>
@@ -91,9 +90,21 @@
                     <ComboBoxItem Content="7"/>
                 </ComboBox>
             </StackPanel>
-            <Button Margin="72,164,483,311" Name ="SearchFlights" Content="Search" FontSize="20"  Foreground="Black" FontWeight="DemiBold" VerticalAlignment="Center" HorizontalAlignment="Stretch" Height="30" Click="SearchFlights_Click"/>
-            <Button Margin="492,164,63,311" Name ="ReserveTicket" Content="Reserve" FontSize="20" Foreground="Black" FontWeight="DemiBold" VerticalAlignment="Center" HorizontalAlignment="Stretch" Height="30" Click="ReserveTicket_Click" RenderTransformOrigin="0.064,0.529"/>
-            <DataGrid x:Name="dataGrid" HorizontalAlignment="Left" Height="277" Margin="15,218,15,15" VerticalAlignment="Top" Width="679"/>
+            <Button Margin="72,164,483,311" Name ="SearchFlights" Command="{Binding FindFlightsCommand}" Content="Search" FontSize="20"  Foreground="Black" FontWeight="DemiBold" VerticalAlignment="Center" HorizontalAlignment="Stretch" Height="30"/>
+            <Button Margin="492,164,63,311" Name ="ReserveTicket" Command="{Binding ReserveTicketCommand}" Content="Reserve" FontSize="20" Foreground="Black" FontWeight="DemiBold" VerticalAlignment="Center" HorizontalAlignment="Stretch" Height="30" RenderTransformOrigin="0.064,0.529"/>
+            <DataGrid x:Name="dataGrid" SelectedItem="{Binding SelectedFlight}" ItemsSource="{Binding Flights}" HorizontalAlignment="Left" Height="277" Margin="15,218,15,15" VerticalAlignment="Top" Width="679" AutoGenerateColumns="False">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
+                    <DataGridTextColumn Header="Depart City" Binding="{Binding DepartCity}"/>
+                    <DataGridTextColumn Header="Arrive City" Binding="{Binding ArriveCity}"/>
+                    <DataGridTextColumn Header="Depart Date" Binding="{Binding DepartDate, StringFormat=d, ConverterCulture=en-GB}"/>
+                    <DataGridTextColumn Header="Depart Time" Binding="{Binding DepartTime, StringFormat=hh\\:mm}"/>
+                    <DataGridTextColumn Header="Arrive Date" Binding="{Binding ArriveDate, StringFormat=d, ConverterCulture=en-GB}"/>
+                    <DataGridTextColumn Header="Arrive Time" Binding="{Binding ArriveTime, StringFormat=hh\\:mm}"/>
+                    <DataGridTextColumn Header="Airline" Binding="{Binding Airline}"/>
+                    <DataGridTextColumn Header="Airplane" Binding="{Binding AirplaneID}"/>
+                </DataGrid.Columns>
+            </DataGrid>
         </Grid>
     </Grid>
 </Page>

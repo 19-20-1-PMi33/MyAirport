@@ -4,6 +4,7 @@ namespace PI.Helpers
     using System.Data.Entity;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Linq;
+    using System.Collections.Generic;
     using PI.Models;
 
     public partial class ApplicationContext : DbContext

@@ -16,54 +16,54 @@ namespace PI.Models
         {
             Payment = new HashSet<Payment>();
         }
-        private string _Login;
-        private string _Password;
-        private string _Email;
+        //private string _Login;
+        //private string _Password;
+        //private string _Email;
 
         [Key]
         [StringLength(50)]
-        public string Login
-        {
-            get
-            {
-                return _Login;
-            }
-            set
-            {
-                _Login = value;
-                OnPropertyChanged("Login");
-            }
-        }
+        public string Login { get; set; }
+        //{
+        //    get
+        //    {
+        //        return _Login;
+        //    }
+        //    set
+        //    {
+        //        _Login = value;
+        //        OnPropertyChanged("Login");
+        //    }
+        //}
 
         [Required]
         [StringLength(50)]
-        public string Password
-        {
-            get
-            {
-                return _Password;
-            }
-            set
-            {
-                _Password = value;
-                OnPropertyChanged("Password");
-            }
-        }
+        public string Password { get; set; }
+        //{
+        //    get
+        //    {
+        //        return _Password;
+        //    }
+        //    set
+        //    {
+        //        _Password = value;
+        //        OnPropertyChanged("Password");
+        //    }
+        //}
 
         [Required]
         [StringLength(50)]
-        public string Email
-        {
-            get
-            {
-                return _Email;
-            }
-            set
-            {
-                _Email = value;
-                OnPropertyChanged("Email");
-            }
-        }
+        public string Email { get; set; }
+        //{
+        //    get
+        //    {
+        //        return _Email;
+        //    }
+        //    set
+        //    {
+        //        _Email = value;
+        //        OnPropertyChanged("Email");
+        //    }
+        //}
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Payment> Payment { get; set; }

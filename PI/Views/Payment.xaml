@@ -50,7 +50,7 @@
                         <GradientStop Color="#DCDCDC"/>
                     </LinearGradientBrush>
                 </Border.Background>
-                <Button Margin="151,337,156,61" x:Name="Pay" Click="Pay_Click" Content="Pay" FontSize="20" Foreground="Black" HorizontalAlignment="Center" Width="143" FontWeight="DemiBold"/>
+                <Button Margin="151,337,156,61" x:Name="Pay" Command="{Binding PayCommand}" Content="Pay" FontSize="20" Foreground="Black" HorizontalAlignment="Center" Width="143" FontWeight="DemiBold"/>
             </Border>
             <Button Content="X" Name="ExitButton" 
                         Click="ExitButton_Click" HorizontalAlignment="Left" 
@@ -64,33 +64,33 @@
             </StackPanel>
             <StackPanel Orientation="Vertical" Margin="0,69,280,318">
                 <Label Content="Total sum:" Margin="10,0" Width="150"/>
-                <TextBox Name="TotalSum" Margin="10,0" IsReadOnly="True"/>
+                <TextBox Text="{Binding Sum}" Name="TotalSum" Margin="10,0" IsReadOnly="True"/>
                 <Border Style="{StaticResource BorderStyle}" Margin="10,0" />
             </StackPanel>
             <StackPanel Orientation="Vertical" Margin="0,137,280,234">
                 <Label Content="Card Type:" Margin="10,0" Width="150"/>
-                <ComboBox Name="CardType" Margin="10,0" Style="{StaticResource ComboBoxFlatStyle}" Height="30">
+                <ComboBox Name="CardType" SelectedItem="{Binding CardType}" Margin="10,0" Style="{StaticResource ComboBoxFlatStyle}" Height="30">
                     <ComboBoxItem Content="Master Card"/>
                     <ComboBoxItem Content="Visa"/>
                 </ComboBox>
             </StackPanel>
             <StackPanel Orientation="Vertical" Margin="270,69,10,318">
                 <Label Content="Card Owner:" Margin="10,0" Width="150"/>
-                <TextBox Name="CardOwner" Margin="10,0" />
+                <TextBox Text="{Binding CardOwner}" Name="CardOwner" Margin="10,0" />
                 <Border Style="{StaticResource BorderStyle}" Margin="10,0"/>
             </StackPanel>
             <StackPanel Orientation="Vertical" Margin="270,137,10,234">
                 <Label Content="Expiration Date:" Margin="10,0" Width="150"/>
-                <DatePicker Name="ExpirationDate" Margin="10,0" />
+                <DatePicker SelectedDate="{Binding ExpirationDate}" Name="ExpirationDate" Margin="10,0" />
             </StackPanel>
             <StackPanel Orientation="Vertical" Margin="270,205,10,166">
                 <Label Content="CVC Number(3):" Margin="10,0" Width="150"/>
-                <TextBox Name="Cvc" Margin="10,0" />
+                <TextBox Text="{Binding CVC}" Name="Cvc" Margin="10,0" />
                 <Border Style="{StaticResource BorderStyle}" Margin="10,0"/>
             </StackPanel>
             <StackPanel Orientation="Vertical" Margin="0,205,280,166">
                 <Label Content="Card Number:" Margin="10,0" Width="150"/>
-                <TextBox x:Name="CardNumber" Margin="10,0"/>
+                <TextBox Text="{Binding CardNumber}"  x:Name="CardNumber" Margin="10,0"/>
                 <Border Style="{StaticResource BorderStyle}" Margin="10,0"/>
             </StackPanel>
         </Grid>

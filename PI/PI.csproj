@@ -99,7 +99,18 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="ViewModel\ApplicationViewModel.cs" />
+    <Compile Include="Interfaces\IClosable.cs" />
+    <Compile Include="ViewModel\AddAirplaneViewModel.cs" />
+    <Compile Include="ViewModel\AddAirportViewModel.cs" />
+    <Compile Include="ViewModel\AddFlightViewModel.cs" />
+    <Compile Include="ViewModel\AirportViewModel.cs" />
+    <Compile Include="ViewModel\CabinetViewModel.cs" />
+    <Compile Include="ViewModel\ChangeDeleteFlightViewModel.cs" />
+    <Compile Include="ViewModel\LoginRegistrationViewModel.cs" />
+    <Compile Include="ViewModel\MyTicketsViewModel.cs" />
+    <Compile Include="ViewModel\PaymentViewModel.cs" />
+    <Compile Include="ViewModel\PersonalInformationViewModel.cs" />
+    <Compile Include="ViewModel\ScheduleViewModel.cs" />
     <Compile Include="Views\AddAirplane.xaml.cs" />
     <Compile Include="Views\AddAirport.xaml.cs" />
     <Compile Include="Views\AddFlight.xaml.cs" />

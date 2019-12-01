@@ -56,21 +56,21 @@
             <StackPanel Orientation="Vertical" Height="200">
                 <StackPanel Orientation="Vertical">
                     <Label Content="Old password" Style="{StaticResource LabelStyle}"/>
-                    <TextBox Name="Old_Password"/>
+                    <TextBox Text="{Binding OldPassword}"/>
                     <Border Style="{StaticResource BorderStyle}"/>
                 </StackPanel>
                 <StackPanel Orientation="Vertical">
                     <Label Content="New password" Style="{StaticResource LabelStyle}"/>
-                    <TextBox Name="Password"/>
+                    <TextBox Text="{Binding NewPassword}"/>
                     <Border Style="{StaticResource BorderStyle}"/>
                 </StackPanel>
                 <StackPanel Orientation="Vertical">
                     <Label Content="Repeat new password" Style="{StaticResource LabelStyle}"/>
-                    <TextBox Name="Password_check"/>
+                    <TextBox Text="{Binding RepeatNewPassword}"/>
                     <Border Style="{StaticResource BorderStyle}"/>
                 </StackPanel>
             </StackPanel>
-            <Button Name="Password_Button" Width="100" Height="40" Content="Change" Margin="60,0,60,0" Foreground="Black" FontWeight="DemiBold" Click="Password_Button_Click"/>
+            <Button Name="Password_Button" Width="100" Height="40" Content="Change" Margin="60,0,60,0" Foreground="Black" FontWeight="DemiBold" Command="{Binding ChangePasswordCommand}"/>
         </StackPanel>
 
         <StackPanel HorizontalAlignment="Left" Height="500" VerticalAlignment="Top" Width="355" Margin="350,0,0,0">
@@ -78,21 +78,21 @@
             <StackPanel Orientation="Vertical" Height="200">
                 <StackPanel Orientation="Vertical">
                     <Label Content="Old email" Style="{StaticResource LabelStyle}"/>
-                    <TextBox Name="Old_Email"/>
+                    <TextBox Text="{Binding OldEmail}"/>
                     <Border Style="{StaticResource BorderStyle}"/>
                 </StackPanel>
                 <StackPanel Orientation="Vertical">
                     <Label Content="New email" Style="{StaticResource LabelStyle}"/>
-                    <TextBox Name="Email"/>
+                    <TextBox Text="{Binding NewEmail}"/>
                     <Border Style="{StaticResource BorderStyle}"/>
                 </StackPanel>
                 <StackPanel Orientation="Vertical">
                     <Label Content="Repeat new email" Style="{StaticResource LabelStyle}"/>
-                    <TextBox Name="Email_check"/>
+                    <TextBox Text="{Binding RepeatNewEmail}"/>
                     <Border Style="{StaticResource BorderStyle}"/>
                 </StackPanel>
             </StackPanel>
-            <Button Name="Email_Button" Width="100" Height="40" Content="Change" Margin="60,0,60,0" Foreground="Black" FontWeight="DemiBold" Click="Email_Button_Click"/>
+            <Button Name="Email_Button" Width="100" Height="40" Content="Change" Margin="60,0,60,0" Command="{Binding ChangeEmailCommand}"/>
         </StackPanel>
     </Grid>
 </Page>

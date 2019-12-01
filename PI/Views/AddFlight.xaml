@@ -7,8 +7,7 @@
       xmlns:wpfTool="clr-namespace:Xceed.Wpf.Toolkit;assembly=Xceed.Wpf.Toolkit"
       mc:Ignorable="d" 
       d:DesignHeight="500" d:DesignWidth="700"
-      Title="AddFlight"
-      Loaded="Page_Loaded">
+      Title="AddFlight">
     <Page.Resources>
         <Style TargetType="Label">
             <Setter Property="FontFamily" Value="Helvetica"/>
@@ -50,37 +49,37 @@
         </Grid.Background>
         <StackPanel Orientation="Vertical" Margin="0,0,380,410">
             <Label Content="Depart Town:" Margin="78,30,60,0"/>
-            <ComboBox Name="DepartCityComboBox" Margin="78,0,60,0" Style="{StaticResource ComboBoxFlatStyle}" Height="30"/>
+            <ComboBox ItemsSource="{Binding Airports}" SelectedItem="{Binding DepartTown}" Margin="78,0,60,0" Style="{StaticResource ComboBoxFlatStyle}" Height="30"/>
         </StackPanel>
         <StackPanel Orientation="Vertical" Margin="0,69,380,336">
             <Label Content="Depart Date:" Margin="78,30,60,0"/>
-            <DatePicker Name="DepartDate" Margin="78,0,60,0"/>
+            <DatePicker SelectedDate="{Binding DepartDate}" DisplayDateStart="{Binding DepartDate}" DisplayDateEnd="12/31/2019" Margin="78,0,60,0"/>
         </StackPanel>
         <StackPanel Orientation="Vertical" Margin="0,142,380,239">
             <Label Content="Depart Time:" Margin="78,30,60,0"/>
         </StackPanel>
         <StackPanel Orientation="Vertical" Margin="350,0,30,410">
             <Label Content="Arrival Town:" Margin="78,30,60,0"/>
-            <ComboBox Name="ArrivalCityComboBox" Margin="78,0,60,0" Style="{StaticResource ComboBoxFlatStyle}" Height="30"/>
+            <ComboBox ItemsSource="{Binding Airports}" SelectedItem="{Binding ArriveTown}" Margin="78,0,60,0" Style="{StaticResource ComboBoxFlatStyle}" Height="30"/>
         </StackPanel>
         <StackPanel Orientation="Vertical" Margin="350,69,30,336">
             <Label Content="Arrival Date:" Margin="78,30,60,0"/>
-            <DatePicker Name="ArrivalDate" Margin="78,0,60,0" RenderTransformOrigin="0.97,9.521"/>
+            <DatePicker Name="ArrivalDate" SelectedDate="{Binding ArriveDate}" DisplayDateStart="{Binding ArriveDate}" DisplayDateEnd="12/31/2019" Margin="78,0,60,0" RenderTransformOrigin="0.97,9.521"/>
         </StackPanel>
         <StackPanel Orientation="Vertical" Margin="350,142,30,239">
             <Label Content="Arrival Time:" Margin="78,30,60,0"/>
         </StackPanel>
-        <Button Height="76" Margin="206,388,217,36" Name="ConfimAddFlight" Click="ConfimAddFlight_Click" Content="Add Flight" FontSize="20" FontWeight="DemiBold" Foreground="Black" HorizontalAlignment="Center" Width="277"/>
+        <Button Height="76" Margin="206,388,217,36" Command="{Binding AddFlightCommand}" Content="Add Flight" FontSize="20" FontWeight="DemiBold" Width="277"/>
         <StackPanel Orientation="Vertical" Margin="0,229,380,181">
             <Label Content="Aiplane's id:" Margin="78,30,60,0"/>
-            <ComboBox x:Name="AiplaneIdComboBox" Margin="78,0,60,0" Style="{StaticResource ComboBoxFlatStyle}" Height="30"/>
+            <ComboBox ItemsSource="{Binding Airplanes}" SelectedItem="{Binding AirplaneId}"  Margin="78,0,60,0" Style="{StaticResource ComboBoxFlatStyle}" Height="30"/>
         </StackPanel>
         <StackPanel Orientation="Vertical" Margin="350,229,30,181">
             <Label Content="Airline:" Margin="78,30,60,0"/>
-            <TextBox Margin="78,0,60,0" x:Name="AirlineBox"/>
+            <TextBox Text="{Binding Airline}" Margin="78,0,60,0" />
             <Border Style="{StaticResource BorderStyle}" Margin="78,0,60,0"/>
         </StackPanel>
-        <wpfTool:TimePicker Margin="78,204,441,271" Name="DepartTimePicker"/>
-        <wpfTool:TimePicker Margin="430,204,89,271" Name="ArrivalTimePicker"/>
+        <wpfTool:TimePicker Value="{Binding DepartTime, UpdateSourceTrigger=PropertyChanged}" Margin="78,204,441,271"/>
+        <wpfTool:TimePicker Value="{Binding ArriveTime, UpdateSourceTrigger=PropertyChanged}" Margin="430,204,89,271"/>
     </Grid>
 </Page>

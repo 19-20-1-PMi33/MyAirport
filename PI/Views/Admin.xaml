@@ -20,7 +20,7 @@
                     <GradientStop Color="#DCDCDC"/>
                 </LinearGradientBrush>
             </DockPanel.Background>
-            <Image Source="Photos/airplane.png" Margin="0,48,0,356" Width="203" RenderTransformOrigin="-0.594,0.547"/>
+            <Image Source="/Photos/airplane.png" Margin="0,48,0,356" Width="203" RenderTransformOrigin="-0.594,0.547"/>
         </DockPanel>
         <TextBlock Text="My Airport"
                           FontWeight="Bold"

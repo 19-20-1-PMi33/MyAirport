@@ -51,8 +51,8 @@
                     </LinearGradientBrush>
                 </Border.Background>
             </Border>
-            <Button Content="X" Name="ExitButton" 
-                        Click="ExitButton_Click" HorizontalAlignment="Left" 
+            <Button Content="X"  
+                        Command="{Binding CloseCommand}" 
                         VerticalAlignment="Top" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" 
                         Width="25" FontSize="18"
                         FontWeight="Bold" Margin="425,-10,0,0" 
@@ -63,37 +63,37 @@
             </StackPanel>
             <StackPanel Orientation="Vertical" Margin="0,69,280,318">
                 <Label Content="Last Name:" Margin="10,0" Width="150"/>
-                <TextBox Name="SecondName" Margin="10,0"/>
+                <TextBox Text="{Binding SecondName}" Margin="10,0"/>
                 <Border Style="{StaticResource BorderStyle}" Margin="10,0"/>
             </StackPanel>
             <StackPanel Orientation="Vertical" Margin="0,137,280,234">
                 <Label Content="First Name:" Margin="10,0" Width="150"/>
-                <TextBox x:Name="FirstName" Margin="10,0"/>
+                <TextBox Text="{Binding FirstName}" Margin="10,0"/>
                 <Border Style="{StaticResource BorderStyle}" Margin="10,0"/>
             </StackPanel>
             <StackPanel Orientation="Vertical" Margin="270,69,10,318">
                 <Label Content="Gender:" Margin="10,0" Width="150"/>
-                <ComboBox Name="Gender" Margin="10,0" Style="{StaticResource ComboBoxFlatStyle}" Height="30">
+                <ComboBox SelectedItem="{Binding Gender}"  Margin="10,0" Style="{StaticResource ComboBoxFlatStyle}" Height="30">
                     <ComboBoxItem Content="Male"/>
                     <ComboBoxItem Content="Female"/>
                 </ComboBox>
             </StackPanel>
             <StackPanel Orientation="Vertical" Margin="270,137,10,234">
                 <Label Content="BirthDate:" Margin="10,0" Width="150"/>
-                <DatePicker Name="BirthDate" Margin="10,0" />
+                <DatePicker Margin="10,0" SelectedDate="{Binding BirthDate}" DisplayDateStart="01/01/1900" DisplayDateEnd="{Binding BirthDate}" />
             </StackPanel>
             <StackPanel Orientation="Vertical" Margin="270,205,10,166">
                 <Label Content="Seating:" Margin="10,0" Width="150"/>
-                <ComboBox Name="Seating" Margin="10,0" Style="{StaticResource ComboBoxFlatStyle}" Height="30">
+                <ComboBox SelectedItem="{Binding Seating}"  Margin="10,0" Style="{StaticResource ComboBoxFlatStyle}" Height="30">
                     <ComboBoxItem Content="First Class ($180)"/>
                     <ComboBoxItem Content="Bussines Class ($145)"/>
                     <ComboBoxItem Content="Economic Class ($100)"/>
                 </ComboBox>
             </StackPanel>
-            <Button Margin="10,319,280,97" Name="AddPassenger" Click="AddPassenger_Click" Content="Add Passenger" FontSize="20" Foreground="Black" FontWeight="DemiBold" HorizontalAlignment="Center" Width="160"/>
+            <Button Margin="10,319,280,97" Content="Add Passenger" Command="{Binding AddPassenger}" FontSize="20" FontWeight="DemiBold" HorizontalAlignment="Center" Width="160"/>
             <StackPanel Orientation="Vertical" Margin="0,205,280,166">
                 <Label Content="Document:" Margin="10,0" Width="150"/>
-                <TextBox x:Name="Document" Margin="10,0"/>
+                <TextBox Text="{Binding Document}" Margin="10,0"/>
                 <Border Style="{StaticResource BorderStyle}" Margin="10,0"/>
             </StackPanel>
         </Grid>

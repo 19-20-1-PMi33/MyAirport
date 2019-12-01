@@ -29,7 +29,7 @@ namespace PI.Views
             try
             {
                 
-                string connectionString = ConfigurationManager.ConnectionStrings["MainConnection"].ConnectionString;
+                string connectionString = ConfigurationManager.ConnectionStrings["ConnectionToDB"].ConnectionString;
                 string query = $"SELECT SecondName as 'Second Name',FirstName as 'First Name',convert(varchar(10),BirthDate,104) as 'Birth Date'," +
                     $"DepartCity as 'Depart City',ArriveCity as 'Arrive City',convert(varchar(10),DepartDate,104) as 'Depart Date'," +
                     $"CAST(DepartTime AS CHAR(5)) as 'Depart Time',convert(varchar(10),ArriveDate,104) as 'Arrival Date',CAST(ArriveTime AS CHAR(5)) as 'Arrive Time',Seating " +

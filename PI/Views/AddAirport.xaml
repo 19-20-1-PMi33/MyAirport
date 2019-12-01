@@ -42,21 +42,21 @@
         </Grid.Background>
         <StackPanel Orientation="Vertical" Margin="0,0,0,343">
             <Label Content="City name:" Margin="220,30,220,0"/>
-            <TextBox x:Name="AddCityBox" Margin="220,0,220,0"/>
+            <TextBox Text="{Binding City}" Margin="220,0,220,0"/>
             <Border Style="{StaticResource BorderStyle}" Margin="220,0,220,0"/>
         </StackPanel>
-        <StackPanel Orientation="Vertical" Margin="0,104,0,239">
+        <StackPanel Orientation="Vertical" Margin="0,110,0,239">
             <Label Content="Country name:" Margin="220,30,220,0"/>
-            <TextBox x:Name="AddCountryBox" Margin="220,0" TextChanged="AddCountryBox_TextChanged"/>
+            <TextBox Text="{Binding Country}" Margin="220,0"/>
             <Border Style="{StaticResource BorderStyle}" Margin="220,0,220,0"/>
         </StackPanel>
         <StackPanel Orientation="Vertical" Margin="0,234,0,109">
             <Label Content="Name IATA:" Margin="220,30,220,0"/>
-            <TextBox x:Name="AddIATABox" Margin="220,0,220,0"/>
+            <TextBox Text="{Binding IATA}" Margin="220,0,220,0"/>
             <Border Style="{StaticResource BorderStyle}" Margin="220,0,220,0"/>
         </StackPanel>
         <StackPanel Orientation="Vertical" Margin="0,391,0,-19">
-            <Button Height="76" Margin="206,0" x:Name="ConfimAddAirport" Click="ConfimAddAirport_Click" Content="Add Airport" FontSize="20" Foreground="Black" FontWeight="DemiBold" HorizontalAlignment="Center" Width="288" />
+            <Button Height="76" Margin="206,0" Command="{Binding AddAirportCommand}" Content="Add Airport" FontSize="20" FontWeight="DemiBold" HorizontalAlignment="Center" Width="288" />
         </StackPanel>
     </Grid>
 </Page>

@@ -21,10 +21,9 @@
             <Setter Property="FontWeight" Value="Light"/>
             <Setter Property="FontSize" Value="20"/>
             <Setter Property="HorizontalAlignment" Value="Center"/>
-            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Foreground" Value="Black"/>
             <Setter Property="Background" Value="Transparent"/>
             <Setter Property="BorderThickness" Value="0"/>
-            <Setter Property="FontWeight" Value="Light"/>
             <Setter Property="Width" Value="190"/>
             <Setter Property="HorizontalContentAlignment" Value="Left"/>
             <Setter Property="Opacity" Value="0.5"/>
@@ -45,29 +44,29 @@
         </Grid.Background>
         <StackPanel Orientation="Vertical" Margin="0,0,412,391">
             <Label Content="Airplane number:" Margin="77,30,48,0"/>
-            <TextBox x:Name="AddAirplaneID" Margin="51,0,48,0"/>
+            <TextBox Text="{Binding Id}" Margin="51,0,48,0"/>
             <Border Style="{StaticResource BorderStyle}"/>
         </StackPanel>
         <StackPanel Orientation="Vertical" Margin="0,109,412,282">
             <Label Content="Airpalne model:" Margin="77,30,48,0"/>
-            <TextBox x:Name="AddAirplaneName" Margin="51,0,48,0" />
+            <TextBox Text="{Binding Model}" Margin="51,0,48,0" />
             <Border Style="{StaticResource BorderStyle}"/>
         </StackPanel>
         <StackPanel Orientation="Vertical" Margin="336,0,76,391">
             <Label Content="Economy class:" Margin="77,30,48,0"/>
-            <TextBox x:Name="EconomClass" Margin="51,0,48,0"/>
+            <TextBox Text="{Binding Econom}" Margin="51,0,48,0"/>
             <Border Style="{StaticResource BorderStyle}"/>
         </StackPanel>
         <StackPanel Orientation="Vertical" Margin="336,109,76,282">
             <Label Content="Business class:" Margin="77,30,48,0"/>
-            <TextBox x:Name="BusinessClass" Margin="51,0,48,0" />
+            <TextBox Text="{Binding Business}" Margin="51,0,48,0" />
             <Border Style="{StaticResource BorderStyle}"/>
         </StackPanel>
         <StackPanel Orientation="Vertical" Margin="336,223,76,168">
             <Label Content="First class:" Margin="77,30,48,0"/>
-            <TextBox x:Name="FirstClass" Margin="51,0,48,0"/>
+            <TextBox Text="{Binding First}" Margin="51,0,48,0"/>
             <Border Style="{StaticResource BorderStyle}"/>
         </StackPanel>
-        <Button Height="76" Margin="213,376,215,48" Name="ConfimAddAirplane" Click="ConfimAddAirplane_Click" Content="Add Airplane" FontSize="20" Foreground="Black" FontWeight="DemiBold" HorizontalAlignment="Center" Width="272"/>
+        <Button Height="76" Margin="213,376,215,48" Command="{Binding AddAirplaneCommand}" Content="Add Airplane" FontSize="20" FontWeight="DemiBold" HorizontalAlignment="Center" Width="272"/>
     </Grid>
 </Page>
