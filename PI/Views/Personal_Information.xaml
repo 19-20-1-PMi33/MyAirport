@@ -73,10 +73,7 @@
             </StackPanel>
             <StackPanel Orientation="Vertical" Margin="270,69,10,318">
                 <Label Content="Gender:" Margin="10,0" Width="150"/>
-                <ComboBox SelectedItem="{Binding Gender}"  Margin="10,0" Style="{StaticResource ComboBoxFlatStyle}" Height="30">
-                    <ComboBoxItem Content="Male"/>
-                    <ComboBoxItem Content="Female"/>
-                </ComboBox>
+                <ComboBox SelectedItem="{Binding Gender}" ItemsSource="{Binding GenderList}"  Margin="10,0" Style="{StaticResource ComboBoxFlatStyle}" Height="30"/>
             </StackPanel>
             <StackPanel Orientation="Vertical" Margin="270,137,10,234">
                 <Label Content="BirthDate:" Margin="10,0" Width="150"/>
@@ -84,11 +81,7 @@
             </StackPanel>
             <StackPanel Orientation="Vertical" Margin="270,205,10,166">
                 <Label Content="Seating:" Margin="10,0" Width="150"/>
-                <ComboBox SelectedItem="{Binding Seating}"  Margin="10,0" Style="{StaticResource ComboBoxFlatStyle}" Height="30">
-                    <ComboBoxItem Content="First Class ($180)"/>
-                    <ComboBoxItem Content="Bussines Class ($145)"/>
-                    <ComboBoxItem Content="Economic Class ($100)"/>
-                </ComboBox>
+                <ComboBox SelectedItem="{Binding Seating}" ItemsSource="{Binding SeatingList}" Margin="10,0" Style="{StaticResource ComboBoxFlatStyle}" Height="30"/>
             </StackPanel>
             <Button Margin="10,319,280,97" Content="Add Passenger" Command="{Binding AddPassenger}" FontSize="20" FontWeight="DemiBold" HorizontalAlignment="Center" Width="160"/>
             <StackPanel Orientation="Vertical" Margin="0,205,280,166">

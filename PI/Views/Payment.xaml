@@ -7,7 +7,7 @@
         Title="Payment" Height="450" Width="450"
         AllowsTransparency="True" Background="Transparent"
         WindowStyle="None" ResizeMode="NoResize"
-        MouseDown="Window_MouseDown" Loaded="Window_Loaded">
+        MouseDown="Window_MouseDown">
     <Window.Resources>
         <Style TargetType="Label">
             <Setter Property="FontFamily" Value="Helvetica"/>
@@ -81,7 +81,7 @@
             </StackPanel>
             <StackPanel Orientation="Vertical" Margin="270,137,10,234">
                 <Label Content="Expiration Date:" Margin="10,0" Width="150"/>
-                <DatePicker SelectedDate="{Binding ExpirationDate}" Name="ExpirationDate" Margin="10,0" />
+                <DatePicker SelectedDate="{Binding ExpirationDate}" DisplayDateStart="{Binding DateStart}" DisplayDateEnd="01.01.2045" Name="ExpirationDate" Margin="10,0" />
             </StackPanel>
             <StackPanel Orientation="Vertical" Margin="270,205,10,166">
                 <Label Content="CVC Number(3):" Margin="10,0" Width="150"/>

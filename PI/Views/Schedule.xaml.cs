@@ -14,7 +14,7 @@ namespace PI.Views
     {
         public Schedule()
         {
-            DataContext = new ViewModel.AirportViewModel();
+            DataContext = new ViewModel.ScheduleViewModel();
             InitializeComponent();
         }
     }

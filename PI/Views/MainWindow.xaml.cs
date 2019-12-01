@@ -7,7 +7,7 @@ namespace PI.Views
     /// Логика взаимодействия для MainWindow.xaml
     /// </summary>
 
-    public partial class MainWindow : Window, PI.Interfaces.IClosable
+    public partial class MainWindow : Window
     {
         public MainWindow()
         {
