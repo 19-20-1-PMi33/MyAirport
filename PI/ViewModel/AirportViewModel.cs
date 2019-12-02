@@ -16,20 +16,7 @@ namespace PI.ViewModel
         ApplicationContext db;
         IEnumerable<string> _Airports;
         List<Flight> _Flights;
-        DateTime _SelectedDate;
-        DateTime _DateStart;
-        Flight _SelectedFlight;
-        
-        public AirportViewModel()
-        {
-            db = new ApplicationContext();
-            db.Flight.Load();
-            _Flights = db.Flight.Local.ToBindingList()
-                .OrderBy(x => x.DepartDate)
-                .ThenBy(x => x.DepartTime).ToList();
-            SelectedDate = DateStart = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day);
-        }
-
+       
         public AirportViewModel(string Login)
         {
             db = new ApplicationContext();
@@ -39,6 +26,7 @@ namespace PI.ViewModel
                 .Select(x=>x.CIty)
                 .Distinct().ToList();
             _Flights = db.Flight.Local.ToBindingList()
+                 .Where(x => x.DepartDate > new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day) && x.DepartTime > new TimeSpan(DateTime.Now.Hour, DateTime.Now.Minute, DateTime.Now.Second))
                 .OrderBy(x=>x.DepartDate)
                 .ThenBy(x=>x.DepartTime).ToList();
             SelectedDate = DateStart = new DateTime(DateTime.Now.Year,DateTime.Now.Month,DateTime.Now.Day);
@@ -48,33 +36,11 @@ namespace PI.ViewModel
         public string DepartCity { get; set; }
         public string ArriveCity { get; set; }
 
-        public DateTime SelectedDate
-        {
-            get => _SelectedDate;
-            set
-            {
-                _SelectedDate = value;
-                OnPropertyChanged("SelectedDate");
-            }
-        }
-        public DateTime DateStart
-        {
-            get => _DateStart;
-            set
-            {
-                _DateStart = DateTime.Now;
-                OnPropertyChanged("DateStart");
-            }
-        }
-        public Flight SelectedFlight
-        {
-            get => _SelectedFlight;
-            set
-            {
-                _SelectedFlight = value;
-                OnPropertyChanged("SelectedFlight");
-            }
-        }
+        public DateTime SelectedDate { get; set; }
+
+        public DateTime DateStart { get; set; }
+        public Flight SelectedFlight { get; set; }
+
         public RelayCommand ReserveTicketCommand
         {
             get
@@ -83,7 +49,6 @@ namespace PI.ViewModel
                 {
                     if (SelectedFlight != null)
                     {
-                        MessageBox.Show(SelectedFlight.DepartDate.ToString());
                         Views.Personal_Information menu = new Views.Personal_Information(Login, SelectedFlight.Id);
                         menu.Show();
                     }
@@ -116,9 +81,6 @@ namespace PI.ViewModel
             {
                 return new RelayCommand((obj) =>
                 {
-                    MessageBox.Show(DepartCity);
-                    MessageBox.Show(ArriveCity);
-                    MessageBox.Show(SelectedDate.ToString());
                     if (DepartCity != "" && ArriveCity != "")
                     {
                         Flights = db.Flight.Local.ToBindingList()

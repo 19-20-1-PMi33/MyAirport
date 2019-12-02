@@ -39,13 +39,13 @@
             <RowDefinition Height="123*"/>
         </Grid.RowDefinitions>
 
-        <DockPanel HorizontalAlignment="Left" LastChildFill="False" Margin="0" Width="198" Grid.RowSpan="2">
+        <DockPanel HorizontalAlignment="Left" LastChildFill="False" Margin="0" Width="203" Grid.RowSpan="2">
             <DockPanel.Background>
                 <LinearGradientBrush>
                     <GradientStop Color="#DCDCDC"/>
                 </LinearGradientBrush>
             </DockPanel.Background>
-            <Image Source="/Photos/airplane.png" Margin="0,52,0,356" Width="203" />
+            <Image Source="/Photos/airplane.png" Margin="0,52,0,356" Width="201" />
         </DockPanel>
 
         <TextBlock Text="My Airport" Grid.Row="1" Style="{StaticResource TitleTextBlock}" Margin="15,0,702,450" Width="170" />
@@ -84,7 +84,7 @@
                 <RowDefinition Height="143*"/>
                 <RowDefinition Height="107*"/>
             </Grid.RowDefinitions>
-            <Frame Name="Main" Margin="0,0,0,-492" Grid.RowSpan="2" NavigationUIVisibility="Hidden"></Frame>
+            <Frame Name="Main" Background="#DCDCDC" Margin="0,0,0,-492" Grid.RowSpan="2" NavigationUIVisibility="Hidden"></Frame>
         </Grid>
     </Grid>
 </Window>

@@ -18,15 +18,17 @@ namespace PI.ViewModel
             db.PersonalInformation.Load();
             this.Login = Login;
             Sum = "$"+Class1.Sum.ToString();
+            ExpirationDate = DateStart = DateTime.Now;
         }
 
-        public double CardNumber { get; set; }
+        public string CardNumber { get; set; }
         public string CardType { get; set; }
         public string CardOwner { get; set; }
         public DateTime ExpirationDate { get; set; }
-        public int CVC { get; set; }
+        public string CVC { get; set; }
         public string Sum { get; set; }
         public string Login { get; set; }
+        public DateTime DateStart { get; set; }
 
         public RelayCommand PayCommand
         {
@@ -34,24 +36,37 @@ namespace PI.ViewModel
             {
                 return new RelayCommand((obj) =>
                 {
-                    foreach (var item in Class1.ListOfQueries)
+                    if (CardNumber != null && CardType != null && CardOwner != null && CVC != null) 
                     {
-                        db.PersonalInformation.Add(item);
-                        db.SaveChanges();
-                    }
-                    
-                    Payment payment = new Payment();
-                    payment.CardNumber = CardNumber;
-                    payment.CardType = CardType;
-                    payment.CardOwner = CardOwner;
-                    payment.ExpirationDate = ExpirationDate;
-                    payment.CVC = CVC;
-                    payment.Sum = Class1.Sum;
-                    payment.Login = Login;
-                    db.Payment.Add(payment);
-                    db.SaveChanges();
+                        try
+                        {
+                            Payment payment = new Payment();
+                            payment.CardNumber = double.Parse(CardNumber);
+                            payment.CardType = CardType;
+                            payment.CardOwner = CardOwner;
+                            payment.ExpirationDate = ExpirationDate;
+                            payment.CVC = int.Parse(CVC);
+                            payment.Sum = Class1.Sum;
+                            payment.Login = Login;
+                            db.Payment.Add(payment);
+                            db.SaveChanges();
 
-                    CloseWindow();
+                            foreach (var item in Class1.ListOfQueries)
+                            {
+                                db.PersonalInformation.Add(item);
+                                db.SaveChanges();
+                            }
+                            CloseWindow();
+                        }
+                        catch (FormatException)
+                        {
+                            MessageBox.Show("Сheck fields for correctness");
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Сheck fields for correctness");
+                    }
                 });
             }
         }

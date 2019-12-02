@@ -99,7 +99,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Interfaces\IClosable.cs" />
+    <Compile Include="Helpers\PasswordHelper.cs" />
     <Compile Include="ViewModel\AddAirplaneViewModel.cs" />
     <Compile Include="ViewModel\AddAirportViewModel.cs" />
     <Compile Include="ViewModel\AddFlightViewModel.cs" />
@@ -109,6 +109,7 @@
     <Compile Include="ViewModel\LoginRegistrationViewModel.cs" />
     <Compile Include="ViewModel\PaymentViewModel.cs" />
     <Compile Include="ViewModel\PersonalInformationViewModel.cs" />
+    <Compile Include="ViewModel\ScheduleViewModel.cs" />
     <Compile Include="Views\AddAirplane.xaml.cs" />
     <Compile Include="Views\AddAirport.xaml.cs" />
     <Compile Include="Views\AddFlight.xaml.cs" />
