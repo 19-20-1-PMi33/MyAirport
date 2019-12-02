@@ -34,5 +34,10 @@ namespace PI.Views
         {
             this.Visibility = Visibility.Hidden;
         }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
