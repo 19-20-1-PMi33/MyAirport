@@ -79,8 +79,6 @@
             </StackPanel>
             <StackPanel Margin="492,78,7,366" Width="206">
                 <TextBlock Text="Infant"/>
-
-                Вадим Громов, [03.12.19 23:32]
                 <ComboBox DataContext="1" x:Name="CountInfant" Style="{StaticResource ComboBoxFlatStyle}">
                     <ComboBoxItem Content="0"/>
                     <ComboBoxItem Content="1"/>
