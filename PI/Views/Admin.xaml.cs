@@ -3,9 +3,7 @@ using System.Windows.Input;
 
 namespace PI.Views
 {
-    /// <summary>
-    /// Логика взаимодействия для Admin.xaml
-    /// </summary>
+
     public partial class Admin : Window
     {
         public Admin()

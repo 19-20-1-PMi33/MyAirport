@@ -5,13 +5,19 @@ namespace PI.Helpers
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Linq;
     using System.Collections.Generic;
+    using System.Windows;
     using PI.Models;
+    using System.IO;
 
     public partial class ApplicationContext : DbContext
     {
         public ApplicationContext()
             : base("name=ConnectionToDB")
         {
+            DirectoryInfo networkDir = new DirectoryInfo(AppDomain.CurrentDomain.BaseDirectory);
+            string twoLevelsUp = networkDir.Parent.Parent.Parent.FullName + "\\Database";
+            AppDomain.CurrentDomain.SetData(
+  "DataDirectory", Path.Combine(twoLevelsUp, ""));
         }
 
         public virtual DbSet<Airplane> Airplane { get; set; }

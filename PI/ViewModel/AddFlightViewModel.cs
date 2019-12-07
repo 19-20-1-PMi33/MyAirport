@@ -8,7 +8,7 @@ using PI.Models;
 using PI.Helpers;
 using PI.Commands;
 
-namespace PI.ViewModel
+namespace PI
 {
     public class AddFlightViewModel:INotifyPropertyChanged
     {
