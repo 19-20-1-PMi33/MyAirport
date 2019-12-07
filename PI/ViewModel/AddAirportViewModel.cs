@@ -2,6 +2,8 @@
 using PI.Models;
 using PI.Helpers;
 using PI.Commands;
+using System.Windows;
+using System;
 
 namespace PI.ViewModel
 {
@@ -27,13 +29,27 @@ namespace PI.ViewModel
             {
                 return new RelayCommand((obj) =>
                 {
-                    Airport airport = new Airport();
-                    airport.CIty = City;
-                    airport.Country = Country;
-                    airport.IATA = IATA;
-                    db.Airport.Add(airport);
-                    db.SaveChanges();
-                    City = Country = IATA = "";
+                    if (db.Airport.Find(City) != null)
+                    {
+                        MessageBox.Show("The airport of this city is already in the database");
+                    }
+                    else
+                    {
+                        try
+                        {
+                            Airport airport = new Airport();
+                            airport.CIty = City;
+                            airport.Country = Country;
+                            airport.IATA = IATA;
+                            db.Airport.Add(airport);
+                            db.SaveChanges();
+                            City = Country = IATA = "";
+                        }
+                        catch (Exception)
+                        {
+                            MessageBox.Show("Сheck fields for correctness");
+                        }
+                    }
                 });
             }
         }

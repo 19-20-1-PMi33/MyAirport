@@ -11,13 +11,13 @@ using PI.Commands;
 
 namespace PI.ViewModel
 {
-    public class AirportViewModel : INotifyPropertyChanged
+    public class ReserveTicketViewModel : INotifyPropertyChanged
     {
         ApplicationContext db;
         IEnumerable<string> _Airports;
         List<Flight> _Flights;
        
-        public AirportViewModel(string Login)
+        public ReserveTicketViewModel(string Login)
         {
             db = new ApplicationContext();
             db.Airport.Load();

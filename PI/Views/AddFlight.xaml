@@ -69,7 +69,7 @@
         <StackPanel Orientation="Vertical" Margin="350,142,30,239">
             <Label Content="Arrival Time:" Margin="78,30,60,0"/>
         </StackPanel>
-        <Button Height="76" Margin="206,388,217,36" Command="{Binding AddFlightCommand}" Content="Add Flight" FontSize="20" FontWeight="DemiBold" Width="277"/>
+        <Button Height="76" Margin="206,388,212,36" Command="{Binding AddFlightCommand}" Content="Add Flight" FontSize="20" FontWeight="DemiBold"/>
         <StackPanel Orientation="Vertical" Margin="0,229,380,181">
             <Label Content="Aiplane's id:" Margin="78,30,60,0"/>
             <ComboBox ItemsSource="{Binding Airplanes}" SelectedItem="{Binding AirplaneId}"  Margin="78,0,60,0" Style="{StaticResource ComboBoxFlatStyle}" Height="30"/>

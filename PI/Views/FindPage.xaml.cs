@@ -21,7 +21,7 @@ namespace PI.Views
         public FindPage(string Login)
         {
             this.Login = Login;
-            DataContext = new ViewModel.AirportViewModel(Login);
+            DataContext = new ViewModel.ReserveTicketViewModel(Login);
             InitializeComponent();
         }
 

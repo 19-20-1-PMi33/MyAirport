@@ -4,19 +4,20 @@ using System.Linq;
 using System.ComponentModel;
 using System.Data.Entity;
 using System.Runtime.CompilerServices;
+using System.Windows;
 using PI.Models;
 using PI.Helpers;
 using PI.Commands;
 
 namespace PI.ViewModel
 {
-    public class AddFlightViewModel:INotifyPropertyChanged
+    public class AddFlightViewModel : INotifyPropertyChanged
     {
         ApplicationContext db;
         List<string> _Airports;
         List<int> _Airplanes;
 
-        
+
 
         public AddFlightViewModel()
         {
@@ -31,7 +32,7 @@ namespace PI.ViewModel
                 .Select(x => x.Id).Distinct().ToList();
             DepartDate = ArriveDate = DateTime.Now;
         }
-        
+
         public string DepartTown { get; set; }
         public string ArriveTown { get; set; }
         public string Airline { get; set; }
@@ -66,22 +67,29 @@ namespace PI.ViewModel
             {
                 return new RelayCommand((obj) =>
                 {
-                    Flight flight = new Flight();
                     var dt = DepartTime.ToString().Split(' ')[1];
                     var at = ArriveTime.ToString().Split(' ')[1];
-                    flight.DepartCity = DepartTown;
-                    flight.ArriveCity = ArriveTown;
-                    flight.DepartDate = DepartDate;
-                    flight.ArriveDate = ArriveDate;
-                    flight.DepartTime = new TimeSpan(Int32.Parse(dt.Split(':')[0]), Int32.Parse(dt.Split(':')[1]), 00);
-                    flight.ArriveTime = new TimeSpan(Int32.Parse(at.Split(':')[0]), Int32.Parse(at.Split(':')[1]), 00);
-                    flight.AirplaneID = AirplaneId;
-                    flight.Airline = Airline;
-                    db.Flight.Add(flight);
-                    db.SaveChanges();
-                    DepartTown = ArriveTown = Airline = null;
-                    DepartDate = ArriveDate = DateTime.Now;
-                    ArriveTime = DepartTime = DateTime.Now;
+                    if (new DateTime(DepartDate.Year, DepartDate.Month, DepartDate.Day, Int32.Parse(dt.Split(':')[0]), Int32.Parse(dt.Split(':')[1]), 00) < new DateTime(ArriveDate.Year, ArriveDate.Month, ArriveDate.Day, Int32.Parse(at.Split(':')[0]), Int32.Parse(at.Split(':')[1]), 00))
+                    {
+                        Flight flight = new Flight();
+                        flight.DepartCity = DepartTown;
+                        flight.ArriveCity = ArriveTown;
+                        flight.DepartDate = DepartDate;
+                        flight.ArriveDate = ArriveDate;
+                        flight.DepartTime = new TimeSpan(Int32.Parse(dt.Split(':')[0]), Int32.Parse(dt.Split(':')[1]), 00);
+                        flight.ArriveTime = new TimeSpan(Int32.Parse(at.Split(':')[0]), Int32.Parse(at.Split(':')[1]), 00);
+                        flight.AirplaneID = AirplaneId;
+                        flight.Airline = Airline;
+                        db.Flight.Add(flight);
+                        db.SaveChanges();
+                        DepartTown = ArriveTown = Airline = null;
+                        DepartDate = ArriveDate = DateTime.Now;
+                        ArriveTime = DepartTime = DateTime.Now;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Wrong date or time selected");
+                    }
                 });
             }
         }

@@ -29,22 +29,29 @@ namespace PI.ViewModel
             {
                 return new RelayCommand((obj) =>
                 {
-                    try
+                    if (db.Airplane.Find(Id) != null)
                     {
-                        Airplane airplane = new Airplane();
-                        airplane.Id = Id;
-                        airplane.Model = Model;
-                        airplane.Econom = Econom;
-                        airplane.Business = Business;
-                        airplane.First = First;
-                        db.Airplane.Add(airplane);
-                        db.SaveChanges();
-                        Id = Econom = Business = First = 0;
-                        Model = "";
+                        MessageBox.Show("Plane id already reserved");
                     }
-                    catch(Exception ex)
+                    else
                     {
-                        MessageBox.Show("Сheck fields for correctness");
+                        try
+                        {
+                            Airplane airplane = new Airplane();
+                            airplane.Id = Id;
+                            airplane.Model = Model;
+                            airplane.Econom = Econom;
+                            airplane.Business = Business;
+                            airplane.First = First;
+                            db.Airplane.Add(airplane);
+                            db.SaveChanges();
+                            Id = Econom = Business = First = 0;
+                            Model = "";
+                        }
+                        catch (Exception)
+                        {
+                            MessageBox.Show("Сheck fields for correctness");
+                        }
                     }
                 });
             }

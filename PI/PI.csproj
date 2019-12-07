@@ -103,7 +103,7 @@
     <Compile Include="ViewModel\AddAirplaneViewModel.cs" />
     <Compile Include="ViewModel\AddAirportViewModel.cs" />
     <Compile Include="ViewModel\AddFlightViewModel.cs" />
-    <Compile Include="ViewModel\AirportViewModel.cs" />
+    <Compile Include="ViewModel\ReserveTicketViewModel.cs" />
     <Compile Include="ViewModel\CabinetViewModel.cs" />
     <Compile Include="ViewModel\ChangeDeleteFlightViewModel.cs" />
     <Compile Include="ViewModel\LoginRegistrationViewModel.cs" />

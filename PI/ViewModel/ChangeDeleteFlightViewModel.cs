@@ -6,6 +6,8 @@ using System.Linq;
 using PI.Models;
 using PI.Helpers;
 using PI.Commands;
+using System;
+using System.Windows;
 
 namespace PI.ViewModel
 {
@@ -51,15 +53,25 @@ namespace PI.ViewModel
             {
                 return new RelayCommand((obj) =>
                 {
-                    Flight flight = db.Flight.Find(SelectedFlight.Id);
-                    flight.DepartDate = SelectedFlight.DepartDate;
-                    flight.ArriveDate = SelectedFlight.ArriveDate;
-                    flight.ArriveTime = SelectedFlight.ArriveTime;
-                    flight.DepartTime = SelectedFlight.DepartTime;
-                    db.SaveChanges();
-                    Flights = db.Flight.Local.ToBindingList()
-                        .OrderBy(x => x.DepartDate)
-                        .ThenBy(x => x.DepartTime).ToList();
+                    var dt = SelectedFlight.DepartTime.ToString().Split(' ')[1];
+                    var at = SelectedFlight.ArriveTime.ToString().Split(' ')[1];
+                    if (new DateTime(SelectedFlight.DepartDate.Year, SelectedFlight.DepartDate.Month, SelectedFlight.DepartDate.Day, Int32.Parse(dt.Split(':')[0]), Int32.Parse(dt.Split(':')[1]), 00) 
+                    < new DateTime(SelectedFlight.ArriveDate.Year, SelectedFlight.ArriveDate.Month, SelectedFlight.ArriveDate.Day, Int32.Parse(at.Split(':')[0]), Int32.Parse(at.Split(':')[1]), 00))
+                    {
+                        Flight flight = db.Flight.Find(SelectedFlight.Id);
+                        flight.DepartDate = SelectedFlight.DepartDate;
+                        flight.ArriveDate = SelectedFlight.ArriveDate;
+                        flight.ArriveTime = SelectedFlight.ArriveTime;
+                        flight.DepartTime = SelectedFlight.DepartTime;
+                        db.SaveChanges();
+                        Flights = db.Flight.Local.ToBindingList()
+                            .OrderBy(x => x.DepartDate)
+                            .ThenBy(x => x.DepartTime).ToList();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Wrong date or time");
+                    }
                 });
             }
         }
