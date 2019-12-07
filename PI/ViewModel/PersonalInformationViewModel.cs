@@ -10,6 +10,9 @@ using PI.Commands;
 
 namespace PI.ViewModel
 {
+    /// <summary>
+    /// Клас PersonalInformationViewModel призначений для вибору критеріїв польоту та формування даних про авіаквиток.
+    /// </summary>
     public class PersonalInformationViewModel : INotifyPropertyChanged
     {
         public PersonalInformationViewModel(string Login,int FlightId)

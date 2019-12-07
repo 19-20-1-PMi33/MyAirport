@@ -11,6 +11,10 @@ using PI.Commands;
 
 namespace PI.ViewModel
 {
+    /// <summary>
+    /// Клас AddFlightViewModel.
+    /// Клас добавляє нові польоти у базу даних.
+    /// </summary>
     public class AddFlightViewModel : INotifyPropertyChanged
     {
         ApplicationContext db;
@@ -18,7 +22,12 @@ namespace PI.ViewModel
         List<int> _Airplanes;
 
 
-
+        // <summary>
+        /// Конструктор в якому методи типу (db.****.Load()) загружають дані в  ApplicationContext.
+        /// <remarks>
+        /// __Airports, _Airplanes витягує та оперує даними наявних аеропортів та літаків,відповідно.
+        /// </remarks>
+        /// </summary>
         public AddFlightViewModel()
         {
             db = new ApplicationContext();
@@ -42,6 +51,7 @@ namespace PI.ViewModel
         public DateTime DepartTime { get; set; }
         public DateTime ArriveTime { get; set; }
 
+       
         public List<string> Airports
         {
             get => _Airports;

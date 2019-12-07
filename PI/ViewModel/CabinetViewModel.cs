@@ -5,10 +5,16 @@ using PI.Commands;
 
 namespace PI.ViewModel
 {
+    /// <summary>
+    /// Клас AddFlightViewModel.
+    /// Клас добавляє нові дані про користувача у базу даних.
+    /// </summary>
     public class CabinetViewModel
     {
         ApplicationContext db;
-
+        // <summary>
+        /// Конструктор в якому метод (db.Customer.Load()) загружає дані в  ApplicationContext.
+        /// </summary>
         public CabinetViewModel(string Login)
         {
             db = new ApplicationContext();

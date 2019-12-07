@@ -3,7 +3,10 @@ namespace PI.Models
     using System;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
-
+    /// <summary>
+    /// Клас PersonalInformation.
+    /// Клас для комунікування з таблицею PersonalInformation у базі даних.
+    /// </summary>
     [Table("PersonalInformation")]
     public partial class PersonalInformation
     {

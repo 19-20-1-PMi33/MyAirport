@@ -5,6 +5,10 @@ namespace PI.Models
     using System.ComponentModel.DataAnnotations.Schema;
 
     [Table("Airport")]
+    /// <summary>
+    /// Клас Airport.
+    /// Клас для комунікування з таблицею Airport у базі даних.
+    /// </summary>
     public partial class Airport
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]

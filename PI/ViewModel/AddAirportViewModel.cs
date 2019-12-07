@@ -7,10 +7,16 @@ using System;
 
 namespace PI.ViewModel
 {
+    /// <summary>
+    /// Клас AddAirportViewModel.
+    /// Клас добавляє нові аеропорти у базу даних.
+    /// </summary>
     class AddAirportViewModel 
     {
         ApplicationContext db;
-
+        /// <summary>
+        /// Конструктор в якому метод (db.Airport.Load()) загружає дані в  ApplicationContext.
+        /// </summary>
         public AddAirportViewModel()
         {
             db = new ApplicationContext();

@@ -13,6 +13,9 @@ using System;
 
 namespace PI.ViewModel
 {
+    /// <summary>
+    /// Клас LoginRegistrationViewModel призначений для проведення процедури реєстрації.
+    /// </summary>
     public class LoginRegistrationViewModel :  INotifyPropertyChanged
     {
         ApplicationContext db;
@@ -63,7 +66,9 @@ namespace PI.ViewModel
             db = new ApplicationContext();
             db.Customer.Load();
         }
-
+        /// <summary>
+        /// Визначає параметри входу для простого користувача та адміністратора.
+        /// </summary>
         public RelayCommand LoginCommand
         {
             get

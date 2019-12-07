@@ -6,6 +6,10 @@ namespace PI.Models
     using System.ComponentModel.DataAnnotations.Schema;
 
     [Table("Flight")]
+    /// <summary>
+    /// Клас Flight.
+    /// Клас для комунікування з таблицею Flight у базі даних.
+    /// </summary>
     public partial class Flight
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]

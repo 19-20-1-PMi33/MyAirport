@@ -5,6 +5,10 @@ namespace PI.Models
     using System.ComponentModel.DataAnnotations.Schema;
 
     [Table("Customer")]
+    /// <summary>
+    /// Клас Customer.
+    /// Клас для комунікування з таблицею Customer у базі даних.
+    /// </summary>
     public partial class Customer
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]

@@ -11,12 +11,19 @@ using System.Windows;
 
 namespace PI.ViewModel
 {
+    /// <summary>
+    /// Клас ChangeDeleteFlightViewModel призначений для зміни та видалення польотів.
+    /// 
+    /// </summary>
     public class ChangeDeleteFlightViewModel : INotifyPropertyChanged
     {
         ApplicationContext db;
         List<Flight> _Flights;
         Flight _SelectedFlight;
-
+        /// <summary>
+        /// Конструктор в якому за допомогою методів типу (db.****.Load()) загружають дані в  ApplicationContext.
+        ///  _Flights витягує та оперує даними наявних польотів, для подальшої їх зміни.
+        /// </summary>
         public ChangeDeleteFlightViewModel()
         {
             db = new ApplicationContext();

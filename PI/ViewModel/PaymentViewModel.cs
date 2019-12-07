@@ -8,16 +8,23 @@ using PI.Commands;
 
 namespace PI.ViewModel
 {
+    /// <summary>
+    /// Клас PaymentViewModel призначений для оформлення купівлі авіаквитка.
+    /// </summary>
     public class PaymentViewModel
     {
         ApplicationContext db;
+        /// <summary>
+        /// Конструктор в якому за допомогою методів типу (db.****.Load()) загружають дані в  ApplicationContext.
+        /// <param name="Login">Параметр який передає дані про поточного користувача, для відслідковування операцій зроблених ним</param>
+        /// </summary>
         public PaymentViewModel(string Login)
         {
             db = new ApplicationContext();
             db.Payment.Load();
             db.PersonalInformation.Load();
             this.Login = Login;
-            Sum = "$"+Class1.Sum.ToString();
+            Sum = "$"+Clients.Sum.ToString();
             ExpirationDate = DateStart = DateTime.Now;
         }
 

@@ -5,6 +5,10 @@ namespace PI.Models
     using System.ComponentModel.DataAnnotations.Schema;
 
     [Table("Payment")]
+    /// <summary>
+    /// Клас Payment.
+    /// Клас для комунікування з таблицею Payment у базі даних.
+    /// </summary>
     public partial class Payment
     {
         [Key]

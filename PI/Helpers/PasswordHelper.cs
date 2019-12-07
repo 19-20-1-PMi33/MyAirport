@@ -3,6 +3,12 @@ using System.Windows.Controls;
 
 namespace PI.Helpers
 {
+    /// <summary>
+    /// Клас PasswordHelper
+    /// Приховує ввід паролів користувача.
+    /// Змінює символи на крапки темного кольору.
+    /// </summary>
+
     public static class PasswordHelper
     {
         public static readonly DependencyProperty PasswordProperty =

@@ -3,6 +3,11 @@ using System.Windows.Input;
 
 namespace PI.Commands
 {
+    /// <summary>
+    /// Клас RelayCommand
+    /// Цей клас реалізує інтерфейс ICommand,завдяки якому ми можемо направляти виклики до ViewModel. 
+    /// Ключовим тут є метод Execute(). 
+    /// </summary>
     public class RelayCommand : ICommand
     {
         private Action<object> execute;
@@ -24,7 +29,10 @@ namespace PI.Commands
         {
             return this.canExecute == null || this.canExecute(parameter);
         }
-
+        /// <summary>
+        /// Даний метод  получає параметр і виконує дію, передану через конструктор.
+        /// </summary>
+        /// <param name="parameter">пений параметр</param>
         public void Execute(object parameter)
         {
             this.execute(parameter);

@@ -3,6 +3,10 @@ namespace PI.Models
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
+    /// <summary>
+    /// Клас Airplane.
+    /// Клас для комунікування з таблицею Airplane у базі даних.
+    /// </summary>
 
     [Table("Airplane")]
     public partial class Airplane

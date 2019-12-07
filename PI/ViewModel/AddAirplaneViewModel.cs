@@ -7,16 +7,22 @@ using System.Windows;
 
 namespace PI.ViewModel
 {
+    /// <summary>
+    /// Клас AddAirplaneViewModel.
+    /// Клас добавляє нові літаки у базу даних.
+    /// </summary>
     public class AddAirplaneViewModel 
     {
         ApplicationContext db;
-
+        /// <summary>
+        /// Конструктор в якому метод (db.Airplane.Load()) загружає дані в  ApplicationContext.
+        /// </summary>
         public AddAirplaneViewModel()
         {
             db = new ApplicationContext();
             db.Airplane.Load();
         }
-
+       
         public int Id { get; set; }
         public string Model { get; set; }
         public int Econom { get; set; }

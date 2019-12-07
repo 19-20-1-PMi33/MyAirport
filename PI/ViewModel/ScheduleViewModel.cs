@@ -12,11 +12,18 @@ using PI.Commands;
 
 namespace PI.ViewModel
 {
+    /// <summary>
+    /// Клас ScheduleViewModel призначений перегляду всіх наявних рейсів чи рейсів на конкретну дату.
+    /// </summary>
     public class ScheduleViewModel : INotifyPropertyChanged
     {
         ApplicationContext db;
         List<Flight> _Flights;
 
+        /// <summary>
+        /// Конструктор в якому за допомогою методів типу (db.****.Load()) загружають дані в  ApplicationContext.
+        /// _Flights витягує та оперує даними наявних  польотів.
+        /// </summary>
         public ScheduleViewModel()
         {
             db = new ApplicationContext();

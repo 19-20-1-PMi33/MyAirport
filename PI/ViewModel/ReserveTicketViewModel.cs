@@ -11,12 +11,20 @@ using PI.Commands;
 
 namespace PI.ViewModel
 {
+    /// <summary>
+    /// Клас ReserveTicketViewModel призначений для бронювання авіаквитків.
+    /// </summary>
     public class ReserveTicketViewModel : INotifyPropertyChanged
     {
         ApplicationContext db;
         IEnumerable<string> _Airports;
         List<Flight> _Flights;
-       
+
+        /// <summary>
+        /// Конструктор в якому за допомогою методів типу (db.****.Load()) загружають дані в  ApplicationContext.
+        /// <param name="Login">Параметр який передає дані про поточного користувача, для відслідковування операцій зроблених ним</param>
+        ///  _Airports,_Flights витягує та оперує даними наявних для бронювання аеропортів та польотів із них,відповідно.
+        /// </summary>
         public ReserveTicketViewModel(string Login)
         {
             db = new ApplicationContext();

@@ -8,7 +8,11 @@ namespace PI.Helpers
     using System.Windows;
     using PI.Models;
     using System.IO;
-
+    /// <summary>
+    /// Клас ApplicationContext створений для роботи з базою даних.
+    /// Наслідується від DbContext.
+    ///  DbContext визначає контекст данних, використовуваних для взаємодії з базою данних.
+    /// </summary>
     public partial class ApplicationContext : DbContext
     {
         public ApplicationContext()
