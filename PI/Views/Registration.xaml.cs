@@ -8,7 +8,7 @@ using System.Configuration;
 namespace PI.Views
 {
     /// <summary>
-    /// Логика взаимодействия для Registration.xaml
+    /// Створює зв'язок між   Registration.xaml та   LoginRegistrationViewModel.
     /// </summary>
     public partial class Registration : Window
     {

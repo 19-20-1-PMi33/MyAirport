@@ -8,7 +8,7 @@ using PI.Helpers;
 namespace PI.Views
 {
     /// <summary>
-    /// Логика взаимодействия для Payment.xaml
+    /// Створює зв'язок між   Payment.xaml та   PaymentViewModel.
     /// </summary>
     public partial class Payment : Window
     {

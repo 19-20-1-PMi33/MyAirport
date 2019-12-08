@@ -4,7 +4,7 @@ using System.Windows.Input;
 namespace PI.Views
 {
     /// <summary>
-    /// Логика взаимодействия для Menu.xaml
+    /// Клас Menu це навігація сторінки користувача.
     /// </summary>
     public partial class Menu : Window
     {

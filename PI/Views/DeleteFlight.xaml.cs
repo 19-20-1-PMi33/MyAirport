@@ -8,7 +8,7 @@ using System.Data;
 namespace PI.Views
 {
     /// <summary>
-    /// Логика взаимодействия для DeleteFlight.xaml
+    /// Створює зв'язок між DeleteFlight.xaml та  ChangeDeleteFlightViewModel.
     /// </summary>
     public partial class DeleteFlight : Page
     {

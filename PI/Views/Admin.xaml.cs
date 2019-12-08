@@ -3,7 +3,9 @@ using System.Windows.Input;
 
 namespace PI.Views
 {
-
+    /// <summary>
+    /// Клас Admin це навігація сторінки адміністратора.
+    /// </summary>
     public partial class Admin : Window
     {
         public Admin()

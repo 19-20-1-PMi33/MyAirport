@@ -9,6 +9,9 @@ namespace PI.Views
 
     public partial class MainWindow : Window
     {
+        /// <summary>
+        /// Створює зв'язок між  MainWindow.xaml та LoginRegistrationViewModel.
+        /// </summary>
         public MainWindow()
         {
             DataContext = new ViewModel.LoginRegistrationViewModel();

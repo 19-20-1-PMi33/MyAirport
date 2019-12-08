@@ -7,7 +7,7 @@ using System.Configuration;
 namespace PI.Views
 {
     /// <summary>
-    /// Логика взаимодействия для Cabinet.xaml
+    /// Створює зв'язок між Cabinet.xaml та CabinetViewModel.
     /// </summary>
     public partial class Cabinet : Page
     {

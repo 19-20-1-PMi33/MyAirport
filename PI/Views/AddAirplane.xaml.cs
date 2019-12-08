@@ -7,7 +7,7 @@ using System.Configuration;
 namespace PI.Views
 {
     /// <summary>
-    /// Логика взаимодействия для AddAirplane.xaml
+    /// Створює зв'язок між AddAirplane.xaml та AddAirplaneViewModel.
     /// </summary>
     public partial class AddAirplane : Page
     {

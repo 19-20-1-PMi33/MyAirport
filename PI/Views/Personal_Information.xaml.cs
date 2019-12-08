@@ -7,7 +7,7 @@ using PI.Helpers;
 namespace PI.Views
 {
     /// <summary>
-    /// Логика взаимодействия для Personal_Information.xaml
+    /// Створює зв'язок між   Personal_Information.xaml та   PersonalInformationViewModel.
     /// </summary>
     public partial class Personal_Information : Window
     {

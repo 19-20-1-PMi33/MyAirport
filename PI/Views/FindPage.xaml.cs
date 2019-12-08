@@ -9,7 +9,7 @@ using PI.Helpers;
 namespace PI.Views
 {
     /// <summary>
-    /// Логика взаимодействия для FindPage.xaml
+    /// Створює зв'язок між  FindPage.xaml та  ReserveTicketViewModel.
     /// </summary>
     public partial class FindPage : Page
     {

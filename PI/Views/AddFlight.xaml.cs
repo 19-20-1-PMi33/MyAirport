@@ -12,6 +12,9 @@ using System.Windows.Controls;
 
 namespace PI.Views
 {
+    /// <summary>
+    /// Створює зв'язок між AddFlight.xaml та AddFlightViewModel.
+    /// </summary>
     public partial class AddFlight : Page
     {
         public AddFlight()

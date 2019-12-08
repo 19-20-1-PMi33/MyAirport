@@ -8,7 +8,7 @@ using System.Data;
 namespace PI.Views
 {
     /// <summary>
-    /// Логика взаимодействия для Schedule.xaml
+    /// Створює зв'язок між  Schedule.xaml та   ScheduleViewModel.
     /// </summary>
     public partial class Schedule : Page
     {

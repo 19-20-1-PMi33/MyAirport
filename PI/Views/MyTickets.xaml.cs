@@ -8,7 +8,7 @@ using System.Data;
 namespace PI.Views
 {
     /// <summary>
-    /// Логика взаимодействия для MyTickets.xaml
+    /// Логіка взаємодії для MyTickets.xaml
     /// </summary>
     public partial class MyTickets : Page
     {
