@@ -28,7 +28,9 @@ namespace PI.Views
 
         private void ExitButton_Click(object sender, RoutedEventArgs e)
         {
-            Application.Current.Shutdown();
+            Views.MainWindow menu = new Views.MainWindow();
+            menu.Show();
+            this.Visibility = Visibility.Hidden;
         }
 
         private void CabinetButton_Click(object sender, RoutedEventArgs e)
