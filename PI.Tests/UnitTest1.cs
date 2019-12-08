@@ -1,7 +1,7 @@
-﻿using System;
+using System;
 using Xunit;
 
-namespace UnitTests
+namespace PI.Tests
 {
     public class UnitTest1
     {
