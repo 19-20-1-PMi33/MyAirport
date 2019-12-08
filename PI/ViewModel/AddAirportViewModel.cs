@@ -11,7 +11,7 @@ namespace PI.ViewModel
     /// Клас AddAirportViewModel.
     /// Клас добавляє нові аеропорти у базу даних.
     /// </summary>
-    class AddAirportViewModel 
+    class AddAirportViewModel
     {
         ApplicationContext db;
         /// <summary>
@@ -24,7 +24,7 @@ namespace PI.ViewModel
         }
 
         public string City { get; set; }
-        
+
         public string Country { get; set; }
 
         public string IATA { get; set; }
