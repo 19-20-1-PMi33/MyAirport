@@ -71,21 +71,44 @@ namespace PI.ViewModel
                 {
                     if (FirstName != "" && SecondName != "" && Document != "" && Gender != null && Seating != null) 
                     {
-                        var sum = Int32.Parse(new String(string.Join(" ", Seating.Split(' ').ToList()[2]).Where(Char.IsDigit).ToArray()));
-                        PersonalInformation personalInformation = new PersonalInformation();
-                        personalInformation.FirstName = FirstName;
-                        personalInformation.SecondName = SecondName;
-                        personalInformation.Document = Document;
-                        personalInformation.Gender = Gender.ToString();
-                        personalInformation.FlightId = FlightId;
-                        personalInformation.BirthDate = BirthDate;
-                        personalInformation.Seating = string.Join(" ", Seating.Split(' ').ToList().GetRange(0, 2)).ToString();
-                        personalInformation.Login = Login;
-                        Class1.Add(personalInformation, sum);
+                        string personalSeating = string.Join(" ", Seating.Split(' ').ToList().GetRange(0, 2)).ToString(); 
+                        if (personalSeating == "First Class")
+                        {
+                            if(Clients.FirstClass != 0)
+                            {
+                                AddNewPerson();
+                                Clients.FirstClass -= 1;
+                            }
+                            else
+                            {
+                                MessageBox.Show("No places in this class.");
+                            }
+                        }
+                        if(personalSeating == "Bussines Class")
+                        {
+                            if (Clients.BusinessClass != 0)
+                            {
+                                AddNewPerson();
+                                Clients.BusinessClass -= 1;
+                            }
+                            else
+                            {
+                                MessageBox.Show("No places in this class.");
+                            }
+                        }
+                        if (personalSeating == "Economic Class")
+                        {
+                            if (Clients.EconomicClass != 0)
+                            {
+                                AddNewPerson();
+                                Clients.EconomicClass -= 1;
+                            }
+                            else
+                            {
+                                MessageBox.Show("No places in this class.");
+                            }
+                        }
 
-                        Views.Payment menu = new Views.Payment(Login);
-                        menu.Show();
-                        CloseWindow();
                     }
                     else
                     {
@@ -115,6 +138,27 @@ namespace PI.ViewModel
         {
             if (PropertyChanged != null)
                 PropertyChanged(this, new PropertyChangedEventArgs(prop));
+        }
+        public void AddNewPerson()
+        {
+            var sum = Int32.Parse(new String(string.Join(" ", Seating.Split(' ').ToList()[2]).Where(Char.IsDigit).ToArray()));
+            PersonalInformation personalInformation = new PersonalInformation();
+            personalInformation.FirstName = FirstName;
+            personalInformation.SecondName = SecondName;
+            personalInformation.Document = Document;
+            personalInformation.Gender = Gender.ToString();
+            personalInformation.FlightId = FlightId;
+            personalInformation.BirthDate = BirthDate;
+            personalInformation.Seating =
+            personalInformation.Login = Login;
+
+
+
+            Clients.Add(personalInformation, sum);
+
+            Views.Payment menu = new Views.Payment(Login);
+            menu.Show();
+            CloseWindow();
         }
     }
 }

@@ -82,6 +82,7 @@ namespace PI.ViewModel
                     if (new DateTime(DepartDate.Year, DepartDate.Month, DepartDate.Day, Int32.Parse(dt.Split(':')[0]), Int32.Parse(dt.Split(':')[1]), 00) < new DateTime(ArriveDate.Year, ArriveDate.Month, ArriveDate.Day, Int32.Parse(at.Split(':')[0]), Int32.Parse(at.Split(':')[1]), 00))
                     {
                         Flight flight = new Flight();
+                        Airplane airplane = db.Airplane.Find(AirplaneId);
                         flight.DepartCity = DepartTown;
                         flight.ArriveCity = ArriveTown;
                         flight.DepartDate = DepartDate;
@@ -90,6 +91,9 @@ namespace PI.ViewModel
                         flight.ArriveTime = new TimeSpan(Int32.Parse(at.Split(':')[0]), Int32.Parse(at.Split(':')[1]), 00);
                         flight.AirplaneID = AirplaneId;
                         flight.Airline = Airline;
+                        flight.FirstClass = airplane.First;
+                        flight.BusinessClass = airplane.Business;
+                        flight.EconomicClass = airplane.Econom;
                         db.Flight.Add(flight);
                         db.SaveChanges();
                         DepartTown = ArriveTown = Airline = null;

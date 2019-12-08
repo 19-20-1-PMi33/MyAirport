@@ -38,6 +38,12 @@ namespace PI.Models
 
         public TimeSpan ArriveTime { get; set; }
 
+        public int BusinessClass { get; set; }
+
+        public int FirstClass { get; set; }
+
+        public int EconomicClass { get; set; }
+
         [Required]
         [StringLength(50)]
         public string Airline { get; set; }

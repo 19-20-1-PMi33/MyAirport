@@ -103,6 +103,9 @@
                     <DataGridTextColumn Header="Arrive Time" Binding="{Binding ArriveTime, StringFormat=hh\\:mm}"/>
                     <DataGridTextColumn Header="Airline" Binding="{Binding Airline}"/>
                     <DataGridTextColumn Header="Airplane" Binding="{Binding AirplaneID}"/>
+                    <DataGridTextColumn Header="First Class" Binding="{Binding FirstClass}"/>
+                    <DataGridTextColumn Header="Business Class" Binding="{Binding BusinessClass}"/>
+                    <DataGridTextColumn Header="Economic Class" Binding="{Binding EconomicClass}"/>
                 </DataGrid.Columns>
             </DataGrid>
         </Grid>

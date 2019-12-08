@@ -53,12 +53,12 @@ namespace PI.ViewModel
                             payment.CardOwner = CardOwner;
                             payment.ExpirationDate = ExpirationDate;
                             payment.CVC = int.Parse(CVC);
-                            payment.Sum = Class1.Sum;
+                            payment.Sum = Clients.Sum;
                             payment.Login = Login;
                             db.Payment.Add(payment);
                             db.SaveChanges();
 
-                            foreach (var item in Class1.ListOfQueries)
+                            foreach (var item in Clients.ListOfClients)
                             {
                                 db.PersonalInformation.Add(item);
                                 db.SaveChanges();

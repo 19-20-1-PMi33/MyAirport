@@ -58,6 +58,10 @@ namespace PI.ViewModel
                     if (SelectedFlight != null)
                     {
                         Views.Personal_Information menu = new Views.Personal_Information(Login, SelectedFlight.Id);
+                        Clients.Clear();
+                        Clients.FirstClass = SelectedFlight.FirstClass;
+                        Clients.BusinessClass = SelectedFlight.BusinessClass;
+                        Clients.EconomicClass = SelectedFlight.EconomicClass;
                         menu.Show();
                     }
                 });
