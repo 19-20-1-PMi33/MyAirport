@@ -11,11 +11,8 @@ namespace PI.Models
     /// </summary>
     public partial class Customer
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Customer()
-        {
-            Payment = new HashSet<Payment>();
-        }
+        { }
 
         [Key]
         [StringLength(50)]
@@ -29,7 +26,5 @@ namespace PI.Models
         [StringLength(50)]
         public string Email { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Payment> Payment { get; set; }
     }
 }

@@ -12,11 +12,8 @@ namespace PI.Models
     /// </summary>
     public partial class Flight
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Flight()
-        {
-            PersonalInformation = new HashSet<PersonalInformation>();
-        }
+        { }
 
         public int Id { get; set; }
 
@@ -49,14 +46,5 @@ namespace PI.Models
         public string Airline { get; set; }
 
         public int AirplaneID { get; set; }
-
-        public virtual Airplane Airplane { get; set; }
-
-        public virtual Airport Airport { get; set; }
-
-        public virtual Airport Airport1 { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<PersonalInformation> PersonalInformation { get; set; }
     }
 }

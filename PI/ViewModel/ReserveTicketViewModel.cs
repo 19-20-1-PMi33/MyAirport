@@ -14,11 +14,9 @@ namespace PI.ViewModel
     /// <summary>
     /// Клас ReserveTicketViewModel призначений для бронювання авіаквитків.
     /// </summary>
-    public class ReserveTicketViewModel : INotifyPropertyChanged
+    public class ReserveTicketViewModel
     {
         ApplicationContext db;
-        IEnumerable<string> _Airports;
-        List<Flight> _Flights;
 
         /// <summary>
         /// Конструктор в якому за допомогою методів типу (db.****.Load()) загружають дані в  ApplicationContext.
@@ -30,19 +28,25 @@ namespace PI.ViewModel
             db = new ApplicationContext();
             db.Airport.Load();
             db.Flight.Load();
-            _Airports = db.Airport.OrderBy(x => x.CIty)
+            Airports = db.Airport.OrderBy(x => x.CIty)
                 .Select(x=>x.CIty)
                 .Distinct().ToList();
-            _Flights = db.Flight.Local.ToBindingList()
-                 .Where(x => x.DepartDate > new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day) && x.DepartTime > new TimeSpan(DateTime.Now.Hour, DateTime.Now.Minute, DateTime.Now.Second))
+            Flights = db.Flight.Local.ToBindingList()
+                 .Where(x => new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day,DateTime.Now.Hour,DateTime.Now.Minute,DateTime.Now.Second) <= 
+                 new DateTime(x.DepartDate.Year,x.DepartDate.Month, x.DepartDate.Day, x.DepartTime.Hours,x.DepartTime.Minutes,00))
                 .OrderBy(x=>x.DepartDate)
                 .ThenBy(x=>x.DepartTime).ToList();
+            
             SelectedDate = DateStart = new DateTime(DateTime.Now.Year,DateTime.Now.Month,DateTime.Now.Day);
             this.Login = Login;
         }
         public string Login { get; set; }
         public string DepartCity { get; set; }
         public string ArriveCity { get; set; }
+
+        public int CountAdult { get; set; }
+        public int CountInfant { get; set; }
+        public int CountChild { get; set; }
 
         public DateTime SelectedDate { get; set; }
 
@@ -57,35 +61,33 @@ namespace PI.ViewModel
                 {
                     if (SelectedFlight != null)
                     {
-                        Views.Personal_Information menu = new Views.Personal_Information(Login, SelectedFlight.Id);
-                        Clients.Clear();
-                        Clients.FirstClass = SelectedFlight.FirstClass;
-                        Clients.BusinessClass = SelectedFlight.BusinessClass;
-                        Clients.EconomicClass = SelectedFlight.EconomicClass;
-                        menu.Show();
+                        if (SelectedFlight.FirstClass + SelectedFlight.EconomicClass + SelectedFlight.BusinessClass >= CountAdult + CountChild + CountInfant)
+                        {
+                            if (CountAdult >= CountInfant && CountAdult != 0)
+                            {
+                                Views.Personal_Information menu = new Views.Personal_Information(Login, SelectedFlight.Id,CountAdult+CountChild+CountInfant);
+                                Clients.Clear();
+                                Clients.FirstClass = SelectedFlight.FirstClass;
+                                Clients.BusinessClass = SelectedFlight.BusinessClass;
+                                Clients.EconomicClass = SelectedFlight.EconomicClass;
+                                menu.Show();
+                            }
+                            else
+                            {
+                                MessageBox.Show("The number of adults must exceed the number of infants and not equal to zero");
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("Not so many tickets for this flight");
+                        }
                     }
                 });
             }
         }
-        public List<Flight> Flights
-        {
-            get => _Flights;
-            set
-            {
-                _Flights = value;
-                OnPropertyChanged("Flights");
-            }
-        }
+        public List<Flight> Flights { get; set; }
 
-        public IEnumerable<string> Airports
-        {
-            get => _Airports;
-            set
-            {
-                _Airports = value;
-                OnPropertyChanged("Airports");
-            }
-        }
+        public IEnumerable<string> Airports { get; set; }
 
         public RelayCommand FindFlightsCommand
         {
@@ -107,13 +109,6 @@ namespace PI.ViewModel
                     }
                 });
             }
-        }
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        public void OnPropertyChanged([CallerMemberName]string prop = "")
-        {
-            if (PropertyChanged != null)
-                PropertyChanged(this, new PropertyChangedEventArgs(prop));
         }
     }
 }

@@ -13,19 +13,20 @@ namespace PI.ViewModel
     /// <summary>
     /// Клас PersonalInformationViewModel призначений для вибору критеріїв польоту та формування даних про авіаквиток.
     /// </summary>
-    public class PersonalInformationViewModel : INotifyPropertyChanged
+    public class PersonalInformationViewModel
     {
-        public PersonalInformationViewModel(string Login,int FlightId)
+        public PersonalInformationViewModel(string Login,int FlightId,int CountTickets)
         {
             this.Login = Login;
+            this.CountTickets = CountTickets;
             this.FlightId = FlightId;
             BirthDate = DateTime.Now;
-            _GenderList = new List<string>()
+            GenderList = new List<string>()
             {
                 "Male",
                 "Female"
             };
-            _SeatingList = new List<string>()
+            SeatingList = new List<string>()
             {
                 "First Class ($180)",
                 "Bussines Class ($145)",
@@ -33,8 +34,6 @@ namespace PI.ViewModel
             }; 
 
         }
-        List<string> _GenderList;
-        List<string> _SeatingList;
 
         public string SecondName { get; set; }
         public string FirstName { get; set; }
@@ -44,24 +43,9 @@ namespace PI.ViewModel
         public string Seating { get; set; }
         public string Login { get; set; }
         public int FlightId { get; set; }
-        public List<string> GenderList
-        {
-            get => _GenderList;
-            set
-            {
-                _GenderList = value;
-                OnPropertyChanged("GenderList");
-            }
-        }
-        public List<string> SeatingList
-        {
-            get => _SeatingList;
-            set
-            {
-                _SeatingList = value;
-                OnPropertyChanged("SeatingList");
-            }
-        }
+        public int CountTickets { get; set; }
+        public List<string> GenderList { get; set; }
+        public List<string> SeatingList { get; set; }
 
         public RelayCommand AddPassenger
         {
@@ -132,13 +116,6 @@ namespace PI.ViewModel
                     .Close();
         }
 
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        public void OnPropertyChanged([CallerMemberName]string prop = "")
-        {
-            if (PropertyChanged != null)
-                PropertyChanged(this, new PropertyChangedEventArgs(prop));
-        }
         public void AddNewPerson()
         {
             var sum = Int32.Parse(new String(string.Join(" ", Seating.Split(' ').ToList()[2]).Where(Char.IsDigit).ToArray()));
@@ -149,16 +126,24 @@ namespace PI.ViewModel
             personalInformation.Gender = Gender.ToString();
             personalInformation.FlightId = FlightId;
             personalInformation.BirthDate = BirthDate;
-            personalInformation.Seating =
+            personalInformation.Seating = string.Join(" ", Seating.Split(' ').ToList().GetRange(0, 2)).ToString();
             personalInformation.Login = Login;
-
-
+            CountTickets -= 1;
 
             Clients.Add(personalInformation, sum);
 
-            Views.Payment menu = new Views.Payment(Login);
-            menu.Show();
-            CloseWindow();
+            if (CountTickets == 0)
+            {
+                Views.Payment menu = new Views.Payment(Login);
+                menu.Show();
+                CloseWindow();
+            }
+            else
+            {
+                Views.Personal_Information personal_Information = new Views.Personal_Information(Login, FlightId, CountTickets);
+                personal_Information.Show();
+                CloseWindow();
+            }
         }
     }
 }

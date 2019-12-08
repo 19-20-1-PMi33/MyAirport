@@ -22,6 +22,7 @@ namespace PI.ViewModel
         {
             db = new ApplicationContext();
             db.Payment.Load();
+            db.Flight.Load();
             db.PersonalInformation.Load();
             this.Login = Login;
             Sum = "$"+Clients.Sum.ToString();
@@ -43,7 +44,7 @@ namespace PI.ViewModel
             {
                 return new RelayCommand((obj) =>
                 {
-                    if (CardNumber != null && CardType != null && CardOwner != null && CVC != null) 
+                    if (CardNumber != null && CardType != null && CardOwner != null && CVC != null && CVC.Length!=3) 
                     {
                         try
                         {
@@ -57,12 +58,16 @@ namespace PI.ViewModel
                             payment.Login = Login;
                             db.Payment.Add(payment);
                             db.SaveChanges();
-
                             foreach (var item in Clients.ListOfClients)
                             {
                                 db.PersonalInformation.Add(item);
                                 db.SaveChanges();
                             }
+                            Flight flight = db.Flight.Find(Clients.ListOfClients[0].FlightId);
+                            flight.BusinessClass = Clients.BusinessClass;
+                            flight.FirstClass = Clients.FirstClass;
+                            flight.EconomicClass = Clients.EconomicClass;
+                            db.SaveChanges();
                             CloseWindow();
                         }
                         catch (FormatException)

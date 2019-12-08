@@ -42,7 +42,6 @@ namespace PI.Models
         [Required]
         [StringLength(50)]
         public string Login { get; set; }
-
-        public virtual Flight Flight { get; set; }
+        
     }
 }

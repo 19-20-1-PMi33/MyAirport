@@ -15,11 +15,9 @@ namespace PI.ViewModel
     /// Клас ChangeDeleteFlightViewModel призначений для зміни та видалення польотів.
     /// 
     /// </summary>
-    public class ChangeDeleteFlightViewModel : INotifyPropertyChanged
+    public class ChangeDeleteFlightViewModel 
     {
         ApplicationContext db;
-        List<Flight> _Flights;
-        Flight _SelectedFlight;
         /// <summary>
         /// Конструктор в якому за допомогою методів типу (db.****.Load()) загружають дані в  ApplicationContext.
         ///  _Flights витягує та оперує даними наявних польотів, для подальшої їх зміни.
@@ -29,30 +27,14 @@ namespace PI.ViewModel
             db = new ApplicationContext();
             db.Flight.Load();
             db.PersonalInformation.Load();
-            _Flights = db.Flight.Local.ToBindingList()
+            Flights = db.Flight.Local.ToBindingList()
                 .OrderBy(x => x.DepartDate)
                 .ThenBy(x => x.DepartTime).ToList();
         }
 
-        public List<Flight> Flights
-        {
-            get => _Flights;
-            set
-            {
-                _Flights = value;
-                OnPropertyChanged("Flights");
-            }
-        }
+        public List<Flight> Flights { get; set; }
 
-        public Flight SelectedFlight
-        {
-            get => _SelectedFlight;
-            set
-            {
-                _SelectedFlight = value;
-                OnPropertyChanged("SelectedFlight");
-            }
-        }
+        public Flight SelectedFlight { get; set; }
 
         public RelayCommand ChangeFlightCommand
         {
@@ -102,14 +84,6 @@ namespace PI.ViewModel
                         .ThenBy(x => x.DepartTime).ToList();
                 });
             }
-        }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        public void OnPropertyChanged([CallerMemberName]string prop = "")
-        {
-            if (PropertyChanged != null)
-                PropertyChanged(this, new PropertyChangedEventArgs(prop));
         }
     }
 }

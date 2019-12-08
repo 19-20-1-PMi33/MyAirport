@@ -48,6 +48,5 @@ namespace PI.Models
         [StringLength(50)]
         public string Login { get; set; }
 
-        public virtual Customer Customer { get; set; }
     }
 }

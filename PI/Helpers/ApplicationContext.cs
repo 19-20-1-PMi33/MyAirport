@@ -37,11 +37,6 @@ namespace PI.Helpers
                 .Property(e => e.Model)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<Airplane>()
-                .HasMany(e => e.Flight)
-                .WithRequired(e => e.Airplane)
-                .WillCascadeOnDelete(false);
-
             modelBuilder.Entity<Airport>()
                 .Property(e => e.CIty)
                 .IsUnicode(false);
@@ -53,18 +48,6 @@ namespace PI.Helpers
             modelBuilder.Entity<Airport>()
                 .Property(e => e.IATA)
                 .IsUnicode(false);
-
-            modelBuilder.Entity<Airport>()
-                .HasMany(e => e.Flight)
-                .WithRequired(e => e.Airport)
-                .HasForeignKey(e => e.ArriveCity)
-                .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<Airport>()
-                .HasMany(e => e.Flight1)
-                .WithRequired(e => e.Airport1)
-                .HasForeignKey(e => e.DepartCity)
-                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Customer>()
                 .Property(e => e.Login)
@@ -78,10 +61,6 @@ namespace PI.Helpers
                 .Property(e => e.Email)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<Customer>()
-                .HasMany(e => e.Payment)
-                .WithRequired(e => e.Customer)
-                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Flight>()
                 .Property(e => e.DepartCity)
@@ -102,11 +81,6 @@ namespace PI.Helpers
             modelBuilder.Entity<Flight>()
                 .Property(e => e.Airline)
                 .IsUnicode(false);
-
-            modelBuilder.Entity<Flight>()
-                .HasMany(e => e.PersonalInformation)
-                .WithRequired(e => e.Flight)
-                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<PersonalInformation>()
                 .Property(e => e.SecondName)
