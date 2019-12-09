@@ -1,0 +1,422 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>PI</name>
+    </assembly>
+    <members>
+        <member name="T:PI.Helpers.PasswordHelper">
+            <summary>
+            Клас PasswordHelper
+            Приховує ввід паролів користувача.
+            Змінює символи на крапки темного кольору.
+            </summary>
+        </member>
+        <member name="T:PI.Helpers.ApplicationContext">
+            <summary>
+            Клас ApplicationContext створений для роботи з базою даних.
+            Наслідується від DbContext.
+             DbContext визначає контекст данних, використовуваних для взаємодії з базою данних.
+            </summary>
+        </member>
+        <member name="T:PI.Helpers.Clients">
+            <summary>
+            Це клас Clients.
+            Зберігає дані у базу даних про клієнтів які купили квитки.
+            </summary>
+        </member>
+        <member name="M:PI.Helpers.Clients.Add(PI.Models.PersonalInformation,System.Int32)">
+            <summary>
+            Додає параметр query в список клієнтів(ListOfQueries)
+            Збільшує суму(sum)
+            </summary>
+            <param name="information">Інформація про клієнта</param>
+            <param name="sum">Загальна сума за білети</param>
+        </member>
+        <member name="M:PI.Helpers.Clients.Clear">
+            <summary>
+            Видаляє всі дані зі списку та занулює значення змінних.
+            </summary>
+        </member>
+        <member name="T:PI.ViewModel.AddAirplaneViewModel">
+            <summary>
+            Клас AddAirplaneViewModel.
+            Клас добавляє нові літаки у базу даних.
+            </summary>
+        </member>
+        <member name="M:PI.ViewModel.AddAirplaneViewModel.#ctor">
+            <summary>
+            Конструктор в якому метод (db.Airplane.Load()) загружає дані в  ApplicationContext.
+            </summary>
+        </member>
+        <member name="P:PI.ViewModel.AddAirplaneViewModel.AddAirplaneCommand">
+            <summary>
+            AddAirplaneCommand команда, що створює дані про нові літаки.
+            </summary>
+            <remarks>
+            Сворює дані про новий літак в базі даних, попередньо перевіряючи його відсутність в ній.
+            </remarks>
+        </member>
+        <member name="P:PI.ViewModel.AddAirplaneViewModel.DeleteAirplaneCommand">
+            <summary>
+            DeleteAirplaneCommand команда, що видаляє дані про вибраний літак.
+            </summary>
+        </member>
+        <member name="T:PI.ViewModel.AddAirportViewModel">
+            <summary>
+            Клас AddAirportViewModel.
+            Клас добавляє нові аеропорти у базу даних.
+            </summary>
+        </member>
+        <member name="M:PI.ViewModel.AddAirportViewModel.#ctor">
+            <summary>
+            Конструктор в якому метод (db.Airport.Load()) загружає дані в  ApplicationContext.
+            </summary>
+        </member>
+        <member name="P:PI.ViewModel.AddAirportViewModel.AddAirportCommand">
+            <summary>
+            AddAirportCommand команда, що створює дані про нові аеропорти.
+            </summary>
+            <remarks>
+            Сворює дані про новий аеропорт в базі даних, попередньо перевіряючи його відсутність в ній.
+            </remarks>
+        </member>
+        <member name="P:PI.ViewModel.AddAirportViewModel.DeleteAirportCommand">
+            <summary>
+            DeleteAirportCommand команда, що видаляє дані про вибраний аеропорт.
+            </summary>
+        </member>
+        <member name="T:PI.ViewModel.AddFlightViewModel">
+            <summary>
+            Клас AddFlightViewModel.
+            Клас добавляє нові польоти у базу даних.
+            </summary>
+        </member>
+        <!-- Проигнорирован некорректный комментарий XML для члена "M:PI.ViewModel.AddFlightViewModel.#ctor" -->
+        <member name="P:PI.ViewModel.AddFlightViewModel.AddFlightCommand">
+            <summary>
+            AddFlightCommand команда, що створює дані про нові польоти.
+            </summary>
+            <remarks>
+            Сворює дані про новий політ в базі даних, попередньо перевіряючи валідність дат.
+            </remarks>
+        </member>
+        <member name="T:PI.ViewModel.ReserveTicketViewModel">
+            <summary>
+            Клас ReserveTicketViewModel призначений для бронювання авіаквитків.
+            </summary>
+        </member>
+        <member name="M:PI.ViewModel.ReserveTicketViewModel.#ctor(System.String)">
+            <summary>
+            Конструктор в якому за допомогою методів типу (db.****.Load()) загружають дані в  ApplicationContext.
+            <param name="Login">Параметр який передає дані про поточного користувача, для відслідковування операцій зроблених ним</param>
+             _Airports,_Flights витягує та оперує даними наявних для бронювання аеропортів та польотів із них,відповідно.
+            </summary>
+        </member>
+        <member name="P:PI.ViewModel.ReserveTicketViewModel.ReserveTicketCommand">
+            <summary>
+            ReserveTicketCommand команда, яка надає критерії для бронювання авіаквитка.
+            </summary>
+        </member>
+        <member name="P:PI.ViewModel.ReserveTicketViewModel.FindFlightsCommand">
+            <summary>
+            FindFlightsCommand команда, яка здійснює пошук польотів.
+            </summary>
+            <remarks>
+            Попередньо перевіряючи логіку заповнень полів.
+            </remarks>
+        </member>
+        <member name="T:PI.ViewModel.CabinetViewModel">
+            <summary>
+            Клас AddFlightViewModel.
+            Клас добавляє нові дані про користувача у базу даних.
+            </summary>
+        </member>
+        <!-- Проигнорирован некорректный комментарий XML для члена "M:PI.ViewModel.CabinetViewModel.#ctor(System.String)" -->
+        <member name="P:PI.ViewModel.CabinetViewModel.ChangePasswordCommand">
+            <summary>
+            ChangePasswordCommand команда, що змінює пароль користувача.
+            </summary>
+            <remarks>
+            Попередньо перевіряючи його співпадіння зі старим.
+            </remarks>
+        </member>
+        <member name="P:PI.ViewModel.CabinetViewModel.ChangeEmailCommand">
+            <summary>
+            ChangeEmailCommand команда, що змінює електронну пошту користувача.
+            </summary>
+            <remarks>
+            Попередньо перевіряючи її співпадіння зі старою.
+            </remarks>
+        </member>
+        <member name="T:PI.ViewModel.ChangeDeleteFlightViewModel">
+            <summary>
+            Клас ChangeDeleteFlightViewModel призначений для зміни та видалення польотів.
+            </summary>
+        </member>
+        <member name="M:PI.ViewModel.ChangeDeleteFlightViewModel.#ctor">
+            <summary>
+            Конструктор в якому за допомогою методів типу (db.****.Load()) загружають дані в  ApplicationContext.
+             _Flights витягує та оперує даними наявних польотів, для подальшої їх зміни.
+            </summary>
+        </member>
+        <member name="P:PI.ViewModel.ChangeDeleteFlightViewModel.ChangeFlightCommand">
+            <summary>
+            ChangeFlightCommand команда, що змінює дані про вибраний політ.
+            </summary>
+            <remarks>
+            Попередньо перевіряючи валідність дат.
+            </remarks>
+        </member>
+        <member name="P:PI.ViewModel.ChangeDeleteFlightViewModel.DeleteFlightCommand">
+            <summary>
+            DeleteFlightCommand команда, що видаляє дані про вибраний політ.
+            </summary>
+            <remarks>
+            Попередньо перевіряючи валідність дат.
+            </remarks>
+        </member>
+        <member name="T:PI.ViewModel.LoginRegistrationViewModel">
+            <summary>
+            Клас LoginRegistrationViewModel призначений для проведення процедури реєстрації.
+            </summary>
+        </member>
+        <member name="P:PI.ViewModel.LoginRegistrationViewModel.LoginCommand">
+            <summary>
+            Визначає параметри входу для простого користувача та адміністратора.
+            </summary>
+        </member>
+        <member name="P:PI.ViewModel.LoginRegistrationViewModel.OpenRegistrationWindowCommand">
+            <summary>
+            OpenRegistrationWindowCommand команда, що відкриває вікно реєстрації.
+            </summary>
+        </member>
+        <member name="P:PI.ViewModel.LoginRegistrationViewModel.AddNewCustomer">
+            <summary>
+            AddNewCustomer команда, що створює дані про нового користувача.
+            </summary>
+            <remarks>
+            Попередньо перевіряючи співпадіння логіну даного користувача з уже наявними в базі даних.
+            </remarks>
+        </member>
+        <member name="P:PI.ViewModel.LoginRegistrationViewModel.CloseCommand">
+            <summary>
+            CloseCommand команда, що закриває наявне вікно.
+            </summary>
+        </member>
+        <member name="T:PI.ViewModel.PaymentViewModel">
+            <summary>
+            Клас PaymentViewModel призначений для оформлення купівлі авіаквитка.
+            </summary>
+        </member>
+        <member name="M:PI.ViewModel.PaymentViewModel.#ctor(System.String)">
+            <summary>
+            Конструктор в якому за допомогою методів типу (db.****.Load()) загружають дані в  ApplicationContext.
+            <param name="Login">Параметр який передає дані про поточного користувача, для відслідковування операцій зроблених ним</param>
+            </summary>
+        </member>
+        <member name="P:PI.ViewModel.PaymentViewModel.PayCommand">
+            <summary>
+            PayCommand команда, що створює дані по розрахунку за авіаквиток для наявного користувача.
+            </summary>
+            <remarks>
+            Попередньо перевіряючи логіку заповнень полів.
+            </remarks>
+        </member>
+        <member name="T:PI.ViewModel.PersonalInformationViewModel">
+            <summary>
+            Клас PersonalInformationViewModel призначений для вибору критеріїв польоту та формування даних про авіаквиток.
+            </summary>
+        </member>
+        <member name="P:PI.ViewModel.PersonalInformationViewModel.AddPassenger">
+            <summary>
+            AddPassenger команда, яка створює дані про користувача, що бронює авіаквиток.
+            </summary>
+            <remarks>
+            Попередньо перевіряючи логіку заповнень полів.
+            </remarks>
+        </member>
+        <member name="M:PI.ViewModel.PersonalInformationViewModel.AddNewPerson">
+            <summary>
+            AddNewPerson функція, що вносить дані про користувача який забронював авіаквиток. 
+            </summary>
+        </member>
+        <member name="T:PI.ViewModel.ScheduleViewModel">
+            <summary>
+            Клас ScheduleViewModel призначений перегляду всіх наявних рейсів чи рейсів на конкретну дату.
+            </summary>
+        </member>
+        <member name="M:PI.ViewModel.ScheduleViewModel.#ctor">
+            <summary>
+            Конструктор в якому за допомогою методів типу (db.****.Load()) загружають дані в  ApplicationContext.
+            Flights витягує та оперує даними наявних  польотів.
+            </summary>
+        </member>
+        <member name="P:PI.ViewModel.ScheduleViewModel.FindFlightsCommand">
+            <summary>
+            FindFlightsCommand команда, яка витягує дані бази даних про всі наявні польоти задоної дати.
+            </summary>
+        </member>
+        <member name="T:PI.Views.AddAirplane">
+            <summary>
+            Створює зв'язок між AddAirplane.xaml та AddAirplaneViewModel.
+            </summary>
+        </member>
+        <member name="T:PI.Views.AddAirport">
+            <summary>
+            Створює зв'язок між AddAirport.xaml та AddAirportViewModel.
+            </summary>
+        </member>
+        <member name="T:PI.Views.AddFlight">
+            <summary>
+            Створює зв'язок між AddFlight.xaml та AddFlightViewModel.
+            </summary>
+        </member>
+        <member name="T:PI.Views.Admin">
+            <summary>
+            Клас Admin це навігація сторінки адміністратора.
+            </summary>
+        </member>
+        <member name="T:PI.Views.Cabinet">
+            <summary>
+            Створює зв'язок між Cabinet.xaml та CabinetViewModel.
+            </summary>
+        </member>
+        <member name="T:PI.Views.ChangeFlight">
+            <summary>
+            Створює зв'язок між ChangeFlight.xaml та  ChangeDeleteFlightViewModel.
+            </summary>
+        </member>
+        <member name="T:PI.Views.DeleteFlight">
+            <summary>
+            Створює зв'язок між DeleteFlight.xaml та  ChangeDeleteFlightViewModel.
+            </summary>
+        </member>
+        <member name="T:PI.Views.FindPage">
+            <summary>
+            Створює зв'язок між  FindPage.xaml та  ReserveTicketViewModel.
+            </summary>
+        </member>
+        <member name="T:PI.Views.MainWindow">
+            <summary>
+            Логика взаимодействия для MainWindow.xaml
+            </summary>
+        </member>
+        <member name="M:PI.Views.MainWindow.#ctor">
+            <summary>
+            Створює зв'язок між  MainWindow.xaml та LoginRegistrationViewModel.
+            </summary>
+        </member>
+        <member name="T:PI.Views.Menu">
+            <summary>
+            Клас Menu це навігація сторінки користувача.
+            </summary>
+        </member>
+        <member name="T:PI.Views.MyTickets">
+            <summary>
+            Логіка взаємодії для MyTickets.xaml
+            </summary>
+        </member>
+        <member name="T:PI.Views.Payment">
+            <summary>
+            Створює зв'язок між   Payment.xaml та   PaymentViewModel.
+            </summary>
+        </member>
+        <member name="T:PI.Views.Personal_Information">
+            <summary>
+            Створює зв'язок між   Personal_Information.xaml та   PersonalInformationViewModel.
+            </summary>
+        </member>
+        <member name="T:PI.Views.Registration">
+            <summary>
+            Створює зв'язок між   Registration.xaml та   LoginRegistrationViewModel.
+            </summary>
+        </member>
+
+        <member name="T:PI.Views.Schedule">
+            <summary>
+            Створює зв'язок між  Schedule.xaml та   ScheduleViewModel.
+            </summary>
+        </member>
+        <member name="T:PI.App">
+            <summary>
+            Логика взаимодействия для App.xaml
+            </summary>
+        </member>
+        <member name="M:PI.App.Main">
+            <summary>
+            Application Entry Point.
+            </summary>
+        </member>
+        <member name="T:PI.Commands.RelayCommand">
+            <summary>
+            Клас RelayCommand
+            Цей клас реалізує інтерфейс ICommand,завдяки якому ми можемо направляти виклики до ViewModel. 
+            Ключовим тут є метод Execute(). 
+            </summary>
+        </member>
+        <member name="M:PI.Commands.RelayCommand.Execute(System.Object)">
+            <summary>
+            Даний метод  получає параметр і виконує дію, передану через конструктор.
+            </summary>
+            <param name="parameter">пений параметр</param>
+        </member>
+        <member name="T:PI.Models.Airplane">
+            <summary>
+            Клас Airplane.
+            Клас для комунікування з таблицею Airplane у базі даних.
+            </summary>
+        </member>
+        <member name="T:PI.Models.PersonalInformation">
+            <summary>
+            Клас PersonalInformation.
+            Клас для комунікування з таблицею PersonalInformation у базі даних.
+            </summary>
+        </member>
+        <member name="T:PI.Properties.Resources">
+            <summary>
+              Класс ресурсов со строгим типом для поиска локализованных строк и пр.
+            </summary>
+        </member>
+        <member name="P:PI.Properties.Resources.ResourceManager">
+            <summary>
+              Возврат кэшированного экземпляра ResourceManager, используемого этим классом.
+            </summary>
+        </member>
+        <member name="P:PI.Properties.Resources.Culture">
+            <summary>
+              Переопределяет свойство CurrentUICulture текущего потока для всех
+              подстановки ресурсов с помощью этого класса ресурсов со строгим типом.
+            </summary>
+        </member>
+        <member name="T:XamlGeneratedNamespace.GeneratedInternalTypeHelper">
+            <summary>
+            GeneratedInternalTypeHelper
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateInstance(System.Type,System.Globalization.CultureInfo)">
+            <summary>
+            CreateInstance
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.GetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            GetPropertyValue
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.SetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            SetPropertyValue
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateDelegate(System.Type,System.Object,System.String)">
+            <summary>
+            CreateDelegate
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.AddEventHandler(System.Reflection.EventInfo,System.Object,System.Delegate)">
+            <summary>
+            AddEventHandler
+            </summary>
+        </member>
+    </members>
+</doc>
