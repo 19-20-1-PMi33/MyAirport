@@ -29,12 +29,19 @@ namespace PI.ViewModel
         public string Business { get; set; }
         public string First { get; set; }
 
+        /// <summary>
+        /// AddAirplaneCommand команда, що створює дані про нові літаки.
+        /// </summary>
+        /// <remarks>
+        /// Сворює дані про новий літак в базі даних, попередньо перевіряючи його відсутність в ній.
+        /// </remarks>
         public RelayCommand AddAirplaneCommand
         {
             get
             {
                 return new RelayCommand((obj) =>
                 {
+                    
                     if (db.Airplane.Find(Id) != null)
                     {
                         MessageBox.Show("Plane id already reserved");
@@ -59,6 +66,19 @@ namespace PI.ViewModel
                             MessageBox.Show("Сheck fields for correctness");
                         }
                     }
+                });
+            }
+        }
+        /// <summary>
+        /// DeleteAirplaneCommand команда, що видаляє дані про вибраний літак.
+        /// </summary>
+        public RelayCommand DeleteAirplaneCommand
+        {
+            get
+            {
+                return new RelayCommand((obj) =>
+                {
+
                 });
             }
         }

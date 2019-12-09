@@ -48,6 +48,9 @@ namespace PI.ViewModel
 
         public DateTime DateStart { get; set; }
 
+        /// <summary>
+        /// FindFlightsCommand команда, яка витягує дані бази даних про всі наявні польоти задоної дати.
+        /// </summary>
         public RelayCommand FindFlightsCommand
         {
             get

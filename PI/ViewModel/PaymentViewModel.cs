@@ -38,6 +38,12 @@ namespace PI.ViewModel
         public string Login { get; set; }
         public DateTime DateStart { get; set; }
 
+        /// <summary>
+        /// PayCommand команда, що створює дані по розрахунку за авіаквиток для наявного користувача.
+        /// </summary>
+        /// <remarks>
+        /// Попередньо перевіряючи логіку заповнень полів.
+        /// </remarks>
         public RelayCommand PayCommand
         {
             get

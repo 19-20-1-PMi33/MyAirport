@@ -13,7 +13,6 @@ namespace PI.ViewModel
 {
     /// <summary>
     /// Клас ChangeDeleteFlightViewModel призначений для зміни та видалення польотів.
-    /// 
     /// </summary>
     public class ChangeDeleteFlightViewModel 
     {
@@ -36,6 +35,12 @@ namespace PI.ViewModel
 
         public Flight SelectedFlight { get; set; }
 
+        /// <summary>
+        /// ChangeFlightCommand команда, що змінює дані про вибраний політ.
+        /// </summary>
+        /// <remarks>
+        /// Попередньо перевіряючи валідність дат.
+        /// </remarks>
         public RelayCommand ChangeFlightCommand
         {
             get
@@ -64,7 +69,12 @@ namespace PI.ViewModel
                 });
             }
         }
-
+        /// <summary>
+        /// DeleteFlightCommand команда, що видаляє дані про вибраний політ.
+        /// </summary>
+        /// <remarks>
+        /// Попередньо перевіряючи валідність дат.
+        /// </remarks>
         public RelayCommand DeleteFlightCommand
         {
             get

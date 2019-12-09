@@ -24,10 +24,10 @@ namespace PI.ViewModel
 
         // <summary>
         /// Конструктор в якому методи типу (db.****.Load()) загружають дані в  ApplicationContext.
+        /// </summary>
         /// <remarks>
         /// __Airports, _Airplanes витягує та оперує даними наявних аеропортів та літаків,відповідно.
         /// </remarks>
-        /// </summary>
         public AddFlightViewModel()
         {
             db = new ApplicationContext();
@@ -71,10 +71,17 @@ namespace PI.ViewModel
             }
         }
 
+        /// <summary>
+        /// AddFlightCommand команда, що створює дані про нові польоти.
+        /// </summary>
+        /// <remarks>
+        /// Сворює дані про новий політ в базі даних, попередньо перевіряючи валідність дат.
+        /// </remarks>
         public RelayCommand AddFlightCommand
         {
             get
             {
+                
                 return new RelayCommand((obj) =>
                 {
                     var dt = DepartTime.ToString().Split(' ')[1];

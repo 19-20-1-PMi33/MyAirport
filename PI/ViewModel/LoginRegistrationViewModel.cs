@@ -95,6 +95,9 @@ namespace PI.ViewModel
                 });
             }
         }
+        /// <summary>
+        /// OpenRegistrationWindowCommand команда, що відкриває вікно реєстрації.
+        /// </summary>
         public RelayCommand OpenRegistrationWindowCommand
         {
             get
@@ -102,6 +105,13 @@ namespace PI.ViewModel
                 return new RelayCommand((obj) => ShowRegistrationWindow());
             }
         }
+
+        /// <summary>
+        /// AddNewCustomer команда, що створює дані про нового користувача.
+        /// </summary>
+        /// <remarks>
+        /// Попередньо перевіряючи співпадіння логіну даного користувача з уже наявними в базі даних.
+        /// </remarks>
         public RelayCommand AddNewCustomer
         {
             get
@@ -126,6 +136,9 @@ namespace PI.ViewModel
                 });
             }
         }
+        /// <summary>
+        /// CloseCommand команда, що закриває наявне вікно.
+        /// </summary>
         public RelayCommand CloseCommand
         {
             get
@@ -133,6 +146,7 @@ namespace PI.ViewModel
                 return new RelayCommand((obj) => CloseWindow());
             }
         }
+        
         private void ShowAdminWindow()
         {
             Views.Admin menu = new Views.Admin();

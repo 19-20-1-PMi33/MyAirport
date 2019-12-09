@@ -47,6 +47,12 @@ namespace PI.ViewModel
         public List<string> GenderList { get; set; }
         public List<string> SeatingList { get; set; }
 
+        /// <summary>
+        /// AddPassenger команда, яка створює дані про користувача, що бронює авіаквиток.
+        /// </summary>
+        /// <remarks>
+        /// Попередньо перевіряючи логіку заповнень полів.
+        /// </remarks>
         public RelayCommand AddPassenger
         {
             get
@@ -116,6 +122,9 @@ namespace PI.ViewModel
                     .Close();
         }
 
+        /// <summary>
+        /// AddNewPerson функція, що вносить дані про користувача який забронював авіаквиток. 
+        /// </summary>
         public void AddNewPerson()
         {
             var sum = Int32.Parse(new String(string.Join(" ", Seating.Split(' ').ToList()[2]).Where(Char.IsDigit).ToArray()));

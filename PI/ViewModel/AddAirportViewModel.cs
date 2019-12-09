@@ -29,6 +29,12 @@ namespace PI.ViewModel
 
         public string IATA { get; set; }
 
+        /// <summary>
+        /// AddAirportCommand команда, що створює дані про нові аеропорти.
+        /// </summary>
+        /// <remarks>
+        /// Сворює дані про новий аеропорт в базі даних, попередньо перевіряючи його відсутність в ній.
+        /// </remarks>
         public RelayCommand AddAirportCommand
         {
             get
@@ -56,6 +62,19 @@ namespace PI.ViewModel
                             MessageBox.Show("Сheck fields for correctness");
                         }
                     }
+                });
+            }
+        }
+        /// <summary>
+        /// DeleteAirportCommand команда, що видаляє дані про вибраний аеропорт.
+        /// </summary>
+        public RelayCommand DeleteAirportCommand
+        {
+            get
+            {
+                return new RelayCommand((obj) =>
+                {
+
                 });
             }
         }

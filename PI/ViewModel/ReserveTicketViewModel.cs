@@ -53,6 +53,9 @@ namespace PI.ViewModel
         public DateTime DateStart { get; set; }
         public Flight SelectedFlight { get; set; }
 
+        /// <summary>
+        /// ReserveTicketCommand команда, яка надає критерії для бронювання авіаквитка.
+        /// </summary>
         public RelayCommand ReserveTicketCommand
         {
             get
@@ -89,6 +92,12 @@ namespace PI.ViewModel
 
         public IEnumerable<string> Airports { get; set; }
 
+        /// <summary>
+        /// FindFlightsCommand команда, яка здійснює пошук польотів.
+        /// </summary>
+        /// <remarks>
+        /// Попередньо перевіряючи логіку заповнень полів.
+        /// </remarks>
         public RelayCommand FindFlightsCommand
         {
             get

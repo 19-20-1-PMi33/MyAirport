@@ -31,6 +31,12 @@ namespace PI.ViewModel
         public string NewEmail { get; set; }
         public string RepeatNewEmail { get; set; }
 
+        /// <summary>
+        /// ChangePasswordCommand команда, що змінює пароль користувача.
+        /// </summary>
+        /// <remarks>
+        /// Попередньо перевіряючи його співпадіння зі старим.
+        /// </remarks>
         public RelayCommand ChangePasswordCommand
         {
             get
@@ -60,6 +66,12 @@ namespace PI.ViewModel
                 });
             }
         }
+        /// <summary>
+        /// ChangeEmailCommand команда, що змінює електронну пошту користувача.
+        /// </summary>
+        /// <remarks>
+        /// Попередньо перевіряючи її співпадіння зі старою.
+        /// </remarks>
         public RelayCommand ChangeEmailCommand
         {
             get
