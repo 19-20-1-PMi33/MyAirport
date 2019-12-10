@@ -29,7 +29,8 @@ namespace PI.ViewModel
             db = new ApplicationContext();
             db.Flight.Load();
             _Flights = db.Flight.Local.ToBindingList()
-                .Where(x => x.DepartDate > new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day) && x.DepartTime > new TimeSpan(DateTime.Now.Hour, DateTime.Now.Minute, DateTime.Now.Second))
+                .Where(x => new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, DateTime.Now.Hour, DateTime.Now.Minute, DateTime.Now.Second) <=
+                 new DateTime(x.DepartDate.Year, x.DepartDate.Month, x.DepartDate.Day, x.DepartTime.Hours, x.DepartTime.Minutes, 00))
                 .OrderBy(x => x.DepartDate)
                 .ThenBy(x => x.DepartTime).ToList();
             SelectedDate = DateStart = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day);

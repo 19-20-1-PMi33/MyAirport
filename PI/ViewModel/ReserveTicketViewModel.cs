@@ -14,7 +14,7 @@ namespace PI.ViewModel
     /// <summary>
     /// Клас ReserveTicketViewModel призначений для бронювання авіаквитків.
     /// </summary>
-    public class ReserveTicketViewModel
+    public class ReserveTicketViewModel : INotifyPropertyChanged
     {
         ApplicationContext db;
 
@@ -29,15 +29,15 @@ namespace PI.ViewModel
             db.Airport.Load();
             db.Flight.Load();
             Airports = db.Airport.OrderBy(x => x.CIty)
-                .Select(x=>x.CIty)
+                .Select(x => x.CIty)
                 .Distinct().ToList();
             Flights = db.Flight.Local.ToBindingList()
-                 .Where(x => new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day,DateTime.Now.Hour,DateTime.Now.Minute,DateTime.Now.Second) <= 
-                 new DateTime(x.DepartDate.Year,x.DepartDate.Month, x.DepartDate.Day, x.DepartTime.Hours,x.DepartTime.Minutes,00))
-                .OrderBy(x=>x.DepartDate)
-                .ThenBy(x=>x.DepartTime).ToList();
-            
-            SelectedDate = DateStart = new DateTime(DateTime.Now.Year,DateTime.Now.Month,DateTime.Now.Day);
+                 .Where(x => new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, DateTime.Now.Hour, DateTime.Now.Minute, DateTime.Now.Second) <=
+                 new DateTime(x.DepartDate.Year, x.DepartDate.Month, x.DepartDate.Day, x.DepartTime.Hours, x.DepartTime.Minutes, 00))
+                .OrderBy(x => x.DepartDate)
+                .ThenBy(x => x.DepartTime).ToList();
+
+            SelectedDate = DateStart = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day);
             this.Login = Login;
         }
         public string Login { get; set; }
@@ -68,7 +68,7 @@ namespace PI.ViewModel
                         {
                             if (CountAdult >= CountInfant && CountAdult != 0)
                             {
-                                Views.Personal_Information menu = new Views.Personal_Information(Login, SelectedFlight.Id,CountAdult+CountChild+CountInfant);
+                                Views.Personal_Information menu = new Views.Personal_Information(Login, SelectedFlight.Id, CountAdult + CountChild + CountInfant);
                                 Clients.Clear();
                                 Clients.FirstClass = SelectedFlight.FirstClass;
                                 Clients.BusinessClass = SelectedFlight.BusinessClass;
@@ -118,6 +118,13 @@ namespace PI.ViewModel
                     }
                 });
             }
+        }
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public void OnPropertyChanged([CallerMemberName]string prop = "")
+        {
+            if (PropertyChanged != null)
+                PropertyChanged(this, new PropertyChangedEventArgs(prop));
         }
     }
 }
