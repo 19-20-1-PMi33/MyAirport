@@ -1,17 +1,21 @@
-﻿using System.Data.Entity;
-using PI.Models;
-using PI.Helpers;
-using PI.Commands;
-using System;
-using System.Windows;
-
-namespace PI.ViewModel
+﻿namespace PI.ViewModel
 {
+    using System.Data.Entity;
+    using PI.Models;
+    using PI.Helpers;
+    using PI.Commands;
+    using System;
+    using System.Windows;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Runtime.CompilerServices;
+    using System.ComponentModel;
+
     /// <summary>
     /// Клас AddAirplaneViewModel.
     /// Клас добавляє нові літаки у базу даних.
     /// </summary>
-    public class AddAirplaneViewModel 
+    public class AddAirplaneViewModel : INotifyPropertyChanged
     {
         ApplicationContext db;
         /// <summary>
@@ -21,13 +25,88 @@ namespace PI.ViewModel
         {
             db = new ApplicationContext();
             db.Airplane.Load();
+            Airplanes = db.Airplane.Select(x => x.Id)
+                            .Distinct()
+                            .ToList();
+            db.Flight.Load();
+            db.PersonalInformation.Load();
         }
-       
-        public string Id { get; set; }
-        public string Model { get; set; }
-        public string Econom { get; set; }
-        public string Business { get; set; }
-        public string First { get; set; }
+
+        private string _Id, _Model, _Econom, _Business, _First;
+
+        private int _SelectedAirplane;
+
+        private List<int> _Airplanes;
+
+        public List<int> Airplanes
+        {
+            get => _Airplanes;
+            set
+            {
+                _Airplanes = value;
+                OnPropertyChanged("Airplanes");
+            }
+        }
+
+        public int SelectedAirplane
+        {
+            get => _SelectedAirplane;
+            set
+            {
+                _SelectedAirplane = value;
+                OnPropertyChanged("SelectedAirplane");
+            }
+        }
+
+        public string Id
+        {
+            get => _Id;
+            set
+            {
+                _Id = value;
+                OnPropertyChanged("Id");
+            }
+        }
+
+        public string Model
+        {
+            get => _Model;
+            set
+            {
+                _Model = value;
+                OnPropertyChanged("Model");
+            }
+        }
+
+        public string Econom
+        {
+            get => _Econom;
+            set
+            {
+                _Econom = value;
+                OnPropertyChanged("Econom");
+            }
+        }
+
+        public string Business
+        {
+            get => _Business;
+            set
+            {
+                _Business = value;
+                OnPropertyChanged("Business");
+            }
+        }
+
+        public string First
+        {
+            get => _First;
+            set
+            {
+                _First = value;
+                OnPropertyChanged("First");
+            }
+        }
 
         /// <summary>
         /// AddAirplaneCommand команда, що створює дані про нові літаки.
@@ -41,8 +120,8 @@ namespace PI.ViewModel
             {
                 return new RelayCommand((obj) =>
                 {
-                    
-                    if (db.Airplane.Find(Id) != null)
+
+                    if (db.Airplane.Find(int.Parse(Id)) != null)
                     {
                         MessageBox.Show("Plane id already reserved");
                     }
@@ -58,8 +137,11 @@ namespace PI.ViewModel
                             airplane.First = int.Parse(First);
                             db.Airplane.Add(airplane);
                             db.SaveChanges();
-                            Id = Econom = Business = First = "";
-                            Model = "";
+                            Model = Id = Econom = Business = First = string.Empty;
+                            Airplanes = db.Airplane.Select(x => x.Id)
+                                    .Distinct()
+                                    .ToList();
+
                         }
                         catch (Exception)
                         {
@@ -78,9 +160,33 @@ namespace PI.ViewModel
             {
                 return new RelayCommand((obj) =>
                 {
+                    try
+                    {
+
+                        Airplane airplane = db.Airplane.Find(SelectedAirplane);
+                        db.Flight.RemoveRange(db.Flight.Where(x => x.AirplaneID == SelectedAirplane));
+                        db.SaveChanges();
+                        db.Airplane.Remove(airplane);
+                        db.SaveChanges();
+                        Airplanes = db.Airplane.Select(x => x.Id)
+                                .Distinct()
+                                .ToList();
+
+                    }
+                    catch (Exception)
+                    {
+                        MessageBox.Show("Delete all flight with this airplane");
+                    }
 
                 });
             }
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public void OnPropertyChanged([CallerMemberName]string prop = "")
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
         }
     }
 }
