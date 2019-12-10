@@ -25,7 +25,7 @@ namespace PI.ViewModel
             db.Flight.Load();
             db.PersonalInformation.Load();
             this.Login = Login;
-            Sum = "$"+Clients.Sum.ToString();
+            Sum = "$" + Clients.Sum.ToString();
             ExpirationDate = DateStart = DateTime.Now;
         }
 
@@ -50,7 +50,7 @@ namespace PI.ViewModel
             {
                 return new RelayCommand((obj) =>
                 {
-                    if (CardNumber != null && CardType != null && CardOwner != null && CVC != null && CVC.Length!=3) 
+                    if (CardNumber != null && CardType != null && CardOwner != null && CVC != null && CVC.Length == 3 && CardNumber.Length == 16)
                     {
                         try
                         {

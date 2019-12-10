@@ -14,7 +14,7 @@ namespace PI.ViewModel
     /// <summary>
     /// Клас ChangeDeleteFlightViewModel призначений для зміни та видалення польотів.
     /// </summary>
-    public class ChangeDeleteFlightViewModel 
+    public class ChangeDeleteFlightViewModel : INotifyPropertyChanged
     {
         ApplicationContext db;
         /// <summary>
@@ -31,9 +31,29 @@ namespace PI.ViewModel
                 .ThenBy(x => x.DepartTime).ToList();
         }
 
-        public List<Flight> Flights { get; set; }
+        private List<Flight> _Flights;
 
-        public Flight SelectedFlight { get; set; }
+        private Flight _SelectedFlight;
+
+        public List<Flight> Flights
+        {
+            get => _Flights;
+            set
+            {
+                _Flights = value;
+                OnPropertyChanged("Flights");
+            }
+        }
+
+        public Flight SelectedFlight
+        {
+            get => _SelectedFlight;
+            set
+            {
+                _SelectedFlight = value;
+                OnPropertyChanged("SelectedFlight");
+            }
+        }
 
         /// <summary>
         /// ChangeFlightCommand команда, що змінює дані про вибраний політ.
@@ -47,9 +67,11 @@ namespace PI.ViewModel
             {
                 return new RelayCommand((obj) =>
                 {
-                    var dt = SelectedFlight.DepartTime.ToString().Split(' ')[1];
-                    var at = SelectedFlight.ArriveTime.ToString().Split(' ')[1];
-                    if (new DateTime(SelectedFlight.DepartDate.Year, SelectedFlight.DepartDate.Month, SelectedFlight.DepartDate.Day, Int32.Parse(dt.Split(':')[0]), Int32.Parse(dt.Split(':')[1]), 00) 
+                    MessageBox.Show(SelectedFlight.ArriveTime.ToString());
+                    var dt = SelectedFlight.DepartTime.ToString();
+                    var at = SelectedFlight.ArriveTime.ToString();
+
+                    if (new DateTime(SelectedFlight.DepartDate.Year, SelectedFlight.DepartDate.Month, SelectedFlight.DepartDate.Day, Int32.Parse(dt.Split(':')[0]), Int32.Parse(dt.Split(':')[1]), 00)
                     < new DateTime(SelectedFlight.ArriveDate.Year, SelectedFlight.ArriveDate.Month, SelectedFlight.ArriveDate.Day, Int32.Parse(at.Split(':')[0]), Int32.Parse(at.Split(':')[1]), 00))
                     {
                         Flight flight = db.Flight.Find(SelectedFlight.Id);
@@ -58,9 +80,10 @@ namespace PI.ViewModel
                         flight.ArriveTime = SelectedFlight.ArriveTime;
                         flight.DepartTime = SelectedFlight.DepartTime;
                         db.SaveChanges();
-                        Flights = db.Flight.Local.ToBindingList()
+                        Flights = db.Flight
                             .OrderBy(x => x.DepartDate)
                             .ThenBy(x => x.DepartTime).ToList();
+                        SelectedFlight = null;
                     }
                     else
                     {
@@ -82,18 +105,23 @@ namespace PI.ViewModel
                 return new RelayCommand((obj) =>
                 {
                     var flight = db.Flight.Find(SelectedFlight.Id);
-                    var query = db.PersonalInformation.Where(x => x.FlightId == SelectedFlight.Id);
-                    foreach (var item in query)
-                    {
-                        db.PersonalInformation.Remove(item);
-                    }
+                    db.PersonalInformation.RemoveRange(db.PersonalInformation.Where(x => x.FlightId == SelectedFlight.Id));
+                    db.SaveChanges();
                     db.Flight.Remove(flight);
                     db.SaveChanges();
                     Flights = db.Flight.Local.ToBindingList()
                         .OrderBy(x => x.DepartDate)
                         .ThenBy(x => x.DepartTime).ToList();
+                    SelectedFlight = null;
                 });
             }
+        }
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public void OnPropertyChanged([CallerMemberName]string prop = "")
+        {
+            if (PropertyChanged != null)
+                PropertyChanged(this, new PropertyChangedEventArgs(prop));
         }
     }
 }
