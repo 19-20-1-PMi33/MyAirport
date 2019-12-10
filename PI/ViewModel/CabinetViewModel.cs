@@ -1,5 +1,7 @@
 ﻿using System.Windows;
 using System.Data.Entity;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 using PI.Helpers;
 using PI.Commands;
 
@@ -9,7 +11,7 @@ namespace PI.ViewModel
     /// Клас AddFlightViewModel.
     /// Клас добавляє нові дані про користувача у базу даних.
     /// </summary>
-    public class CabinetViewModel
+    public class CabinetViewModel : INotifyPropertyChanged
     {
         ApplicationContext db;
         // <summary>
@@ -23,13 +25,63 @@ namespace PI.ViewModel
         }
         public string Login { get; private set; }
 
-        public string OldPassword { get; set; }
-        public string NewPassword { get; set; }
-        public string RepeatNewPassword { get; set; }
+        public string _OldPassword, _NewPassword, _RepeatNewPassword;
+        public string _OldEmail, _NewEmail, _RepeatNewEmail;
+        public string OldPassword
+        {
+            get => _OldPassword;
+            set
+            {
+                _OldPassword = value;
+                OnPropertyChanged("OldPassword");
+            }
+        }
+        public string NewPassword
+        {
+            get => _NewPassword;
+            set
+            {
+                _NewPassword = value;
+                OnPropertyChanged("NewPassword");
+            }
+        }
+        public string RepeatNewPassword
+        {
+            get => _RepeatNewPassword;
+            set
+            {
+                _RepeatNewPassword = value;
+                OnPropertyChanged("RepeatNewPassword");
+            }
+        }
 
-        public string OldEmail { get; set; }
-        public string NewEmail { get; set; }
-        public string RepeatNewEmail { get; set; }
+        public string OldEmail
+        {
+            get => _OldEmail;
+            set
+            {
+                _OldEmail = value;
+                OnPropertyChanged("OldEmail");
+            }
+        }
+        public string NewEmail
+        {
+            get => _NewEmail;
+            set
+            {
+                _NewEmail = value;
+                OnPropertyChanged("NewEmail");
+            }
+        }
+        public string RepeatNewEmail
+        {
+            get => _RepeatNewEmail;
+            set
+            {
+                _RepeatNewEmail = value;
+                OnPropertyChanged("RepeatNewEmail");
+            }
+        }
 
         /// <summary>
         /// ChangePasswordCommand команда, що змінює пароль користувача.
@@ -41,7 +93,7 @@ namespace PI.ViewModel
         {
             get
             {
-                return new RelayCommand((obj) => 
+                return new RelayCommand((obj) =>
                 {
                     var customer = db.Customer.Find(Login);
                     if (customer.Password == OldPassword)
@@ -100,6 +152,13 @@ namespace PI.ViewModel
                     }
                 });
             }
+        }
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public void OnPropertyChanged([CallerMemberName]string prop = "")
+        {
+            if (PropertyChanged != null)
+                PropertyChanged(this, new PropertyChangedEventArgs(prop));
         }
     }
 }
