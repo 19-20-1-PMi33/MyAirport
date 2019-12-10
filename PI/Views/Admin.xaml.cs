@@ -21,9 +21,9 @@ namespace PI.Views
         }
         private void ExitButton_Click(object sender, RoutedEventArgs e)
         {
-            Views.MainWindow menu = new Views.MainWindow();
+            MainWindow menu = new MainWindow();
             menu.Show();
-            this.Visibility = Visibility.Hidden;
+            this.Close();
         }
 
         private void DeleteFlight_Click(object sender, RoutedEventArgs e)
