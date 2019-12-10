@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PI"
+        xmlns:ff="clr-namespace:PI.Helpers"
         mc:Ignorable="d"
         Title="Registration" Height="450" Width="380" AllowsTransparency="True" Background="Transparent"
         WindowStyle="None" ResizeMode="NoResize"
@@ -38,17 +39,17 @@
             <Setter Property="Width" Value="140"/>
             <Setter Property="Height" Value="25"/>
         </Style>
-        <Style TargetType="PasswordBox">
-            <Setter Property="FontFamily" Value="Helvetica"/>
-            <Setter Property="FontWeight" Value="Light"/>
-            <Setter Property="FontSize" Value="20"/>
-            <Setter Property="HorizontalAlignment" Value="Center"/>
-            <Setter Property="Foreground" Value="Black"/>
-            <Setter Property="Background" Value="Transparent"/>
-            <Setter Property="Opacity" Value="0.7"/>
-            <Setter Property="BorderThickness" Value="0"/>
-            <Setter Property="Width" Value="140"/>
-            <Setter Property="Height" Value="25"/>
+        <Style x:Key="PasswordBoxStyle">
+            <Setter Property="Control.FontFamily" Value="Helvetica"/>
+            <Setter Property="Control.FontSize" Value="20"/>
+            <Setter Property="Control.FontWeight" Value="Light"/>
+            <Setter Property="Control.HorizontalAlignment" Value="Center"/>
+            <Setter Property="Control.Foreground" Value="Black"/>
+            <Setter Property="Control.Background" Value="Transparent"/>
+            <Setter Property="Control.Opacity" Value="0.7"/>
+            <Setter Property="Control.BorderThickness" Value="0"/>
+            <Setter Property="Control.Width" Value="140"/>
+            <Setter Property="Control.Height" Value="25"/>
         </Style>
         <Style x:Key="BorderStyle">
             <Setter Property="Control.Width" Value="140"/>
@@ -90,7 +91,9 @@
         <StackPanel Orientation="Vertical" Margin="180,150,0,98">
             <TextBox x:Name="LoginBlock" Margin="0,20,0,0" Text="{Binding Login}"/>
             <Border Style="{StaticResource BorderStyle}"/>
-            <TextBox x:Name="PasswordBox" Margin="0,30,0,0" Text="{Binding Password}"/>
+            <StackPanel>
+                <PasswordBox Style="{StaticResource PasswordBoxStyle}"  Margin="31,30,32,0" x:Name="PasswordBox" ff:PasswordHelper.Attach="true"  ff:PasswordHelper.Password="{Binding Path=Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="137"/>
+            </StackPanel>
             <Border Style="{StaticResource BorderStyle}"/>
             <TextBox x:Name="EmailBlock" Margin="0,30,0,0" Text="{Binding Email}"/>
             <Border Style="{StaticResource BorderStyle}"/>

@@ -50,12 +50,12 @@ namespace PI.ViewModel
             {
                 return new RelayCommand((obj) =>
                 {
-                    if (CardNumber != null && CardType != null && CardOwner != null && CVC != null && CVC.Length == 3 && CardNumber.Length == 16)
+                    if (CardNumber != null && CardType != null && CardOwner != null && CVC != null && CVC.Length == 3 && CardNumber.Replace(" ","").Length == 16)
                     {
                         try
                         {
                             Payment payment = new Payment();
-                            payment.CardNumber = double.Parse(CardNumber);
+                            payment.CardNumber = double.Parse(CardNumber.Replace(" ", ""));
                             payment.CardType = CardType;
                             payment.CardOwner = CardOwner;
                             payment.ExpirationDate = ExpirationDate;
