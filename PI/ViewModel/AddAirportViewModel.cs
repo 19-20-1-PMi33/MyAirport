@@ -3,7 +3,11 @@ using PI.Models;
 using PI.Helpers;
 using PI.Commands;
 using System.Windows;
+using System.Collections.Generic;
 using System;
+using System.Linq;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 
 namespace PI.ViewModel
 {
@@ -11,7 +15,7 @@ namespace PI.ViewModel
     /// Клас AddAirportViewModel.
     /// Клас добавляє нові аеропорти у базу даних.
     /// </summary>
-    class AddAirportViewModel
+    class AddAirportViewModel : INotifyPropertyChanged
     {
         ApplicationContext db;
         /// <summary>
@@ -21,13 +25,63 @@ namespace PI.ViewModel
         {
             db = new ApplicationContext();
             db.Airport.Load();
+            db.Flight.Load();
+            Airports = db.Airport.Select(x => x.CIty)
+                .Distinct()
+                .ToList();
+        }
+        private List<string> _Airports;
+        private string _City, _Country, _IATA, _SelectedAirport;
+
+        public string SelectedAirport
+        {
+            get => _SelectedAirport;
+            set
+            {
+                _SelectedAirport = value;
+                OnPropertyChanged("SelectedAirport");
+            }
         }
 
-        public string City { get; set; }
+        public List<string> Airports
+        {
+            get => _Airports;
+            set
+            {
+                _Airports = value;
+                OnPropertyChanged("Airports");
+            }
+        }
 
-        public string Country { get; set; }
+        public string City
+        {
+            get => _City;
+            set
+            {
+                _City = value;
+                OnPropertyChanged("City");
+            }
+        }
 
-        public string IATA { get; set; }
+        public string Country
+        {
+            get => _Country;
+            set
+            {
+                _Country = value;
+                OnPropertyChanged("Country");
+            }
+        }
+
+        public string IATA
+        {
+            get => _IATA;
+            set
+            {
+                _IATA = value;
+                OnPropertyChanged("IATA");
+            }
+        }
 
         /// <summary>
         /// AddAirportCommand команда, що створює дані про нові аеропорти.
@@ -55,7 +109,10 @@ namespace PI.ViewModel
                             airport.IATA = IATA;
                             db.Airport.Add(airport);
                             db.SaveChanges();
-                            City = Country = IATA = "";
+                            City = Country = IATA = string.Empty;
+                            Airports = db.Airport.Select(x => x.CIty)
+                                        .Distinct()
+                                        .ToList();
                         }
                         catch (Exception)
                         {
@@ -74,9 +131,29 @@ namespace PI.ViewModel
             {
                 return new RelayCommand((obj) =>
                 {
+                    Airport airport = db.Airport.Find(SelectedAirport);
+                    var query = db.Flight.Where(x => x.DepartCity == SelectedAirport || x.ArriveCity == SelectedAirport);
 
+                    foreach (var item in query)
+                    {
+                        db.Flight.Remove(item);
+                    }
+                    db.SaveChanges();
+                    db.Airport.Remove(airport);
+                    db.SaveChanges();
+                    Airports = db.Airport.Select(x => x.CIty)
+                                .Distinct()
+                                .ToList();
+                    SelectedAirport = Airports[0];
                 });
             }
+        }
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public void OnPropertyChanged([CallerMemberName]string prop = "")
+        {
+            if (PropertyChanged != null)
+                PropertyChanged(this, new PropertyChangedEventArgs(prop));
         }
     }
 }

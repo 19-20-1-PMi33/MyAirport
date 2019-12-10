@@ -15,20 +15,22 @@
             <Setter Property="Foreground" Value="Black"/>
             <Setter Property="FontSize" Value="20"/>
             <Setter Property="Background" Value="Transparent"/>
-            <Setter Property="HorizontalContentAlignment" Value="Center"/>
         </Style>
         <Style TargetType="TextBox">
             <Setter Property="FontFamily" Value="Helvetica"/>
             <Setter Property="FontWeight" Value="Light"/>
-            <Setter Property="Foreground" Value="Black"/>
             <Setter Property="FontSize" Value="20"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="Foreground" Value="Black"/>
             <Setter Property="Background" Value="Transparent"/>
             <Setter Property="BorderThickness" Value="0"/>
-            <Setter Property="HorizontalContentAlignment" Value="Left"/>
+            <Setter Property="Width" Value="190"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
             <Setter Property="Opacity" Value="0.5"/>
             <Setter Property="Height" Value="25"/>
         </Style>
         <Style x:Key="BorderStyle">
+            <Setter Property="Control.Width" Value="190"/>
             <Setter Property="Control.Height" Value="1"/>
             <Setter Property="Control.Background" Value="Black"/>
             <Setter Property="Control.Opacity" Value="0.5"/>
@@ -40,7 +42,7 @@
                 <GradientStop Color="#DCDCDC"/>
             </LinearGradientBrush>
         </Grid.Background>
-        <StackPanel Orientation="Vertical" Margin="0,0,0,343">
+        <!--<StackPanel Orientation="Vertical" Margin="0,0,0,343">
             <Label Content="City name:" Margin="220,30,220,0"/>
             <TextBox Text="{Binding City}" Margin="220,0,220,0"/>
             <Border Style="{StaticResource BorderStyle}" Margin="220,0,220,0"/>
@@ -57,6 +59,31 @@
         </StackPanel>
         <StackPanel Orientation="Vertical" Margin="0,391,0,-19">
             <Button Height="76" Margin="206,0" Command="{Binding AddAirportCommand}" Content="Add Airport" FontSize="20" FontWeight="DemiBold" HorizontalAlignment="Center" Width="288" />
+        </StackPanel>-->
+        <StackPanel Orientation="Vertical" Margin="0,20,350,0">
+            <StackPanel Orientation="Vertical" Height="75">
+                <Label Content="City name:" Margin="80,0"/>
+                <TextBox Text="{Binding City}"/>
+                <Border Style="{StaticResource BorderStyle}"/>
+            </StackPanel>
+            <StackPanel Orientation="Vertical" Height="75">
+                <Label Content="Country name:" Margin="80,0"/>
+                <TextBox Text="{Binding Country}"/>
+                <Border Style="{StaticResource BorderStyle}"/>
+            </StackPanel>
+            <StackPanel Orientation="Vertical" Height="75">
+                <Label Content="Name IATA:" Margin="80,0" />
+                <TextBox Text="{Binding IATA}"/>
+                <Border Style="{StaticResource BorderStyle}"/>
+            </StackPanel>
+            <Button Height="76" Margin="0,20,0,0" Command="{Binding AddAirportCommand}" Content="Add Airport" FontSize="20" FontWeight="DemiBold" HorizontalAlignment="Center" Width="288" />
+        </StackPanel>
+        <StackPanel Orientation="Vertical" Margin="350,20,0,0">
+            <StackPanel Orientation="Vertical">
+                <Label Content="City name:" Margin="75,0"/>
+                <ComboBox Margin="75,0" ItemsSource="{Binding Airports}" SelectedItem="{Binding SelectedAirport}"  Style="{StaticResource ComboBoxFlatStyle}"/>
+                <Button Height="76" Margin="0,30,0,0" Command="{Binding DeleteAirportCommand}" Content="Delete Airport" FontSize="20" FontWeight="DemiBold" Width="272"/>
+            </StackPanel>
         </StackPanel>
     </Grid>
 </Page>
